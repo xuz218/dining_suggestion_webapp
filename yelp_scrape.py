@@ -32,7 +32,7 @@ def printMenu(url):
         image = item.find('img', class_='dishImageV2__09f24__VT6Je')
         image_url = image['src'] if image else 'No Image'
 
-        print(f'Name: {name}, Price: {price}, Image URL: {image_url}')
+        print(f'Dish: {name}, Price: {price}, Image URL: {image_url}')
 
 
 for business in search_data['businesses']:
@@ -40,10 +40,10 @@ for business in search_data['businesses']:
     details_response = requests.get(details_url, headers=headers)
     details_data = details_response.json()
     website_url = details_data.get('url', '无官网链接')
-    print(f"餐馆名称: {business['name']}")
-    print(f"地址: {', '.join(business['location']['display_address'])}")
-    print(f"评分: {business['rating']}")
-    print(f"评论数: {business['review_count']}")
-    print(f"官网链接: {website_url}")
+    print(f"Name: {business['name']}")
+    print(f"Address: {', '.join(business['location']['display_address'])}")
+    print(f"Score: {business['rating']}")
+    print(f"Review_count: {business['review_count']}")
+    print(f"Website: {website_url}")
     printMenu(website_url)
     print("---")
