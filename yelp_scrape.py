@@ -39,7 +39,7 @@ for business in search_data['businesses']:
     details_url = f"https://api.yelp.com/v3/businesses/{business['id']}"
     details_response = requests.get(details_url, headers=headers)
     details_data = details_response.json()
-    website_url = details_data.get('url', '无官网链接')
+    website_url = details_data.get('url', 'Url unavailable')
     print(f"Name: {business['name']}")
     print(f"Address: {', '.join(business['location']['display_address'])}")
     print(f"Score: {business['rating']}")
