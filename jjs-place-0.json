@@ -1,0 +1,778 @@
+[
+    {
+        "nid": "7368",
+        "type": "cu_dining_menu",
+        "title": "JJ&#039;s place week 1 Friday__11-24-23",
+        "locations": [
+            "11"
+        ],
+        "date_range": [
+            "35701",
+            "31036",
+            "35321",
+            "35326"
+        ],
+        "date_range_fields": [
+            {
+                "date_from": "2023-10-20T16:00:00",
+                "date_to": "2024-05-16T03:59:59",
+                "menu_type": [
+                    "55"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Cheeseburger"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "title": "Turkey Burger"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Beyond Burger"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Black Bean Burger"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Crispy Chicken Sandwich"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free"
+                                ],
+                                "title": "Grilled Chicken"
+                            }
+                        ],
+                        "station": [
+                            "73"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 1_Daily Special_09-01-2023"
+            },
+            {
+                "date_from": "2023-11-24T17:00:00",
+                "date_to": "2023-11-25T00:00:00",
+                "menu_type": [
+                    "61"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Sesame",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Grilled Pineapple Hawaiian Burger"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Fried Fish Sandwich"
+                            },
+                            {
+                                "allergens": [
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Sausage and Peppers"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy"
+                                ],
+                                "title": "Copycat Taco Bell Chicken Quesadilla"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegan Chili with Frito's"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Flaming Hot Cheetos and Ranch Black Bean Burger"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Shellfish"
+                                ],
+                                "title": "Shrimp and Grits"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 1_Friday_Lunch & Diner_9-1-23"
+            },
+            {
+                "date_from": "2023-10-28T01:00:00",
+                "date_to": "2023-10-28T03:59:59",
+                "menu_type": [
+                    "37"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "title": "Jamaican Beef Patty"
+                            }
+                        ],
+                        "station": [
+                            "33"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 1_Friday_Late Night Special_9-1-23"
+            },
+            {
+                "date_from": "2023-11-24T17:00:00",
+                "date_to": "2023-11-25T04:59:59",
+                "menu_type": [
+                    "55"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "meal_text": "Boneless wings, onion rings, sour cream & onion wedges",
+                                "title": "Fried Items"
+                            }
+                        ],
+                        "station": [
+                            "35"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 1_Breakfast Special_09-08-2023"
+            }
+        ]
+    },
+    {
+        "nid": "7751",
+        "type": "cu_dining_menu",
+        "title": "JJ&#039;s place week 1 Monday__11-20-23 -Thanksgiving",
+        "locations": [
+            "11"
+        ],
+        "date_range": [
+            "41813",
+            "41816"
+        ],
+        "date_range_fields": [
+            {
+                "date_from": "2023-11-20T17:00:00",
+                "date_to": "2023-11-21T01:00:00",
+                "menu_type": [
+                    "61"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "meal_text": "Sliced turkey with cranberry sauce, cheddar cheese, fried onions on sourdough bread.",
+                                "title": "Thanksgiving Turkey Sandwich"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy"
+                                ],
+                                "title": "Pot Roast and Mashed Potato Bowl"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "title": "Turkey Breast over Stuffing Bowl"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Macaroni & Cheese"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "meal_text": "Roasted mushrooms with vegan mozzarella cheese, lettuce, garlic aioli on ciabatta roll.",
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Mushroom Sandwich"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Pumpkin Maple Glazed Ham Pancakes with Cinnamon Cream Cheese filling"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 1_Monday_Lunch & Diner_09-11-2023"
+            },
+            {
+                "date_from": "2023-11-21T03:05:40",
+                "date_to": "2023-11-21T04:59:59",
+                "menu_type": [
+                    "37"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy"
+                                ],
+                                "title": "Red Chili Beef & Bean Burrito with Enchilada Sauce"
+                            }
+                        ],
+                        "station": [
+                            "33"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 1_Monday_Late Night Special_09-11-2023"
+            }
+        ]
+    },
+    {
+        "nid": "7369",
+        "type": "cu_dining_menu",
+        "title": "JJ&#039;s place week 1 Saturday__11-25-23",
+        "locations": [
+            "11"
+        ],
+        "date_range": [
+            "31043",
+            "35330",
+            "35335"
+        ],
+        "date_range_fields": [
+            {
+                "date_from": "2023-11-25T17:00:00",
+                "date_to": "2023-11-26T01:00:00",
+                "menu_type": [
+                    "61"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "meal_text": "Grilled beef angus burger with melted Swiss cheese, caramelized onions, and arugula.",
+                                "title": "Caramelized Onion Arugula Burger"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "meal_text": "Breaded chicken filet with marinara sauce and melted mozzarella cheese.",
+                                "title": "Chicken Parmesan Sandwich"
+                            },
+                            {
+                                "allergens": [
+                                    "Sesame",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Beef Lo Mein"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Strawberry Cheesecake Stuffed French Toast"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "meal_text": "Plant based meatballs with melted vegan mozzarella",
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegan Meatball Sub Sandwich"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Sunflower Oil"
+                                ],
+                                "meal_text": "Grilled black bean burger with melted Swiss cheese, caramelized onions, and arugula.",
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Black Bean Burger with Swiss and Caramelized Onions"
+                            }
+                        ],
+                        "station": [
+                            "57"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 1_Saturday_Lunch & Diner_9-2-23"
+            },
+            {
+                "date_from": "2022-11-26T03:46:24",
+                "date_to": "2022-11-26T04:59:59",
+                "menu_type": [
+                    "37"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "title": "Southwest Chicken Eggrolls"
+                            }
+                        ],
+                        "station": [
+                            "33"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 1_Saturday_Late Night Special_09-09-2023"
+            },
+            {
+                "date_from": "2023-11-25T17:00:00",
+                "date_to": "2023-11-26T04:59:59",
+                "menu_type": [
+                    "55"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "meal_text": "Chicken wings, mozzarella sticks, spicy coated fries",
+                                "title": "Fried Items"
+                            }
+                        ],
+                        "station": [
+                            "35"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 1_Saturday_Breakfast_09-09-2023"
+            }
+        ]
+    },
+    {
+        "nid": "7373",
+        "type": "cu_dining_menu",
+        "title": "JJ&#039;s place week 1 Tuesday__11-21-23",
+        "locations": [
+            "11"
+        ],
+        "date_range": [
+            "31116",
+            "35370",
+            "35677"
+        ],
+        "date_range_fields": [
+            {
+                "date_from": "2023-11-21T17:00:00",
+                "date_to": "2023-11-22T02:00:00",
+                "menu_type": [
+                    "61"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Pizza Burger on Garlic Glazed Bun"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Salsa Grilled Chicken Sandwich with Cilantro Avocado Sauce"
+                            },
+                            {
+                                "allergens": [
+                                    "Eggs",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Pulled Pork Sandwich with Pickled Onion Slaw"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Lemon Blueberry Pancakes"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Pulled Jackfruit Sandwich"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Dairy",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "meal_text": "Beyond Burger & Mozzarella on Garlic Oil Bun",
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Vegetarian Pizza Burger"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 1_Tiuesday_Lunch & Diner_9-05-23"
+            },
+            {
+                "date_from": "2023-11-22T02:00:00",
+                "date_to": "2023-11-22T04:59:59",
+                "menu_type": [
+                    "37"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy"
+                                ],
+                                "title": "Cilantro Lime Chicken Taco"
+                            }
+                        ],
+                        "station": [
+                            "33"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 1_Tiuesday_Late Night Special_09-12-2023"
+            },
+            {
+                "date_from": "2023-11-21T17:00:00",
+                "date_to": "2023-11-22T04:59:59",
+                "menu_type": [
+                    "55"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Cheeseburger"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "title": "Turkey Burger"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Beyond Burger"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free"
+                                ],
+                                "title": "Grilled Chicken"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Crispy Chicken Sandwich"
+                            }
+                        ],
+                        "station": [
+                            "33"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "meal_text": "Boneless wings, mozzarella sticks, and steak fries",
+                                "title": "Fried Items"
+                            }
+                        ],
+                        "station": [
+                            "35"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 1_Tuesday_Daily_9-05-23"
+            }
+        ]
+    },
+    {
+        "nid": "7388",
+        "type": "cu_dining_menu",
+        "title": "JJ&#039;s place week 4 Sunday__11-19-23",
+        "locations": [
+            "11"
+        ],
+        "date_range": [
+            "31284",
+            "35583",
+            "35588"
+        ],
+        "date_range_fields": [
+            {
+                "date_from": "2023-11-19T17:00:00",
+                "date_to": "2023-11-20T04:59:59",
+                "menu_type": [
+                    "61"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "title": "Fried Mushroom Burger"
+                            },
+                            {
+                                "allergens": [
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Pork Dumplings with Chili Crisp"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Buffalo Chicken Sandwich"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Oreo Cream Stuffed French Toast"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Beyond Sloppy Joe"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 4_Sunday_Lunch & Diner_10-01-2023"
+            },
+            {
+                "date_from": "2023-11-20T02:00:00",
+                "date_to": "2023-11-20T04:59:59",
+                "menu_type": [
+                    "37"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "title": "Chicken Empanadas"
+                            }
+                        ],
+                        "station": [
+                            "33"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 4_Sunday_Late Night Special_10-01-2023"
+            },
+            {
+                "date_from": "2023-11-19T17:00:00",
+                "date_to": "2023-11-20T04:59:59",
+                "menu_type": [
+                    "55"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "meal_text": "Dino nuggets, mac & cheese bites, and krinkle cut fries",
+                                "title": "Fried Items"
+                            }
+                        ],
+                        "station": [
+                            "35"
+                        ]
+                    }
+                ],
+                "title": "JJ's Place Week 4_Sunday_Breakfast Special_10-01-2023"
+            }
+        ]
+    }
+]

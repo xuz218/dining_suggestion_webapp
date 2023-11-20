@@ -1,0 +1,1474 @@
+[
+    {
+        "nid": "7740",
+        "type": "cu_dining_menu",
+        "title": "Ferris Week 11 Sunday  11-19-23",
+        "locations": [
+            "12"
+        ],
+        "date_range": [
+            "41389",
+            "41401"
+        ],
+        "date_range_fields": [
+            {
+                "date_from": "2023-11-19T15:00:00",
+                "date_to": "2023-11-19T19:00:00",
+                "menu_type": [
+                    "36"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "French Toast Sticks"
+                            },
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Scrambled Eggs"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Potato Pancake"
+                            },
+                            {
+                                "title": "Turkey Sausage "
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Sausage Gravy"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Biscuits"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Waffles"
+                            }
+                        ],
+                        "station": [
+                            "11"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Cheese Pizza"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegan Cheese Pizza"
+                            }
+                        ],
+                        "station": [
+                            "34"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Cauliflower Au Gratin"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Chipotle Corn"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Basmati Rice"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    }
+                ],
+                "title": "Ferris Week 1 Wednesday 9-8-23 Brunch"
+            },
+            {
+                "date_from": "2023-11-19T22:00:00",
+                "date_to": "2023-11-20T01:00:00",
+                "menu_type": [
+                    "8"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Soy"
+                                ],
+                                "title": "Chicken Teriyaki"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Wheatberries"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Jasmine Rice"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Edamame"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Cauliflower Au Gratin"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Chipotle Corn"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Basmati Rice"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Chunky Monkey Waffles"
+                            }
+                        ],
+                        "station": [
+                            "11"
+                        ]
+                    }
+                ],
+                "title": "Ferris Week 1 Wednesday 9-6-23 Dinner"
+            }
+        ]
+    },
+    {
+        "nid": "7748",
+        "type": "cu_dining_menu",
+        "title": "Ferris Week 12 Monday 11-20-23",
+        "locations": [
+            "12"
+        ],
+        "date_range": [
+            "41694",
+            "41711",
+            "41723"
+        ],
+        "date_range_fields": [
+            {
+                "date_from": "2023-11-20T12:30:00",
+                "date_to": "2023-11-20T15:59:59",
+                "menu_type": [
+                    "6"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Cheese Blintz"
+                            },
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Scrambled Eggs"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Tater Tots"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free"
+                                ],
+                                "title": "Turkey Sausage"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Sausage Gravy"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Biscuits"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Steamed Broccoli"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Scrambled Tofu"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Beyond Sausage"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    }
+                ],
+                "title": "Ferris Week  1 Monday 9-4-23 Breakfast"
+            },
+            {
+                "date_from": "2023-11-20T16:00:00",
+                "date_to": "2023-11-20T19:00:00",
+                "menu_type": [
+                    "7"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Cheese Blintz"
+                            },
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Scrambled Eggs"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Tater Tots"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free"
+                                ],
+                                "title": "Turkey Sausage"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Sausage Gravy"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Biscuits"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Sesame",
+                                    "Soy"
+                                ],
+                                "meal_text": "Served with hummus, red cabbage, kale, olives, cucumber",
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Falafel Bowl"
+                            }
+                        ],
+                        "station": [
+                            "11"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Cheese Pizza"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegan Cheese Pizza"
+                            }
+                        ],
+                        "station": [
+                            "34"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Chickpea Chana Masala"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Jasmine Rice"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Naan Bread"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    }
+                ],
+                "title": "Ferris Week 1 Monday 9-4-23 Lunch"
+            },
+            {
+                "date_from": "2023-11-20T22:00:00",
+                "date_to": "2023-11-21T01:00:00",
+                "menu_type": [
+                    "8"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal"
+                                ],
+                                "title": "Roasted Leg of Lamb"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Roasted Potatoes"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Roasted Asparagus & Butternut Squash"
+                            },
+                            {
+                                "allergens": [
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Farro Pilaf"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Chickpea Chana Masala"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Jasmine Rice"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Naan Bread"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Sesame",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "title": "Philly Cheesteak"
+                            }
+                        ],
+                        "station": [
+                            "11"
+                        ]
+                    }
+                ],
+                "title": "Ferris Week 1 Monday 9-11-23Dinner"
+            }
+        ]
+    },
+    {
+        "nid": "7749",
+        "type": "cu_dining_menu",
+        "title": "Ferris Week 12 Tuesday 11-21-23",
+        "locations": [
+            "12"
+        ],
+        "date_range": [
+            "41735",
+            "41752",
+            "41764"
+        ],
+        "date_range_fields": [
+            {
+                "date_from": "2023-11-21T12:30:00",
+                "date_to": "2023-11-21T15:59:59",
+                "menu_type": [
+                    "6"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Apple Pancakes"
+                            },
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Scrambled Eggs"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Hash Brown Patty"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free"
+                                ],
+                                "title": "Pork Sausage"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Sausage Gravy"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Biscuits"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Curried Cauliflower "
+                            },
+                            {
+                                "allergens": [
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Just Egg"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Beyond Sausage"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    }
+                ],
+                "title": "Ferris Week  1 Monday 9-4-23 Breakfast"
+            },
+            {
+                "date_from": "2023-11-21T16:00:00",
+                "date_to": "2023-11-21T19:00:00",
+                "menu_type": [
+                    "7"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Apple Pancakes"
+                            },
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Scrambled Eggs"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Hash Brown Patty"
+                            },
+                            {
+                                "allergens": [
+                                    "Pork"
+                                ],
+                                "prefs": [
+                                    "Gluten Free"
+                                ],
+                                "title": "Pork Sausage"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Sausage Gravy"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Biscuits"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "meal_text": "Roasted smoked chicken, melted mozzarella, arugula, tomato, chipotle mayo",
+                                "title": "Panini Bar"
+                            }
+                        ],
+                        "station": [
+                            "11"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Cheese Pizza"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegan Cheese Pizza"
+                            }
+                        ],
+                        "station": [
+                            "34"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Sticky Tofu"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Brown Rice"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegetable Medley"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    }
+                ],
+                "title": "Ferris Week 1 Monday 9-4-23 Lunch"
+            },
+            {
+                "date_from": "2023-11-21T22:00:00",
+                "date_to": "2023-11-22T01:00:00",
+                "menu_type": [
+                    "8"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal"
+                                ],
+                                "title": "Roasted Herb Chicken"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Buttered Egg Noodle"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Green Beans & Carrots"
+                            },
+                            {
+                                "allergens": [
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Barley Pilaf"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Sticky Tofu"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Brown Rice"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegetable Medley"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Pulled Pork Sandwich"
+                            }
+                        ],
+                        "station": [
+                            "11"
+                        ]
+                    }
+                ],
+                "title": "Ferris Week 1 Monday 9-11-23Dinner"
+            }
+        ]
+    },
+    {
+        "nid": "7750",
+        "type": "cu_dining_menu",
+        "title": "Ferris Week 12 Wednesday 11-22-23",
+        "locations": [
+            "12"
+        ],
+        "date_range": [
+            "41776",
+            "41793",
+            "41805"
+        ],
+        "date_range_fields": [
+            {
+                "date_from": "2023-11-22T12:30:00",
+                "date_to": "2023-11-22T15:59:59",
+                "menu_type": [
+                    "6"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "French Toast"
+                            },
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Scrambled Eggs"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "O'Brian Potatoes"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free"
+                                ],
+                                "title": "Pork Bacon"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Sausage Gravy"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Biscuits"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Ratatouille"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Tofu Scramble"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Beyond Sausage"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    }
+                ],
+                "title": "Ferris Week  1 Monday 9-4-23 Breakfast"
+            },
+            {
+                "date_from": "2023-11-22T16:00:00",
+                "date_to": "2023-11-22T19:00:00",
+                "menu_type": [
+                    "7"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "French Toast"
+                            },
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Scrambled Eggs"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "O'Brian Potatoes"
+                            },
+                            {
+                                "allergens": [
+                                    "Pork"
+                                ],
+                                "prefs": [
+                                    "Gluten Free"
+                                ],
+                                "title": "Pork Bacon"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Sausage Gravy"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Biscuits"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "title": "Grilled Cheese Bar"
+                            }
+                        ],
+                        "station": [
+                            "11"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Cheese Pizza"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegan Cheese Pizza"
+                            }
+                        ],
+                        "station": [
+                            "34"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Sweet Potato & Chickpea Chili"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Turmeric Rice"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Tortilla Chips"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    }
+                ],
+                "title": "Ferris Week 1 Monday 9-4-23 Lunch"
+            },
+            {
+                "date_from": "2022-11-22T22:00:00",
+                "date_to": "2022-11-23T01:00:00",
+                "menu_type": [
+                    "8"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "title": "Flank Steak"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Baby Carrots"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegetable Medley"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Tri-Colored Potatoes"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Sweet Potato & Chickpea Chili"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Turmeric Rice"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Tortilla Chips"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "meal_text": "Choice of steak, cheese, or vegan quesadilla.",
+                                "title": "Quesadilla Bar"
+                            }
+                        ],
+                        "station": [
+                            "11"
+                        ]
+                    }
+                ],
+                "title": "Ferris Week 1 Monday 9-11-23Dinner"
+            }
+        ]
+    }
+]

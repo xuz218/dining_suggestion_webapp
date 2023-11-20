@@ -1,0 +1,1982 @@
+[
+    {
+        "nid": "7746",
+        "type": "cu_dining_menu",
+        "title": "john Jay Week 12 Monday  11-20-23 ",
+        "locations": [
+            "10"
+        ],
+        "date_range": [
+            "41551",
+            "41569",
+            "41588",
+            "41607"
+        ],
+        "date_range_fields": [
+            {
+                "date_from": "2023-11-20T14:30:00",
+                "date_to": "2023-11-20T15:45:46",
+                "menu_type": [
+                    "6"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Oatmeal"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Dairy"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Vanilla Chai"
+                            },
+                            {
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Grits"
+                            }
+                        ],
+                        "station": [
+                            "28"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Scramble Eggs"
+                            },
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Zucchini, Squash, Red Onion Egg Whites"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Pancakes"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Roasted Tomatoes"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Hash Brown"
+                            },
+                            {
+                                "allergens": [
+                                    "Sunflower Oil"
+                                ],
+                                "title": "Roasted Chicken"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Just Egg Patty"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Roasted Tomatoes"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Hash Brown"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "French Toast Sticks"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Sausage, Egg, and Cheese Biscuit"
+                            }
+                        ],
+                        "station": [
+                            "27"
+                        ]
+                    }
+                ],
+                "title": "John Jay Week 4_Monday_Breakfast_09-25-2023"
+            },
+            {
+                "date_from": "2023-11-20T16:00:00",
+                "date_to": "2023-11-20T19:00:44",
+                "menu_type": [
+                    "7"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Pork"
+                                ],
+                                "title": "Calabrese Pork Loin"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Mushroom Pea Risotto"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Sautu00e9ed Broccoli Rabe"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Garbanzo Beans"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal"
+                                ],
+                                "title": "Calabrese Chicken"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Sautu00e9ed Broccoli Rabe"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Mushroom Pea Risotto"
+                            }
+                        ],
+                        "station": [
+                            "16"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal"
+                                ],
+                                "title": "Calabrese Chicken"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Sautu00e9ed Broccoli Rabe"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Mushroom Pea Risotto"
+                            }
+                        ],
+                        "station": [
+                            "12"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Coconut"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Chana Masala"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Broccoli Rabe "
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Basmati Rice"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    }
+                ],
+                "title": "John Jay Week 4_Monday_Lunch_09-25-2023"
+            },
+            {
+                "date_from": "2023-11-20T22:00:00",
+                "date_to": "2023-11-21T02:00:00",
+                "menu_type": [
+                    "8"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal"
+                                ],
+                                "title": "Chicken Picatta"
+                            },
+                            {
+                                "allergens": [
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Penne with Garlic Oil and Herbs"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Stewed Lentils"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Roasted Brussel Sprouts"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "White Beans with Roasted Tomatoes and Herbs"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal"
+                                ],
+                                "title": "Chicken Picatta"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Roasted Brussel Sprouts"
+                            },
+                            {
+                                "allergens": [
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Penne with Garlic Oil and Herbs"
+                            }
+                        ],
+                        "station": [
+                            "16"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal"
+                                ],
+                                "title": "Chicken Picatta "
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Roasted Brussel Sprouts"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Gluten Free Pasta with Garlic Oil"
+                            }
+                        ],
+                        "station": [
+                            "12"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegan Chicken Picatta"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Roasted Brussel Sprouts"
+                            },
+                            {
+                                "allergens": [
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Penne with Garlic Oil"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    }
+                ],
+                "title": "John Jay Week 4_Monday_Dinner_09-25-2023"
+            },
+            {
+                "date_from": "2023-11-20T16:00:00",
+                "date_to": "2023-11-21T02:00:00",
+                "menu_type": [
+                    "61"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Marinara Sauce"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy"
+                                ],
+                                "title": "Carbonara"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Shallot Oil"
+                            },
+                            {
+                                "allergens": [
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Cavatelli"
+                            },
+                            {
+                                "allergens": [
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Whole Wheat Pasta"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Turkey Meatballs"
+                            }
+                        ],
+                        "station": [
+                            "30"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Pasta E Fagioli"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Vegetarian"
+                                ],
+                                "title": "Broccoli Cheddar Soup"
+                            }
+                        ],
+                        "station": [
+                            "28"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "meal_text": "Fresh tuna or tofu with rice & bok choy.",
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal"
+                                ],
+                                "title": "Poke Bowl"
+                            }
+                        ],
+                        "station": [
+                            "100"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Pork",
+                                    "Soy"
+                                ],
+                                "title": "Hawaiian Pork with Rice"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Macaroni Salad"
+                            }
+                        ],
+                        "station": [
+                            "11"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Pork",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Pizza Burger"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegan"
+                                ],
+                                "title": "Beyond Burger"
+                            }
+                        ],
+                        "station": [
+                            "33"
+                        ]
+                    }
+                ],
+                "title": "Lunch & Dinner"
+            }
+        ]
+    },
+    {
+        "nid": "7745",
+        "type": "cu_dining_menu",
+        "title": "john Jay Week 12 Sunday   11-19-23 ",
+        "locations": [
+            "10"
+        ],
+        "date_range": [
+            "41471",
+            "41492",
+            "41511",
+            "41532"
+        ],
+        "date_range_fields": [
+            {
+                "date_from": "2023-11-19T14:30:00",
+                "date_to": "2023-11-19T15:45:00",
+                "menu_type": [
+                    "6"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Oatmeal"
+                            },
+                            {
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Caramel Oatmeal"
+                            },
+                            {
+                                "allergens": [
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Farina"
+                            }
+                        ],
+                        "station": [
+                            "108"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Scramble Eggs"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy"
+                                ],
+                                "title": "Orange Chicken"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Broccoli, Mushroom, and Eggplant"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Jasmine Rice"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Just Egg Patty"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Broccoli, Mushrooms, and Eggplant"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Jasmine Rice"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "French Toast"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Waffles"
+                            }
+                        ],
+                        "station": [
+                            "27"
+                        ]
+                    }
+                ],
+                "title": "John Jay Week 4_Sunday_Breakfast_09-24-2023"
+            },
+            {
+                "date_from": "2023-11-19T16:00:00",
+                "date_to": "2023-11-19T19:00:00",
+                "menu_type": [
+                    "7"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Scramble Eggs"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy"
+                                ],
+                                "title": "Orange Chicken"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Broccoli, Mushrooms, Eggplant"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Jasmine Rice"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Scrambled Eggs"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal"
+                                ],
+                                "title": "Orange Chicken"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Broccoli, Mushrooms, Eggplant"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Jasmine Rice"
+                            }
+                        ],
+                        "station": [
+                            "16"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal"
+                                ],
+                                "title": "Orange Chicken"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Broccoli, Mushrooms, Eggplant"
+                            },
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Scrambled Eggs"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Jasmine Rice"
+                            }
+                        ],
+                        "station": [
+                            "12"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Just Egg"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Broccoli, Mushrooms, and Eggplant"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegan Sausage Patty"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Jasmine Rice"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    }
+                ],
+                "title": "John Jay Week 3_Sunday_Lunch_09-24-2023"
+            },
+            {
+                "date_from": "2023-11-19T22:00:00",
+                "date_to": "2023-11-20T02:00:00",
+                "menu_type": [
+                    "8"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Pork"
+                                ],
+                                "title": "Pernil"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Sweet Plantains"
+                            },
+                            {
+                                "allergens": [
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Wheatberries Pilaf"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Root Vegetables"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Pinto Beans"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal"
+                                ],
+                                "title": "Pollo Asado"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Root Vegetables"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Sweet Plantains"
+                            }
+                        ],
+                        "station": [
+                            "16"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal"
+                                ],
+                                "title": "Pollo Asado"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Root Vegetables"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Yellow Rice"
+                            }
+                        ],
+                        "station": [
+                            "12"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Mushroom Stir Fry"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Root Vegetables"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Yellow Rice"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    }
+                ],
+                "title": "John Jay Week 4_Sunday_Dinner_09-24-2023"
+            },
+            {
+                "date_from": "2023-11-19T16:00:00",
+                "date_to": "2023-11-20T02:00:00",
+                "menu_type": [
+                    "61"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Marinara Sauce"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Tomato Cream Sauce"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Garlic Oil"
+                            },
+                            {
+                                "allergens": [
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Ziti"
+                            },
+                            {
+                                "allergens": [
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Whole Wheat Pasta"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Beef Meatballs"
+                            }
+                        ],
+                        "station": [
+                            "30"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Eggs",
+                                    "Wheat"
+                                ],
+                                "title": "Chicken Noodle"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Vegan"
+                                ],
+                                "title": "Lentil Soup"
+                            }
+                        ],
+                        "station": [
+                            "28"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Korean BBQ Beef"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegan"
+                                ],
+                                "title": "Korean BBQ Seitan"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Kimchi Fried Rice"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Garlic Green Beans"
+                            }
+                        ],
+                        "station": [
+                            "100"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Dairy",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Thai Red Chicken Curry"
+                            }
+                        ],
+                        "station": [
+                            "11"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "meal_text": " Shredded Mozzarella, Grated Parmesan, Sauteed Mushroom, Black olives, Roasted red pepper, Sundried tomato",
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Pesto Flatbread"
+                            }
+                        ],
+                        "station": [
+                            "33"
+                        ]
+                    }
+                ],
+                "title": "Lunch & Dinner "
+            }
+        ]
+    },
+    {
+        "nid": "7747",
+        "type": "cu_dining_menu",
+        "title": "john Jay Week 12 Tuesday   11-21-23",
+        "locations": [
+            "10"
+        ],
+        "date_range": [
+            "41626",
+            "41645",
+            "41664",
+            "41682"
+        ],
+        "date_range_fields": [
+            {
+                "date_from": "2023-11-21T14:30:00",
+                "date_to": "2023-11-21T15:45:46",
+                "menu_type": [
+                    "6"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Oatmeal"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Triple Berry Oatmeal"
+                            },
+                            {
+                                "allergens": [
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Cream of Wheat"
+                            }
+                        ],
+                        "station": [
+                            "28"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Scramble Eggs"
+                            },
+                            {
+                                "allergens": [
+                                    "Eggs"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Sweet Potato, Kale, Red pepper Egg White Scramble"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Cereal Pancake"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Curry Roasted Cauliflower "
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Roasted Potatoes"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free"
+                                ],
+                                "title": "Chicken Sausage"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Just Egg Patty"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Curry Roasted Cauliflower "
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Roasted Potatoes"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Cinnamon Swirl French toast"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Waffle Sticks"
+                            }
+                        ],
+                        "station": [
+                            "27"
+                        ]
+                    }
+                ],
+                "title": "John Jay Week 4_Tuesday_Breakfast_09-26-2023"
+            },
+            {
+                "date_from": "2023-11-21T16:00:00",
+                "date_to": "2023-11-21T19:00:00",
+                "menu_type": [
+                    "7"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "General Tso's Chicken"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegetarian Lo mein"
+                            },
+                            {
+                                "allergens": [
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Farro Pilaf"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Broccoli with Shitake Mushrooms"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Butter Beans"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Halal"
+                                ],
+                                "title": "General Tso's Chicken"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Broccoli with Shitake Mushrooms"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegetarian Lo Mein"
+                            }
+                        ],
+                        "station": [
+                            "16"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Gluten Free"
+                                ],
+                                "title": "General Tso's Chicken"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Broccoli with Shitake Mushrooms"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Jasmine Rice"
+                            }
+                        ],
+                        "station": [
+                            "12"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegan"
+                                ],
+                                "title": "General Tso's Tofu Nuggets "
+                            },
+                            {
+                                "title": "Broccoli with Shitake Mushrooms"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegetarian Lo Mein"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    }
+                ],
+                "title": "John Jay Week 4_Tuesday_Lunch_09-26-2023"
+            },
+            {
+                "date_from": "2023-11-21T22:00:00",
+                "date_to": "2023-11-22T02:00:00",
+                "menu_type": [
+                    "8"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "title": "Beef Stroganoff"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Egg Noodles"
+                            },
+                            {
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Wheatberries Pilaf"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Green Beans & Carrots"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Northern Beans"
+                            }
+                        ],
+                        "station": [
+                            "24"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal"
+                                ],
+                                "title": "Beef Stroganoff"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Egg Noodles"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Green Beans and Carrots"
+                            }
+                        ],
+                        "station": [
+                            "16"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal"
+                                ],
+                                "title": "Beef Stroganoff"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Green Beans and Carrots"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Roasted Redskin Potato"
+                            }
+                        ],
+                        "station": [
+                            "12"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Beyond Stroganoff"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan",
+                                    "Vegetarian"
+                                ],
+                                "title": "Green Beans and Carrots"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Roasted Redskin Potato"
+                            }
+                        ],
+                        "station": [
+                            "29"
+                        ]
+                    }
+                ],
+                "title": "John Jay Week 4_Tuesday_Dinner_09-26-2023"
+            },
+            {
+                "date_from": "2023-11-21T16:00:00",
+                "date_to": "2023-11-22T02:00:00",
+                "menu_type": [
+                    "61"
+                ],
+                "stations": [
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Sunflower Oil"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Marinara Sauce"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Fra Diavolo Sauce"
+                            },
+                            {
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Basil Oil"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Vegetarian"
+                                ],
+                                "title": "Tortellini"
+                            }
+                        ],
+                        "station": [
+                            "30"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Eggs",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Italian Wedding Soup"
+                            },
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Gluten Free",
+                                    "Halal",
+                                    "Vegetarian"
+                                ],
+                                "title": "Tomato Bisque"
+                            }
+                        ],
+                        "station": [
+                            "28"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Pork"
+                                ],
+                                "title": "Pork Belly"
+                            },
+                            {
+                                "allergens": [
+                                    "Gluten",
+                                    "Soy"
+                                ],
+                                "prefs": [
+                                    "Vegan"
+                                ],
+                                "title": "Miso Tofu"
+                            },
+                            {
+                                "allergens": [
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Ramen Noodles"
+                            }
+                        ],
+                        "station": [
+                            "100"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Sesame",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Mongolian Beef Burrito"
+                            }
+                        ],
+                        "station": [
+                            "11"
+                        ]
+                    },
+                    {
+                        "meals_paragraph": [
+                            {
+                                "allergens": [
+                                    "Dairy",
+                                    "Soy",
+                                    "Wheat"
+                                ],
+                                "title": "Honey Sriracha Chicken Sandwich"
+                            },
+                            {
+                                "allergens": [
+                                    "Coconut",
+                                    "Soy",
+                                    "Sunflower Oil",
+                                    "Wheat"
+                                ],
+                                "prefs": [
+                                    "Halal",
+                                    "Vegan"
+                                ],
+                                "title": "Vegan Sausage"
+                            }
+                        ],
+                        "station": [
+                            "33"
+                        ]
+                    }
+                ],
+                "title": "Lunch & Dinner"
+            }
+        ]
+    }
+]
