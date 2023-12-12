@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dining Hall Menu</title>
+    <!-- Add CSS and other head elements here -->
+</head>
+<body>
+    <h1>Dining Hall Menu</h1>
+    {% for menu in menus %}
+        <div class="menu-container">
+            <h2>{{ menu.title }} - {{ menu.date_from }}</h2>
+            {% for item in menu.items %}
+                <div class="menu-item">
+                    <h3>{{ item.title }}</h3>
+                    <p>Allergens: {{ item.allergens|join(", ") }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</body>
+</html>
