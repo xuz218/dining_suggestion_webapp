@@ -8,6 +8,8 @@ import boto3
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask(__name__)
 app.secret_key = "secretkey"
+
+
 dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 
 
@@ -72,4 +74,4 @@ def signup():
     return render_template('signup.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
