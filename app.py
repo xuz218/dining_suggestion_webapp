@@ -84,10 +84,10 @@ def search():
         tmp = response.json()
         restaurants = json.loads(tmp['body'])['top_five_restaurants']
         top_five_restaurants = restaurants[:5]  # Get the top 5 restaurants
-        response_message = "Here are the top 5 restaurant matches:\n"
-
-        for index, restaurant in enumerate(top_five_restaurants):
-            response_message += f"{index + 1}. Name: {restaurant['name']}, Rating: {restaurant['rating']}, Address: {restaurant['address']}\n"
+            
+        for restaurant in top_five_restaurants:
+            if 'image' not in restaurant:
+                restaurant['image'] = "https://i.pinimg.com/736x/2c/50/20/2c50208241b85db01cc8b2d7a4dc8b22.jpg"
         
         return render_template('search.html', top_five_restaurants=top_five_restaurants)
     else:
