@@ -2,6 +2,7 @@ from flask import Flask, send_from_directory, request, render_template, g, redir
 # from flask_login import logout_user
 import os
 import boto3
+import json
 import requests
 # from boto3.dynamodb.conditions import Key, Attr
 
@@ -79,9 +80,32 @@ def profile():
 def rating():
     return render_template('rating.html')
 
-@app.route('/search')
+@app.route('/search', methods=['GET'])
 def search():
-    return render_template('search.html')
+    query = request.args.get('q', '')  # Get the search query from URL parameters
+    url = "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/recommendsearch/"
+    headers = {
+        "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
+        'Access-Control-Allow-Origin': '*',
+    }
+    params = {
+        "q": query
+    }
+    response = requests.get(url, headers=headers, params=params)
+    
+    if response.status_code == 200:
+        tmp = response.json()
+        restaurants = json.loads(tmp['body'])['top_five_restaurants']
+        top_five_restaurants = restaurants[:5]  # Get the top 5 restaurants
+        response_message = "Here are the top 5 restaurant matches:\n"
+
+        for index, restaurant in enumerate(top_five_restaurants):
+            response_message += f"{index + 1}. Name: {restaurant['name']}, Rating: {restaurant['rating']}, Address: {restaurant['address']}\n"
+        
+        return render_template('search.html', top_five_restaurants=top_five_restaurants)
+    else:
+        # If response is not successful
+        return "Internal Server Error", 500
 
 @app.route('/signup')
 def signup():
