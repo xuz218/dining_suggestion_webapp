@@ -104,114 +104,139 @@
     </script>
     <title>Login Page</title>
     <style>
-      /* Responsive styles */
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: Inter, sans-serif;
+      /* Resetting default margin and padding */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
       }
-      .header-footer {
-        width: 100%;
-        height: 82px;
-        background: #003865;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        position: relative; /* Changed from absolute to relative */
-        z-index: 10; /* Ensure header stays above the content */
+
+      html, body {
+          height: 100%;
+          font-family: 'Inter', sans-serif;
+          background: white;
+          display: flex;
+          flex-direction: column;
       }
-      .title {
-        color: #ffffff; /* White text color */
-        font-size: 2rem; /* Increased font size for visibility */
-        text-align: center; /* Center the title */
-        padding: 20px 0; /* Add some padding to position the title */
+
+      .container {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
       }
-      .footer {
-        position: absolute;
-        bottom: 0;
+
+      .header, .footer {
+          background: #003865;
+          color: white;
+          text-align: center;
+          padding: 1rem;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
       }
+
       .input-container {
-        width: 80%; /* Responsive width */
-        max-width: 418px; /* Maximum width */
-        margin: auto; /* Centering */
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
+          width: 80%;
+          max-width: 418px;
       }
-      .input-field {
-        width: calc(100% - 20px); /* Full width minus padding */
-        height: 58px;
-        margin-bottom: 20px; /* Space between fields */
+
+      .input-field, .login-button {
+        width: calc(100% - 20px); /* Adjusting width */
         padding: 10px;
-        background: #f6f6f6;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset;
-        border: 1px #fcfcfc solid;
-        font-size: 1rem; /* Responsive font size */
+        margin-bottom: 20px;
       }
+      
+      .input-field {
+          background: #f6f6f6;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset;
+          border: 1px #fcfcfc solid;
+      }
+      
       .login-button {
-        width: 100%;
-        height: 68px;
-        background: #f14d4d;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 13px;
-        border: 2px #928b8b solid;
-        color: white;
-        font-size: 1.5rem; /* Responsive font size */
-        font-weight: 700;
-        cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
-        transition: background-color 0.3s, transform 0.3s; /* Smooth transition for background color and transform */
+          background: #f14d4d;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          border-radius: 13px;
+          border: none;
+          color: white;
+          font-size: 1.5rem;
+          font-weight: 700;
+          cursor: pointer;
+          transition: background-color 0.3s, transform 0.3s;
+          /* Additional styles remain unchanged */
       }
 
       .login-button:hover {
-        background-color: #e13d3d; /* Slightly lighter red when hovering */
-        transform: scale(1.05); /* Slightly increase the size */
+          background-color: #e13d3d;
+          transform: scale(1.05);
       }
 
       .signup-link {
-        display: block;
-        text-align: center;
-        color: black;
-        font-size: 1rem; /* Responsive font size */
-        font-weight: 400;
-        text-decoration: underline;
-        margin-top: 20px;
+          display: block;
+          text-align: center;
+          color: black;
+          font-size: 1rem;
+          font-weight: 400;
+          text-decoration: underline;
+          margin-top: 20px;
       }
-    </style>
+
+      .header {
+        display: flex; /* Make header a flex container */
+        justify-content: space-between; /* Space between items */
+        align-items: center; /* Center items vertically */
+        padding: 1rem;
+      }
+
+      .home-button {
+          background: #003865; /* Same as header background */
+          color: white;
+          border: 2px solid white; /* White border */
+          padding: 10px 20px;
+          border-radius: 13px;
+          text-decoration: none; /* Remove underline from link */
+          font-weight: 700;
+          transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .home-button:hover {
+          background-color: #002a4a; /* Slightly darker color on hover */
+          transform: scale(1.05);
+      }
+    
+      /* Responsive design adjustments */
+      @media (max-width: 768px) {
+          .content-box {
+              flex-basis: calc(50% - 40px); /* Adjusts to half the width on smaller screens */
+          }
+      }
+
+      @media (max-width: 480px) {
+          .content-box {
+              flex-basis: calc(100% - 40px); /* Full width on very small screens */
+          }
+      }
+  </style>
   </head>
   <body>
-    <div
-      style="width: 100%; height: 100%; position: relative; background: white"
-    >
-      <!-- Header -->
-      <div class="header-footer">
-        <h1 class="title">LOG IN</h1>
-        <!-- Added title -->
-      </div>
+    <!-- Header -->
+    <div class="header">
+      <a href="/" class="home-button">Home</a>
+      <h1>LOG IN</h1>
+  </div>
 
-      <!-- Main Content -->
-      <div class="input-container">
-        <!-- Username Field -->
-        <input
-          type="text"
-          id="username"
-          class="input-field"
-          placeholder="Username"
-        />
-        <!-- Password Field -->
-        <input
-          type="password"
-          id="password"
-          class="input-field"
-          placeholder="Password"
-        />
-        <!-- Login Button -->
-        <button class="login-button" id="login">LOGIN</button>
-        <!-- Sign Up Link -->
-        <a href="/signup" class="signup-link">SIGN UP</a>
-      </div>
-
-      <!-- Footer -->
-      <div class="header-footer footer"></div>
+    <div class="container">
+        <div class="input-container">
+            <!-- Username Field -->
+            <input type="text" id="username" class="input-field" placeholder="Username" />
+            <!-- Password Field -->
+            <input type="password" id="password" class="input-field" placeholder="Password" />
+            <!-- Login Button -->
+            <button class="login-button" id="login">LOGIN</button>
+            <!-- Sign Up Link -->
+            <a href="/signup" class="signup-link">SIGN UP</a>
+        </div>
     </div>
+
+    <div class="footer"></div>
   </body>
 </html>
