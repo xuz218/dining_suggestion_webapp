@@ -5,6 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/axios/dist/axios.standalone.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/CryptoJS/rollups/hmac-sha256.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/CryptoJS/rollups/sha256.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/CryptoJS/components/hmac.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/CryptoJS/components/enc-base64.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/url-template/url-template.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/apiGatewayCore/sigV4Client.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/apiGatewayCore/apiGatewayClient.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/apiGatewayCore/simpleHttpClient.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/apiGatewayCore/utils.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='apigClient.js') }}"></script>
+    <script>
+        var apigClient = apigClientFactory.newClient({});
+    </script>
+    <script type="text/javascript">
+
+      async function search() {
+    var query = document.getElementById('search-query').value;
+    const url = new URL(
+          "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/recommendsearch/"
+        );
+    url.searchParams.append("q", query);
+
+    // const Headers = {
+    //       "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
+    //       'Access-Control-Allow-Origin': '*',
+    //     };
+        // Options for the POST request
+        const requestOptions = {
+          method: "GET",
+          // headers: Headers,
+          // redirect: "follow",
+        };
+        try {
+          let response = await fetch(url, requestOptions);
+          let resultText = await response.text();
+          console.log(resultText);
+
+          let result = JSON.parse(resultText);
+
+          if (result.statusCode === 200) {
+            // If login is successful, redirect to profile.html
+             alert(
+              "The search result is okay! We are still implemented the procesure"
+            );
+          } else {
+            // If login fails, display an error message
+            alert(
+              "Internal Server Error :("
+            );
+          }
+        } catch (error) {
+          console.log("error", error);
+        }
+
+        console.log("Search Request Sent");
+}
+    </script>
+
+
+    <!-- Repeat this for all other script tags -->
+
     <style>
         /* Reset margins and padding to ensure consistency across browsers */
         * {
@@ -165,6 +227,7 @@
             }
         }
     </style>
+
 </head>
 <body>
     <div class="header">

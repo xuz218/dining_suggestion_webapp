@@ -140,10 +140,28 @@ apigClientFactory.newClient = function (config) {
     apigClient.loginPost = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
-        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        apiGateway.core.utils.assertParametersDefined(params, ['Password', 'Username'], ['body']);
         
         var loginPostRequest = {
             verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/login').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['Password', 'Username']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(loginPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.loginOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var loginOptionsRequest = {
+            verb: 'options'.toUpperCase(),
             path: pathComponent + uritemplate('/login').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
@@ -151,7 +169,7 @@ apigClientFactory.newClient = function (config) {
         };
         
         
-        return apiGatewayClient.makeRequest(loginPostRequest, authType, additionalParams, config.apiKey);
+        return apiGatewayClient.makeRequest(loginOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
     
@@ -284,10 +302,28 @@ apigClientFactory.newClient = function (config) {
     apigClient.registerPost = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
-        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        apiGateway.core.utils.assertParametersDefined(params, ['Password', 'Username'], ['body']);
         
         var registerPostRequest = {
             verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/register').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['Password', 'Username']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(registerPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.registerOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var registerOptionsRequest = {
+            verb: 'options'.toUpperCase(),
             path: pathComponent + uritemplate('/register').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
@@ -295,7 +331,7 @@ apigClientFactory.newClient = function (config) {
         };
         
         
-        return apiGatewayClient.makeRequest(registerPostRequest, authType, additionalParams, config.apiKey);
+        return apiGatewayClient.makeRequest(registerOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
 
