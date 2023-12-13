@@ -24,12 +24,40 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            min-height: 30px;
         }
 
         .website-name {
             color: white;
             font-size: 2rem;
             font-weight: 700;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 13px;
+            padding: 0 10px;
+            margin-left: 20px; /* Adjust as needed */
+            width: 30%;
+        }
+
+        #search-query {
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 13px 0 0 13px;
+            flex-grow: 1;
+        }
+
+        #search-icon {
+            cursor: pointer;
+            color: #003865;
+            padding: 10px;
+            border-radius: 0 13px 13px 0;
+            margin-left: -10px;
         }
 
         .button {
@@ -43,6 +71,7 @@
             font-weight: 700;
             cursor: pointer;
             text-decoration: none;
+            margin-right: 20px;
         }
 
         .button.login {
@@ -77,6 +106,26 @@
             border-radius: 10px;
         }
 
+        .recommend-content {
+            background-color: #424D72;
+            /* margin: 20px 40px; Same as content-box to align horizontally */
+            margin-left: 40px;
+            margin-right: 40px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            color: white;
+            padding: 20px;
+            align-items: flex-start; /* Align the title to the top */
+        }
+
+        .recommendation-title {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 20px; /* Space below the title */
+            font-size: 2rem;
+        }
+
         .footer {
             background: #003865;
             color: white;
@@ -88,10 +137,16 @@
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
         }
 
+
+
         /* Responsive design adjustments */
         @media (max-width: 768px) {
             .content-box {
                 flex-basis: calc(50% - 40px); /* Adjusts to half the width on smaller screens */
+            }
+
+            .main-content, .recommend-content {
+                width: calc(100% - 40px);
             }
         }
 
@@ -99,12 +154,19 @@
             .content-box {
                 flex-basis: calc(100% - 40px); /* Full width on very small screens */
             }
+            .main-content, .recommend-content {
+                width: calc(100% - 20px); /* Adjust width for smaller screens */
+            }
         }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="website-name">DINING CHOICES</div>
+        <div class="search-container">
+            <input type="text" id="search-query" placeholder="Search..." />
+            <i id="search-icon" class="fas fa-search" onclick="search()"></i>
+        </div>
         <div>
             <a href="/signup" class="button">Sign Up</a>
             <a href="/login" class="button login">Log in</a>
@@ -124,6 +186,11 @@
         </div>
         {% endfor %}
     </div>
+
+    <div class="recommend-content">
+        <h2 class="recommendation-title">Recommendations</h2>
+    </div>
+
     <div class="footer">
         Footer content here
     </div>
