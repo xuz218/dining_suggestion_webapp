@@ -141,7 +141,7 @@
       }
 
       .input-field, .login-button {
-        width: calc(100% - 20px); /* Adjusting width */
+        width: calc(100%); /* Adjusting width */
         padding: 10px;
         margin-bottom: 20px;
       }
@@ -184,6 +184,7 @@
         display: flex; /* Make header a flex container */
         justify-content: space-between; /* Space between items */
         align-items: center; /* Center items vertically */
+        text-align: center; /* Center text for the title */
         padding: 1rem;
       }
 
@@ -202,7 +203,17 @@
           background-color: #002a4a; /* Slightly darker color on hover */
           transform: scale(1.05);
       }
-    
+
+      .header::before,
+      .header::after {
+          content: '';
+          flex: 1; /* Give equal weight to pseudo-elements */
+      }
+
+      .title {
+          flex: 2; /* Allocates more space for the title, keeping it centered */
+      }
+
       /* Responsive design adjustments */
       @media (max-width: 768px) {
           .content-box {
@@ -220,9 +231,10 @@
   <body>
     <!-- Header -->
     <div class="header">
-      <a href="/" class="home-button">Home</a>
-      <h1>LOG IN</h1>
-  </div>
+        <a href="/index" class="home-button">Home</a>
+        <h1 class="title">LOG IN</h1>
+        <div></div> <!-- Empty div for balancing the header -->
+    </div>
 
     <div class="container">
         <div class="input-container">

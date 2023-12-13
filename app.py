@@ -41,6 +41,12 @@ dining_halls = {
     }
 }
 
+user_info = {
+    'name': 'abc',
+    'email': 'abc@columbia.edu',
+    'user id': '123'
+}
+
 @app.route('/')
 def index():
     return render_template('index.html', dining_halls=dining_halls)
@@ -51,7 +57,7 @@ def login():
 
 @app.route('/profile')
 def profile():
-    return render_template('profile.html')
+    return render_template('profile.html', user_info = user_info)
 
 @app.route('/rating')
 def rating():
