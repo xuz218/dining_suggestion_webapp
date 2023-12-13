@@ -1,342 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-<title>Login Page</title>
-<style>
-    
-    /* Reset margins and padding to ensure consistency across browsers */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Reset margins and padding to ensure consistency across browsers */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body, html {
-    height: 100%;
-    font-family: 'Inter', sans-serif;
-    background: white;
-}
+        body, html {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+        }
+        .header {
+            background: #003865;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-/* Header and Footer */
-.header-footer {
-    width: 100%;
-    height: 82px;
-    background: #003865;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    position: relative;
-}
+        .website-name {
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+        }
 
-/* Sign Up and Log in Buttons */
-.signup-btn, .login-btn {
-    width: 129px;
-    height: 61px;
-    position: absolute;
-    background: #F14D4D; /* Red for Sign Up */
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 13px;
-    border: 2px solid #928B8B;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white; /* White text for Sign Up */
-    font-size: 24px;
-    font-weight: 700;
-    cursor: pointer;
-}
+        .button {
+            background: #F14D4D;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 13px;
+            border: 2px solid #928B8B;
+            padding: 0.5rem 1rem;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+        }
 
-/* Positioning for the Sign Up and Log in */
-.signup-btn {
-    left: 1271px; /* Position on the right */
-    top: 48px;
-    background: #F14D4D; /* Specific background for Sign Up */
-}
+        .button.login {
+            background: white;
+            color: black;
+        }
 
-.login-btn {
-    left: 1087px; /* Position on the right */
-    top: 48px;
-    background: white; /* Specific background for Log in */
-    color: black; /* Black text for Log in */
-}
+        /* Flex container for main content */
+        .main-content {
+            display: flex;
+            justify-content: space-around; /* Distributes space evenly around items */
+            flex-wrap: wrap; /* Allows items to wrap to the next line */
+            padding: 20px;
+            flex-grow: 1; /* Ensures that the main content grows to fill available space */
+        }
 
-/* Website Name */
-.website-name {
-    padding: 10px;
-    left: 43px;
-    top: 45px;
-    position: absolute;
-    color: white;
-    font-size: 36px;
-    font-weight: 700;
-}
+        /* Style for the content boxes */
+        .content-box {
+            flex-basis: calc(33.333% - 40px); /* Takes one third of the full width minus margins */
+            margin: 20px;
+            background: #424D72;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
-/* Content Boxes */
-.content-box {
-    width: 438px;
-    height: 357px;
-    position: absolute;
-    background: #424D72;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-}
+        .content-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
 
-/* Content Box Titles */
-.content-box-title {
-    position: absolute;
-    color: white;
-    font-size: 32px;
-    font-weight: 700;
-}
+        .footer {
+            background: #003865;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            width: 100%;
+            height: 82px;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        }
 
-/* Recommendation Section */
-.recommendations-title {
-    left: 67px;
-    top: 594px;
-    position: absolute;
-    color: black;
-    font-size: 40px;
-    font-weight: 700;
-}
+        /* Responsive design adjustments */
+        @media (max-width: 768px) {
+            .content-box {
+                flex-basis: calc(50% - 40px); /* Adjusts to half the width on smaller screens */
+            }
+        }
 
-/* Seating Capacity and Operating Status */
-.seating-capacity, .operating-status {
-    width: 283px;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-}
-
-.seating-capacity {
-    height: 44px;
-    color: #E2E2E2;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.operating-status {
-    height: 44px;
-    color: #E2E2E2;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-/* Specific Seating Capacities */
-.seating-red {
-    color: #FF0202;
-}
-
-.seating-green {
-    color: #09CD63;
-}
-
-.seating-yellow {
-    color: #F3D430;
-}
-
-/* Rating and Price Styles */
-.rating, .price {
-    color: black;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-/* Vegetarian Friendly and Operating Status */
-.vegetarian-friendly, .operating-open {
-    color: black;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-/* Footer */
-.footer {
-    width: 1440px;
-    height: 54px;
-    position: absolute;
-    bottom: 0;
-    background: #003865;
-}
-
-/* Other Elements */
-.other-elements {
-    /* Add styles for other elements as needed */
-}
-
-/* Add media queries as needed for responsiveness */
-@media (max-width: 768px) {
-    /* Adjust styles for smaller screens */
-}
-
-</style>
-<div style="width: 100%; height: 100%; position: relative; background: white">
-    <div style="width: 1440px; height: 150px; left: 0px; top: 0px; position: absolute; background: #003865; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)"></div>
-    <div style="width: 1440px; height: 150px; left: 0px; top: 0px; position: absolute; background: #003865; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)"></div>
-    <div style="width: 1440px; height: 150px; left: 0px; top: 0px; position: absolute; background: #003865; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)"></div>
-    <div style="width: 1440px; height: 54px; left: 0px; top: 970px; position: absolute; background: #003865"></div>
-    <div style="width: 129px; height: 61px; left: 1087px; top: 48px; position: absolute; background: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 13px; border: 2px #928B8B solid"></div>
-    <div style="width: 129px; height: 61px; left: 1271px; top: 48px; position: absolute; background: #F14D4D; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 13px; border: 2px #C0B7B7 solid"></div>
-    <div style="padding: 10px; left: 1281px; top: 54px; position: absolute; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-        <a href="signup.html">
-    <div style="color: black; font-size: 24px; font-family: Inter; font-weight: 700; word-wrap: break-word">
-        Sign Up
-    </div>
-</a>
-
-    </div>
-    <div style="padding: 10px; left: 1106px; top: 54px; position: absolute; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-        <a href="login.html">
-    <div style="color: black; font-size: 24px; font-family: Inter; font-weight: 700; word-wrap: break-word">
-        Log in
-    </div>
-</a>
-
-    </div>
-    <div style="width: 418px; height: 58px; left: 419px; top: 48px; position: absolute; background: #F6F6F6; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border: 1px #FCFCFC solid"></div>
-    <div style="width: 78px; height: 58px; left: 837px; top: 48px; position: absolute; background: #319CF2; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset; border: 1px white solid"></div>
-
-<!--     <div style="width: 42px; height: 42px; left: 857px; top: 58px; position: absolute">
-    <i class="fas fa-search" style="font-size:31.50px; position: absolute; left: 5.25px; top: 5.25px; color: black;"></i>
-</div> -->
-<div style="width: 42px; height: 42px; left: 857px; top: 58px; position: absolute">
-    <!-- Anchor tag wrapping the search icon -->
-    <a href="search.html" style="text-decoration: none; color: inherit; display: inline-block; width: 100%; height: 100%;">
-        <i class="fas fa-search" style="font-size:31.50px; position: absolute; left: 5.25px; top: 5.25px;"></i>
-    </a>
-</div>
-
-    <div style="padding: 10px; left: 43px; top: 45px; position: absolute; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-        <div style="color: white; font-size: 36px; font-family: Inter; font-weight: 700; word-wrap: break-word">DINING CHOICES</div>
-    </div>
-    <div style="width: 1367px; height: 378px; left: 37px; top: 166px; position: absolute; background: white; box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25); border: 1px rgba(0, 0, 0, 0.20) solid"></div>
-    <div style="width: 1367px; height: 387px; left: 37px; top: 563px; position: absolute; background: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border: 1px rgba(0, 0, 0, 0.20) solid"></div>
-    <div style="width: 438px; height: 357px; left: 50px; top: 174px; position: absolute; background: #424D72; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px"></div>
-    <div style="width: 438px; height: 357px; left: 506px; top: 174px; position: absolute; background: #424D72; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px"></div>
-    <div style="width: 438px; height: 357px; left: 959px; top: 174px; position: absolute; background: #424D72; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px"></div>
-    <img style="width: 400px; height: 240px; left: 71px; top: 182px; position: absolute; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 29px; border: 1px black solid" src="https://magazine.columbia.edu/sites/default/files/styles/wysiwyg_full_width_image/public/2018-11/Campus-dining.jpg?itok=JjmPPX_6" />
-    <img style="width: 400px; height: 240px; left: 525px; top: 182px; position: absolute; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 29px; border: 1px black solid" src="https://arc-anglerfish-arc2-prod-spectator.s3.amazonaws.com/public/QSLKMLFR4FANXD7KRYYI5J2BBM" />
-    <img style="width: 400px; height: 240px; left: 978px; top: 182px; position: absolute; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 29px; border: 1px black solid" src="https://dining.columbia.edu/sites/default/files/styles/cu_crop/public/content/FBC%20location%20photos/Campus%20Services%20173%20%282%29.JPG?h=a66f6ef4&itok=KZ0-7Ywp" />
-    <div style="width: 283px; height: 73px; left: 63px; top: 463px; position: absolute">
-        <div style="width: 188px; height: 44px; padding: 10px; left: 0px; top: 0px; position: absolute; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-            <div style="color: #E2E2E2; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">seating capacity: </div>
+        @media (max-width: 480px) {
+            .content-box {
+                flex-basis: calc(100% - 40px); /* Full width on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="website-name">DINING CHOICES</div>
+        <div>
+            <a href="/signup" class="button">Sign Up</a>
+            <a href="/login" class="button login">Log in</a>
         </div>
-        <div style="width: 188px; height: 44px; padding: 10px; left: 0px; top: 29px; position: absolute; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-            <div style="color: #E2E2E2; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">operating status:</div>
-        </div>
-        <div style="left: 188px; top: 39px; position: absolute; color: #E2E2E2; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">operating</div>
-        <div style="left: 188px; top: 10px; position: absolute; color: #FF0202; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">red</div>
     </div>
-    <div style="width: 283px; height: 73px; left: 525px; top: 461px; position: absolute">
-        <div style="width: 188px; height: 44px; padding: 10px; left: 0px; top: 0px; position: absolute; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-            <div style="color: #E2E2E2; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">seating capacity: </div>
-        </div>
-        <div style="width: 188px; height: 44px; padding: 10px; left: 0px; top: 29px; position: absolute; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-            <div style="color: #E2E2E2; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">operating status:</div>
-        </div>
-        <div style="left: 188px; top: 39px; position: absolute; color: #E2E2E2; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">operating</div>
-        <div style="left: 188px; top: 10px; position: absolute; color: #09CD63; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">green</div>
-    </div>
-    <div style="width: 283px; height: 73px; left: 981px; top: 461px; position: absolute">
-        <div style="width: 188px; height: 44px; padding: 10px; left: 0px; top: 0px; position: absolute; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-            <div style="color: #E2E2E2; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">seating capacity: </div>
-        </div>
-        <div style="width: 188px; height: 44px; padding: 10px; left: 0px; top: 29px; position: absolute; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-            <div style="color: #E2E2E2; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">operating status:</div>
-        </div>
-        <div style="left: 188px; top: 39px; position: absolute; color: #E2E2E2; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">operating</div>
-        <div style="left: 188px; top: 10px; position: absolute; color: #F3D430; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">yellow</div>
-    </div>
-    <div style="left: 111px; top: 427px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">John Jay Dining Hall</div>
-    <div style="left: 647px; top: 427px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">JJ's Place</div>
-    <div style="left: 999px; top: 427px; position: absolute; color: white; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Ferris Booth Commons                                          </div>
-    <div style="left: 67px; top: 594px; position: absolute; color: black; font-size: 40px; font-family: Inter; font-weight: 700; word-wrap: break-word">Recommendations:</div>
-    <div style="width: 30px; height: 30px; left: 555px; top: 798px; position: absolute">
-        <div style="width: 13.73px; height: 10.27px; left: 8.14px; top: 10px; position: absolute; background: black"></div>
-    </div>
-    <div style="width: 638px; height: 227px; left: 67px; top: 666px; position: absolute">
-        <div style="width: 638px; height: 227px; left: 0px; top: 0px; position: absolute">
-            <div style="width: 638px; height: 227px; left: 0px; top: 0px; position: absolute; background: #F7F7F7; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)"></div>
-            <img style="width: 213px; height: 213px; left: 6px; top: 7px; position: absolute; border-radius: 19px" src="https://s3-media0.fl.yelpcdn.com/bphoto/q2K03PpF4WGXARf30OFXPA/348s.jpg" />
-            <div style="width: 106.05px; height: 20px; left: 361px; top: 73px; position: absolute">
 
-                <i class="far fa-star" style="font-size:20px; color:black; position: absolute; left: 96px; top: 0;"></i>
-                <i class="far fa-star" style="font-size:20px; color:black; position: absolute; left: 24px; top: 0;"></i>
-                <i class="far fa-star" style="font-size:20px; color:black; position: absolute; left: 0px; top: 0;"></i>
-                <i class="far fa-star" style="font-size:20px; color:black; position: absolute; left: 48px; top: 0;"></i>
-                <i class="far fa-star" style="font-size:20px; color:black; position: absolute; left: 72px; top: 0;"></i>
-
-
-            </div>
-            <div style="left: 288px; top: 71px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">rating:</div>
-            <div style="left: 288px; top: 102px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">price:</div>
-            <div style="left: 288px; top: 134px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">Vegetarian friendly:</div>
-            <div style="left: 286px; top: 167px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">Operating status:   open</div>
-
-            <span style="font-size:24px; color:black; position: absolute; left: 365px; top: 102px;">$</span>
-<span style="font-size:24px; color:black; position: absolute; left: 389px; top: 102px;">$</span>
-
-        <a href="rating.html">
-            <div style="left: 289px; top: 15px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">KOBA Korean BBQ</div></a>
-                <div style="width: 32px; height: 32px; padding: 2.67px; left: 498px; top: 130px; position: absolute; justify-content: center; align-items: center; display: inline-flex; color: black; font-weight: bold; font-size: 14px;">YES</div>
-
-
-
-                            <div style="width: 26.67px; height: 26.67px; position: relative">
-                    <div style="width: 26.67px; height: 26.67px; left: 0px; top: 0px; position: absolute; background: black"></div>
-                    <div style="width: 14.65px; height: 10.95px; left: 6.02px; top: 8px; position: absolute; background: black"></div>
-                </div>
+    <div class="main-content">
+        {% for name, details in dining_halls.items() %}
+        <div class="content-box">
+            <img src="{{ details.image_url }}" alt="{{ name }}" />
+            <div class="info">
+                <h2 class="title">{{ name }}</h2>
+                <p class="seating-capacity">Seating capacity: <span class="seating-{{ details.seating_capacity|lower }}">{{ details.seating_capacity }}</span></p>
+                <p class="operating-status">Operating status: {{ details.operating_status }}</p>
+                <p>Rating: {{ details.rating }}</p>
             </div>
         </div>
-        <div style="width: 57px; height: 57px; left: 560px; top: 167px; position: absolute">
-            <div style="width: 42.89px; height: 41.56px; left: 7.72px; top: 7.72px; position: absolute">
-                <div style="width: 42.89px; height: 41.56px; left: 0px; top: 0px; position: absolute; background: black"></div>
-                <div style="width: 0px; height: 23.75px; left: 11.28px; top: 16.03px; position: absolute; border: 1.50px black solid"></div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
-    <div style="width: 638px; height: 227px; left: 731px; top: 666px; position: absolute; background: #F7F7F7; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)"></div>
-    <div style="width: 92.86px; height: 20px; left: 1092px; top: 739px; position: absolute">
-                        <i class="far fa-star" style="font-size:20px; color:black; position: absolute; left: 96px; top: 0;"></i>
-                        <i class="far fa-star" style="font-size:20px; color:black; position: absolute; left: 24px; top: 0;"></i>
-                        <i class="far fa-star" style="font-size:20px; color:black; position: absolute; left: 0px; top: 0;"></i>
-                        <i class="far fa-star" style="font-size:20px; color:black; position: absolute; left: 48px; top: 0;"></i>
-                        <i class="far fa-star" style="font-size:20px; color:black; position: absolute; left: 72px; top: 0;"></i>
-
+    <div class="footer">
+        Footer content here
     </div>
-    <div style="left: 1019px; top: 737px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">rating:</div>
-    <div style="left: 1019px; top: 768px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">price:</div>
-
-    <div style="left: 1019px; top: 800px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">Vegetarian friendly:</div>
-
-    <div style="left: 1020px; top: 833px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">Operating status:   open</div>
-
-    <div style="font-size:24px; color:black; position: absolute; left: 1096px; top: 768px;">$</div>
-
-    <div style="left: 1020px; top: 681px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Junzi Kitchen</div>
-
-
-
-    <div style="width: 57px; height: 57px; left: 1299px; top: 833px; position: absolute">
-        <div style="width: 42.89px; height: 41.56px; left: 7.72px; top: 7.72px; position: absolute">
-            <div style="width: 42.89px; height: 41.56px; left: 0px; top: 0px; position: absolute; background: #FF0000"></div>
-            <div style="width: 0px; height: 23.75px; left: 11.28px; top: 16.03px; position: absolute; border: 1.50px #FF1414 solid"></div>
-        </div>
-    </div>
-    <div style="width: 32px; height: 32px; padding: 2.67px; left: 1229px; top: 796px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-        <div style="width: 26.67px; height: 26.67px; position: relative">
-        
-        </div>
-    </div>
-    <div style="width: 16px; height: 16px; left: 1005px; top: 90px; position: absolute">
-        <div style="width: 58px; height: 58px; left: -29px; top: -42px; position: absolute; background: white"></div>
-    </div>
-    <img style="width: 213px; height: 213px; left: 742px; top: 673px; position: absolute; border-radius: 16px" src="https://images.adsttc.com/media/images/5be2/f028/08a5/e549/e300/02b1/newsletter/Junzi_Kitchen_Bleecker_02.jpg?1541599259" />
-    <div style="left: 174px; top: 182px; position: absolute; color: white; font-size: 36px; font-family: Inter; font-weight: 700; word-wrap: break-word">rating: 4.6</div>
-    <div style="left: 1096px; top: 182px; position: absolute; color: white; font-size: 36px; font-family: Inter; font-weight: 700; word-wrap: break-word">rating: 4.6</div>
-    <div style="left: 634px; top: 182px; position: absolute; color: white; font-size: 36px; font-family: Inter; font-weight: 700; word-wrap: break-word">rating: 4.2</div>
-</div>
 </body>
 </html>

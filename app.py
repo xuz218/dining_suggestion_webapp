@@ -20,9 +20,30 @@ def save_user_to_dynamodb(user_data):
         print(f"Error saving user: {str(e)}")
         return None
 
+dining_halls = {
+    'John Jay Dining Hall': {
+        'image_url': 'https://magazine.columbia.edu/sites/default/files/styles/wysiwyg_full_width_image/public/2018-11/Campus-dining.jpg?itok=JjmPPX_6',
+        'seating_capacity': 'Red',
+        'operating_status': 'Operating',
+        'rating': '4.6'
+    },
+    'JJ\'s Place': {
+        'image_url': 'https://arc-anglerfish-arc2-prod-spectator.s3.amazonaws.com/public/QSLKMLFR4FANXD7KRYYI5J2BBM',
+        'seating_capacity': 'Green',
+        'operating_status': 'Closed',
+        'rating': '4.2'
+    },
+    'Ferris Booth Commons': {
+        'image_url': 'https://arc-anglerfish-arc2-prod-spectator.s3.amazonaws.com/public/QSLKMLFR4FANXD7KRYYI5J2BBM',
+        'seating_capacity': 'Yellow',
+        'operating_status': 'Operating',
+        'rating': '4.8'
+    }
+}
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', dining_halls=dining_halls)
 
 @app.route('/login')
 def login():

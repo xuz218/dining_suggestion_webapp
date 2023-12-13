@@ -88,7 +88,7 @@
 
           if (result.statusCode === 200) {
             // If login is successful, redirect to profile.html
-            window.location.href = "profile.html";
+            return redirect('/profile')
           } else {
             // If login fails, display an error message
             alert(
@@ -207,7 +207,7 @@
         <!-- Login Button -->
         <button class="login-button" id="login">LOGIN</button>
         <!-- Sign Up Link -->
-        <a href="signup.html" class="signup-link">SIGN UP</a>
+        <a href="/signup" class="signup-link">SIGN UP</a>
       </div>
 
       <!-- Footer -->
