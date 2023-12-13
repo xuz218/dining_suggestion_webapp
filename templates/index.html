@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/axios/dist/axios.standalone.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/CryptoJS/rollups/hmac-sha256.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/CryptoJS/rollups/sha256.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/CryptoJS/components/hmac.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/CryptoJS/components/enc-base64.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/url-template/url-template.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/apiGatewayCore/sigV4Client.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/apiGatewayCore/apiGatewayClient.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/apiGatewayCore/simpleHttpClient.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/apiGatewayCore/utils.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='apigClient.js') }}"></script>
+    <script>
+        var apigClient = apigClientFactory.newClient({});
+    </script>
+    <script type="text/javascript">
+
+      async function search() {
+    var query = document.getElementById('search-query').value;
+    const url = new URL(
+          "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/recommendsearch/"
+        );
+    url.searchParams.append("q", query);
+
+    // const Headers = {
+    //       "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
+    //       'Access-Control-Allow-Origin': '*',
+    //     };
+        // Options for the POST request
+        const requestOptions = {
+          method: "GET",
+          // headers: Headers,
+          // redirect: "follow",
+        };
+          let response = await fetch(url, requestOptions);
+          let resultText = await response.text();
+          console.log(resultText);
+
+          let result = JSON.parse(resultText);
+          console.log("result from lambda: ");
+          console.log(result);
+          let rest = null;
+
+      if (result.statusCode === 200) {
+          let restaurants = JSON.parse(result.body).top_five_restaurants;
+          let topThreeRestaurants = restaurants.slice(0, 3); // Get the top 3 restaurants
+          let responseMessage = "Here are the top 3 restaurant matches:\n";
+
+          topThreeRestaurants.forEach((restaurant, index) => {
+            responseMessage += `${index + 1}. Name: ${restaurant.name}, Rating: ${restaurant.rating}, Address: ${restaurant.address}\n`;
+          });
+
+          alert(responseMessage);
+        } else {
+          // If response is not successful
+          alert("Internal Server Error :(");
+        }
+
+    console.log("search res sent!");
+}
+    </script>
+
+
+    <!-- Repeat this for all other script tags -->
+
+    <style>
+        /* Reset margins and padding to ensure consistency across browsers */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+        }
+        .header {
+            background: #003865;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 30px;
+        }
+
+        .website-name {
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 13px;
+            padding: 0 10px;
+            margin-left: 20px; /* Adjust as needed */
+            width: 30%;
+        }
+
+        #search-query {
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 13px 0 0 13px;
+            flex-grow: 1;
+        }
+
+        #search-icon {
+            cursor: pointer;
+            color: #003865;
+            padding: 10px;
+            border-radius: 0 13px 13px 0;
+            margin-left: -10px;
+        }
+
+        .button {
+            background: #F14D4D;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 13px;
+            border: 2px solid #928B8B;
+            padding: 0.5rem 1rem;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .button.login {
+            background: white;
+            color: black;
+        }
+
+        /* Flex container for main content */
+        .main-content {
+            display: flex;
+            justify-content: space-around; /* Distributes space evenly around items */
+            flex-wrap: wrap; /* Allows items to wrap to the next line */
+            padding: 20px;
+            flex-grow: 1; /* Ensures that the main content grows to fill available space */
+        }
+
+        /* Style for the content boxes */
+        .content-box {
+            flex-basis: calc(33.333% - 40px); /* Takes one third of the full width minus margins */
+            margin: 20px;
+            background: #424D72;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .recommend-content {
+            background-color: #424D72;
+            /* margin: 20px 40px; Same as content-box to align horizontally */
+            margin-left: 40px;
+            margin-right: 40px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            color: white;
+            padding: 20px;
+            align-items: flex-start; /* Align the title to the top */
+        }
+
+        .recommendation-title {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 20px; /* Space below the title */
+            font-size: 2rem;
+        }
+
+        .footer {
+            background: #003865;
+            color: white;
+            /* padding: 0 0; */
+            text-align: center;
+        }
+
+        .footer p{
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            /* border-top: 1px solid #ffffff; */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+
+
+
+
+        /* Responsive design adjustments */
+        @media (max-width: 768px) {
+            .content-box {
+                flex-basis: calc(50% - 40px); /* Adjusts to half the width on smaller screens */
+            }
+
+            .main-content, .recommend-content {
+                width: calc(100% - 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-box {
+                flex-basis: calc(100% - 40px); /* Full width on very small screens */
+            }
+            .main-content, .recommend-content {
+                width: calc(100% - 20px); /* Adjust width for smaller screens */
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <div class="website-name">DINING CHOICES</div>
+        <div class="search-container">
+            <input type="text" id="search-query" placeholder="Search..." />
+            <i id="search-icon" class="fas fa-search" onclick="search()"></i>
+        </div>
+        <div>
+            <a href="https://demo1234523.auth.us-east-1.amazoncognito.com/login?client_id=3pekj1bburnl4aunf0e5oi9m5h&response_type=code&scope=email+openid+phone&redirect_uri=http://localhost:5001/profile" class="button">Sign Up/Log In</a>
+            <!-- <a href="/login" class="button login">Log in</a> -->
+        </div>
+    </div>
+
+    <div class="main-content">
+        {% for name, details in dining_halls.items() %}
+        <div class="content-box">
+            <img src="{{ details.image_url }}" alt="{{ name }}" />
+            <div class="info">
+                <h2 class="title">{{ name }}</h2>
+                <p class="seating-capacity">Seating capacity: <span class="seating-{{ details.seating_capacity|lower }}">{{ details.seating_capacity }}</span></p>
+                <p class="operating-status">Operating status: {{ details.operating_status }}</p>
+                <p>Rating: {{ details.rating }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="recommend-content">
+        <h2 class="recommendation-title">Recommendations</h2>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2023 Morningside Dining Choices. All rights reserved.</p>
+    </div>
+      
+</body>
+</html>
