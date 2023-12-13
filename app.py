@@ -2,6 +2,7 @@ from flask import Flask, send_from_directory, request, render_template, g, redir
 # from flask_login import logout_user
 import os
 import boto3
+import requests
 # from boto3.dynamodb.conditions import Key, Attr
 
 # app = Flask(__name__, static_folder='front-end')
@@ -29,14 +30,14 @@ dining_halls = {
         'operating_status': 'Operating',
         'rating': '4.6'
     },
-    'JJ\'s Place': {
+    'JJs Place': {
         'image_url': 'https://arc-anglerfish-arc2-prod-spectator.s3.amazonaws.com/public/QSLKMLFR4FANXD7KRYYI5J2BBM',
         'seating_capacity': 'Green',
         'operating_status': 'Closed',
         'rating': '4.2'
     },
     'Ferris Booth Commons': {
-        'image_url': 'https://arc-anglerfish-arc2-prod-spectator.s3.amazonaws.com/public/QSLKMLFR4FANXD7KRYYI5J2BBM',
+        'image_url': 'https://bwog.com/wp-content/uploads/2018/03/dining-97_web_0.jpg',
         'seating_capacity': 'Yellow',
         'operating_status': 'Operating',
         'rating': '4.8'
@@ -52,6 +53,19 @@ user_info = {
 @app.route('/')
 def index():
     return render_template('index.html', dining_halls=dining_halls)
+
+@app.route('/dining-hall/<hall_name>')
+def dining_hall_details(hall_name):
+    # Replace 'API_ENDPOINT' with the actual API endpoint you are using
+    # Assume the API URL structure includes the hall name
+    api_url = f"https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/dining-hall/{hall_name}"
+    response = requests.get(api_url)
+    
+    if response.status_code == 200:
+        menu_data = response.json()
+        return render_template('dining_hall_details.html', name=hall_name, menu=menu_data)
+    else:
+        return "Dining hall not found or menu data unavailable", 404
 
 @app.route('/login')
 def login():

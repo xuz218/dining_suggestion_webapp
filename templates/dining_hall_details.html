@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }} - Details</title>
+</head>
+<body>
+    <h1>{{ name }}</h1>
+    <img src="{{ details.image_url }}" alt="{{ name }}">
+    <p>Seating Capacity: {{ details.seating_capacity }}</p>
+    <p>Operating Status: {{ details.operating_status }}</p>
+    <p>Rating: {{ details.rating }}</p>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

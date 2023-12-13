@@ -152,7 +152,6 @@
             flex-grow: 1; /* Ensures that the main content grows to fill available space */
         }
 
-        /* Style for the content boxes */
         .content-box {
             flex-basis: calc(33.333% - 40px); /* Takes one third of the full width minus margins */
             margin: 20px;
@@ -180,13 +179,13 @@
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
             color: white;
             padding: 20px;
-            align-items: flex-start; /* Align the title to the top */
+            align-items: flex-start;
         }
 
         .recommendation-title {
             width: 100%;
             text-align: left;
-            margin-bottom: 20px; /* Space below the title */
+            margin-bottom: 20px;
             font-size: 2rem;
         }
 
@@ -206,10 +205,6 @@
         }
 
 
-
-
-
-        /* Responsive design adjustments */
         @media (max-width: 768px) {
             .content-box {
                 flex-basis: calc(50% - 40px); /* Adjusts to half the width on smaller screens */
@@ -247,7 +242,10 @@
     <div class="main-content">
         {% for name, details in dining_halls.items() %}
         <div class="content-box">
-            <img src="{{ details.image_url }}" alt="{{ name }}" />
+            <!-- Image wrapped in a link -->
+            <a href="{{ url_for('dining_hall_details', hall_name=name) }}">
+                <img src="{{ details.image_url }}" alt="{{ name }}" />
+            </a>
             <div class="info">
                 <h2 class="title">{{ name }}</h2>
                 <p class="seating-capacity">Seating capacity: <span class="seating-{{ details.seating_capacity|lower }}">{{ details.seating_capacity }}</span></p>
@@ -257,6 +255,7 @@
         </div>
         {% endfor %}
     </div>
+    
 
     <div class="recommend-content">
         <h2 class="recommendation-title">Recommendations</h2>
