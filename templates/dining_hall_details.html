@@ -113,11 +113,19 @@
             color: white;
             /* Flexbox item */
         }
+        .home-button {
+            background: #003865; /* Same as header background */
+            color: white;
+            text-decoration: none; /* Remove underline from link */
+            font-weight: 700;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+  
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="website-name">DINING CHOICES</div>
+        <div class="website-name"><a href='/', class="home-button">DINING CHOICES</a></div>
         <div class="search-container">
             <input type="text" id="search-query" placeholder="Search..." />
             <i id="search-icon" class="fas fa-search" onclick="search()"></i>
