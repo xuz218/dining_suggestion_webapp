@@ -1,4 +1,5 @@
 # dining_suggestion_webapp
+AWS CLI to access token: 
 ```
 (base) yizhenzhang@Yizhens-Air templates % aws cognito-idp admin-initiate-auth --region us-east-1 --cli-input-json '{
   "UserPoolId": "us-east-1_ywmk1pL8k",
