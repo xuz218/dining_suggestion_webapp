@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<script type="text/javascript">
+
+    async function search() {
+      var query = document.getElementById('search-query').value;
+      window.location.href = '/search?q=' + encodeURIComponent(query);
+      return;
+    }
+</script>
 <title>Dining Choices</title>
 <style>
     /* Reset margins and padding to ensure consistency across browsers */
