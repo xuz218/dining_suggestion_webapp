@@ -94,6 +94,8 @@ def restDetail(rest_name):
     
     if response.status_code == 200:
         rest_info = response.json()
+        if 'image' not in rest_info or rest_info['image']=="":
+                rest_info['image'] = "https://i.pinimg.com/736x/2c/50/20/2c50208241b85db01cc8b2d7a4dc8b22.jpg"
         return render_template('restaurant.html', rest_info=rest_info)
     else:
         return "Restaurant not found or menu data unavailable", 404
@@ -117,7 +119,7 @@ def search():
         top_five_restaurants = restaurants[:]  # Get the top 5 restaurants
             
         for restaurant in top_five_restaurants:
-            if 'image' not in restaurant:
+            if 'image' not in restaurant or restaurant['image']=="":
                 restaurant['image'] = "https://i.pinimg.com/736x/2c/50/20/2c50208241b85db01cc8b2d7a4dc8b22.jpg"
         
         return render_template('search.html', top_five_restaurants=top_five_restaurants, q=query)

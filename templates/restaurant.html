@@ -81,6 +81,7 @@
             width: 100%;
             justify-content: space-around;
             margin-top: 20px;
+            min-height: 100vh;
         }
         .restaurant-info {
             flex: 1;
@@ -138,7 +139,7 @@
         }
         .menu {
             flex-grow: 1;
-            paddinf: 20px;
+            padding: 20px;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             display: grid;
             grid-gap: 20px;
@@ -244,6 +245,13 @@
                 {% else %}
                 <div>No comments found.</div>
                 {% endfor %}
+
+                <div class="comment-box" style="width: 100%; margin-top: 20px;">
+                    <form action="/post_comment" method="post" style="display: flex; flex-direction: column; align-items: stretch;">
+                        <textarea name="comment" rows="4" style="width: 100%; margin-bottom: 15px;" placeholder="Write your comment here..." required></textarea>
+                        <button type="submit" style="align-self: center; width: auto; padding: 10px 20px;">Post Comment</button>
+                    </form>
+                </div>
             </div>
             
             <!-- Menu Subpage (initially hidden) -->
