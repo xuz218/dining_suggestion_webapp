@@ -55,16 +55,21 @@ user_info = {
 def index():
     return render_template('index.html', dining_halls=dining_halls)
 
-@app.route('/dining-hall/<hall_name>')
+@app.route('/dining-halls/<hall_name>', methods=['GET'])
 def dining_hall_details(hall_name):
     # Replace 'API_ENDPOINT' with the actual API endpoint you are using
     # Assume the API URL structure includes the hall name
-    api_url = f"https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/dining-hall/{hall_name}"
-    response = requests.get(api_url)
+    hall_name = hall_name.replace(" ", "")
+    api_url = f"https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/dining-halls/{hall_name}"
+    headers = {
+        "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
+        'Access-Control-Allow-Origin': '*',
+    }
+    response = requests.get(api_url, headers=headers)
     
     if response.status_code == 200:
         menu_data = response.json()
-        return render_template('dining_hall_details.html', name=hall_name, menu=menu_data)
+        return render_template('dining_hall_details.html', name=hall_name, menus=menu_data)
     else:
         return "Dining hall not found or menu data unavailable", 404
 

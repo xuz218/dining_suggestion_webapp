@@ -101,21 +101,39 @@ apigClientFactory.newClient = function (config) {
     };
     
     
-    apigClient.diningHallsGet = function (params, body, additionalParams) {
+    apigClient.diningHallsHallNameGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
-        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        apiGateway.core.utils.assertParametersDefined(params, ['hall-name'], ['body']);
         
-        var diningHallsGetRequest = {
+        var diningHallsHallNameGetRequest = {
             verb: 'get'.toUpperCase(),
-            path: pathComponent + uritemplate('/dining-halls').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            path: pathComponent + uritemplate('/dining-halls/{hall-name}').expand(apiGateway.core.utils.parseParametersToObject(params, ['hall-name'])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body
         };
         
         
-        return apiGatewayClient.makeRequest(diningHallsGetRequest, authType, additionalParams, config.apiKey);
+        return apiGatewayClient.makeRequest(diningHallsHallNameGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.diningHallsHallNameOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var diningHallsHallNameOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/dining-halls/{hall-name}').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(diningHallsHallNameOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
     
@@ -296,6 +314,42 @@ apigClientFactory.newClient = function (config) {
         
         
         return apiGatewayClient.makeRequest(ratingsAndCommentsPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.recommendsearchGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['q'], ['body']);
+        
+        var recommendsearchGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/recommendsearch').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['q']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(recommendsearchGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.recommendsearchOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var recommendsearchOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/recommendsearch').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(recommendsearchOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
     
