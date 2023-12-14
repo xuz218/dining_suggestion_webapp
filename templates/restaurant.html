@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Restaurant Info and Interaction</title>
     <style>
         body {
             font-family: 'Inter', Arial, sans-serif;
@@ -13,65 +13,196 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-color: #f0f0f0;
         }
         .header, .footer {
             background-color: #003865;
             width: 100%;
             height: 82px;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
         }
         .main-content {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            width: 100%;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .restaurant-info {
+            flex: 1;
+            background: white;
+            box-shadow: 0px 3.4px 3.4px rgba(0, 0, 0, 0.25);
             padding: 20px;
+            border-radius: 16.15px;
+            max-width: 300px; /* Adjusted width for restaurant info */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .interactive-section {
+            flex: 3; /* Takes the remaining space */
+            background: white;
+            padding: 20px;
+            border-radius: 16.15px;
+            box-shadow: 0px 3.4px 3.4px rgba(0, 0, 0, 0.25);
+        }
+        .restaurant-info img {
+            width: 100%;
+            height: auto;
+            border-radius: 16.15px;
+        }
+        .toggle-buttons {
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .toggle-buttons button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            background-color: #003865;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .toggle-buttons button.active {
+            background-color: #005f97;
         }
         .comment-box {
             background: white;
             box-shadow: 0px 3.4px 3.4px rgba(0, 0, 0, 0.25);
-            border: 0.85px rgba(0, 0, 0, 0.20) solid;
+            border: 0.85px solid rgba(0, 0, 0, 0.20);
             padding: 15px;
-            border-radius: 16.15px;
-            max-width: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
         .comment-box img {
-            width: 100px;
-            height: 100px;
-            border-radius: 16.15px;
+            width: 50px; /* Smaller image size for comments and menu items */
+            height: 50px;
+            border-radius: 50%; /* Circular images for comments */
+            margin-right: 10px;
+        }
+        #menu {
+            flex-grow: 1;
+            paddinf: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            display: grid;
+            grid-gap: 20px;
+            align-content: start;
+        }
+        .menu-item {
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            display: flex;
+            flex: 0 1 calc(33.333% - 20px); /* Subtract gap size from width */
+            background: white;
+            box-shadow: 0px 3.4px 3.4px rgba(0, 0, 0, 0.25);
+            border: 0.85px solid rgba(0, 0, 0, 0.20);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .menu-item img {
+            width: 80px; /* Adjusted width for images */
+            height: 80px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .menu-item-description {
+            background: #F6F6F6;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 0.8em; /* Smaller font size for descriptions */
         }
         .comment-text {
             background: #F6F6F6;
-            margin-top: 10px;
             padding: 10px;
             border-radius: 10px;
         }
         .back-link {
             color: white;
-            font-size: 36px;
+            font-size: 24px;
             text-decoration: none;
+        }
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         /* More styles here */
     </style>
 </head>
 <body>
     <div class="header">
-        <a href="/" class="back-link">Back</a>
+        <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back</a>
+        <span>Restaurant Info and Interaction</span>
     </div>
     <div class="main-content">
-        <!-- Dynamically load comments here -->
-        <div class="comment-box">
-            <p>{{ rest_name }}</p>
+        <!-- Restaurant Information Section -->
+        <div class="restaurant-info">
+            <img src="{{ rest_info.image }}" alt="{{ rest_info.name }}">
+            <h2>{{ rest_info.name }}</h2>
+            <p>Rating: {{ rest_info.rating }}</p>
+            <p>Price: $ $</p>
+            <p>Vegetarian friendly: <i class="far fa-check-circle"></i></p>
+            <p>Operating status: open</p>
+            <!-- Toggle Buttons inside the restaurant info bar -->
+            <div class="toggle-buttons">
+                <button id="menu-btn" onclick="showMenu()">Menu</button>
+                <button id="comments-btn" class="active" onclick="showComments()">Comments</button>
+            </div>
         </div>
-        {% for comment in comments %}
-        <div class="comment-box">
-            <img src="{{ comment.user_image }}" alt="User Image">
-            <div class="comment-text">{{ comment.text }}</div>
+        
+        <!-- Interactive Section for Comments and Menu -->
+        <div class="interactive-section">
+            <!-- Comments Subpage -->
+            <div id="comments" class="content-section" style="display: none;">
+                {% for comment in comments %}
+                <div class="comment-box">
+                    <img src="{{ comment.user_image }}" alt="User Image">
+                    <div class="comment-text">{{ comment.text }}</div>
+                </div>
+                {% else %}
+                <div>No comments found.</div>
+                {% endfor %}
+            </div>
+            
+            <!-- Menu Subpage (initially hidden) -->
+            <div id="menu" class="content-section">
+                {% for item in rest_info.menu %}
+                <div class="menu-item">
+                    <img src="{{ item.image_url }}" alt="{{ item.name }}">
+                    <div class="menu-item-description">
+                        <p>{{ item.name }} - {{ item.price }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-        {% else %}
-        <div>No comments found.</div>
-        {% endfor %}
     </div>
-    <div class="footer"></div>
+    <div class="footer">
+        <span>&copy; 2023 Dining Choices. All rights reserved.</span>
+    </div>
+
+    <script>
+        function showComments() {
+            document.getElementById('comments').style.display = 'block';
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('comments-btn').classList.add('active');
+            document.getElementById('menu-btn').classList.remove('active');
+        }
+        function showMenu() {
+            document.getElementById('comments').style.display = 'none';
+            document.getElementById('menu').style.display = 'block';
+            document.getElementById('menu-btn').classList.add('active');
+            document.getElementById('comments-btn').classList.remove('active');
+        }
+    </script>
 </body>
 </html>
+
