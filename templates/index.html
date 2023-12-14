@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Dining Choices</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script type="text/javascript" src="{{ url_for('static', filename='lib/axios/dist/axios.standalone.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='lib/CryptoJS/rollups/hmac-sha256.js') }}"></script>
@@ -25,46 +25,6 @@
         var query = document.getElementById('search-query').value;
         window.location.href = '/search?q=' + encodeURIComponent(query);
         return;
-        const url = new URL(
-            "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/recommendsearch/"
-            );
-        url.searchParams.append("q", query);
-
-        // const Headers = {
-        //       "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
-        //       'Access-Control-Allow-Origin': '*',
-        //     };
-            // Options for the POST request
-            const requestOptions = {
-            method: "GET",
-            // headers: Headers,
-            // redirect: "follow",
-            };
-            let response = await fetch(url, requestOptions);
-            let resultText = await response.text();
-            console.log(resultText);
-
-            let result = JSON.parse(resultText);
-            console.log("result from lambda: ");
-            console.log(result);
-            let rest = null;
-
-        if (result.statusCode === 200) {
-            let restaurants = JSON.parse(result.body).top_five_restaurants;
-            let topThreeRestaurants = restaurants.slice(0, 5); // Get the top 3 restaurants
-            let responseMessage = "Here are the top 3 restaurant matches:\n";
-
-            topThreeRestaurants.forEach((restaurant, index) => {
-                responseMessage += `${index + 1}. Name: ${restaurant.name}, Rating: ${restaurant.rating}, Address: ${restaurant.address}\n`;
-            });
-
-            alert(responseMessage);
-            } else {
-            // If response is not successful
-            alert("Internal Server Error :(");
-            }
-
-        console.log("search res sent!");
     }
     </script>
 
