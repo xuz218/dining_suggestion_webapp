@@ -82,8 +82,21 @@ def profile():
     return render_template('profile.html', user_info = user_info)
 
 @app.route('/restaurant/<rest_name>')
-def restDetail():
-    return render_template('restaurant.html')
+def restDetail(rest_name):
+    # Replace 'API_ENDPOINT' with the actual API endpoint you are using
+    # Assume the API URL structure includes the hall name
+    api_url = f"https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/restaurant/{rest_name}"
+    headers = {
+        "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
+        'Access-Control-Allow-Origin': '*',
+    }
+    response = requests.get(api_url, headers=headers)
+    
+    if response.status_code == 200:
+        rest_info = response.json()
+        return render_template('restaurant.html', rest_info=rest_info)
+    else:
+        return "Restaurant not found or menu data unavailable", 404
 
 @app.route('/search', methods=['GET'])
 def search():
@@ -101,13 +114,13 @@ def search():
     if response.status_code == 200:
         tmp = response.json()
         restaurants = json.loads(tmp['body'])['top_five_restaurants']
-        top_five_restaurants = restaurants[:5]  # Get the top 5 restaurants
+        top_five_restaurants = restaurants[:]  # Get the top 5 restaurants
             
         for restaurant in top_five_restaurants:
             if 'image' not in restaurant:
                 restaurant['image'] = "https://i.pinimg.com/736x/2c/50/20/2c50208241b85db01cc8b2d7a4dc8b22.jpg"
         
-        return render_template('search.html', top_five_restaurants=top_five_restaurants)
+        return render_template('search.html', top_five_restaurants=top_five_restaurants, q=query)
     else:
         # If response is not successful
         return "Internal Server Error", 500

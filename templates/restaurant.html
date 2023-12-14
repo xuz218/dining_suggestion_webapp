@@ -56,10 +56,13 @@
 </head>
 <body>
     <div class="header">
-        <a href="index.html" class="back-link">Back</a>
+        <a href="/" class="back-link">Back</a>
     </div>
     <div class="main-content">
         <!-- Dynamically load comments here -->
+        <div class="comment-box">
+            <p>{{ rest_name }}</p>
+        </div>
         {% for comment in comments %}
         <div class="comment-box">
             <img src="{{ comment.user_image }}" alt="User Image">
