@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <script type="text/javascript">
 
     async function search() {
@@ -67,7 +68,7 @@
         background: white;
         border-radius: 13px;
         padding: 0 10px;
-        margin-right: 35%; /* Adjust as needed */
+        margin-right: 8%; /* Adjust as needed */
         width: 30%;
     }
 
@@ -187,6 +188,17 @@
         color: #FFD700; /* Gold color for the hover effect */
     }
 
+    .profile-icon {
+        cursor: pointer;
+        color: white; /* Or any color that fits your design */
+        padding: 0 15px; /* Add some padding if needed */
+    }
+
+
+    .profile-icon i {
+        font-size: 2rem; /* Size of the icon */
+    }
+
     @media (max-width: 768px) {
         .sidebar {
             width: 100%; /* Full width for smaller screens */
@@ -214,6 +226,9 @@
         <div class="search-container">
             <input type="text" id="search-query" placeholder="Search..." />
             <i id="search-icon" class="fas fa-search" onclick="search()"></i>
+        </div>
+        <div class="profile-icon" onclick="location.href='/profile';">
+            <i class="fas fa-user-circle fa-2x" onclick="window.location.href='{{ url_for('profile') }}'"></i>
         </div>
     </div>
 
