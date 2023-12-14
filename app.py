@@ -81,9 +81,9 @@ def login():
 def profile():
     return render_template('profile.html', user_info = user_info)
 
-@app.route('/rating')
-def rating():
-    return render_template('rating.html')
+@app.route('/restaurant/<rest_name>')
+def restDetail():
+    return render_template('restaurant.html')
 
 @app.route('/search', methods=['GET'])
 def search():

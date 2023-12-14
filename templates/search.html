@@ -119,14 +119,14 @@
         box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
         text-align: center;
-        display: flex;
         flex-direction: column;
         height: 400px;
+        position: relative;
     }
     
     .card img {
         width: 100%; /* Ensures image takes full width of the card */
-        height: 80%; /* Keeps image aspect ratio intact */
+        height: 65%; /* Keeps image aspect ratio intact */
         border-radius: 10px;
         object-fit: cover;
         margin-bottom: 10px; /* Space between image and text below it */
@@ -153,6 +153,28 @@
         text-decoration: none; /* Remove underline from link */
         font-weight: 700;
         transition: background-color 0.3s, transform 0.3s;
+    }
+    .rest-name {
+        font-weight: bold;
+    }
+    .card-header {
+        display: flex;
+        justify-content: space-between; /* Space out the name and the favorite icon */
+        align-items: center;
+        margin-bottom: 10px; /* Space below the header */
+    }
+    
+    .favorite-icon {
+        position: absolute; /* Position the icon absolutely within the card */
+        bottom: 10px; /* Distance from the bottom of the card */
+        right: 10px; /* Distance from the right of the card */
+        font-size: 24px; /* Size of the icon */
+        color: #FFD700; /* Gold color to stand out */
+        cursor: pointer;
+    }
+    
+    .favorite-icon:hover {
+        color: #FFD700; /* Gold color for the hover effect */
     }
 
     @media (max-width: 768px) {
@@ -216,10 +238,13 @@
             {% for restaurant in top_five_restaurants %}
             <!-- Main content (e.g., restaurant cards) -->
             <div class="card">
-                <img src="{{ restaurant.image }}" alt="{{ restaurant.name }}" />
-                <p>{{ restaurant.name }}</p>
-                <p>{{ restaurant.rating }}</p>
-                <p>{{ restaurant.address }}</p>
+                    <a href="{{ url_for('restDetail', rest_name=restaurant.name)  }}">
+                        <img src="{{ restaurant.image }}" alt="{{ restaurant.name }}" />
+                    </a>
+                    <i class="far fa-star favorite-icon" onclick="toggleFavorite(this)"></i>
+                    <p class="rest-name">{{ restaurant.name }}</p>
+                    <p>Rating: {{ restaurant.rating }}</p>
+                    <p>{{ restaurant.address }}</p>
             </div>
             <!-- More cards -->
             {% endfor %}
@@ -237,5 +262,12 @@
         // This function will be called whenever a different sorting option is selected.
         console.log('Selected sort option:', this.sort-option.value);
     });
+</script>
+<script>
+    function toggleFavorite(element) {
+        // Toggle the class or send a request to the server to update the favorite status
+        element.classList.toggle('far'); // 'far' is the regular icon, 'fas' is solid
+        element.classList.toggle('fas');
+    }
 </script>
 </html>
