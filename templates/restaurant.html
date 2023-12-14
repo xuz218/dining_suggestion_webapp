@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Info and Interaction</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
         body {
             font-family: 'Inter', Arial, sans-serif;
             margin: 0;
@@ -15,17 +21,61 @@
             align-items: center;
             background-color: #f0f0f0;
         }
-        .header, .footer {
-            background-color: #003865;
-            width: 100%;
-            height: 82px;
+        .header {
+            background: #003865;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            padding: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
-            color: white;
+            min-height: 30px;
+            width:100%;
         }
+    
+        .website-name {
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+    
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 13px;
+            padding: 0 10px;
+            margin-right: 8%; /* Adjust as needed */
+            width: 30%;
+        }
+    
+        #search-query {
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 13px 0 0 13px;
+            flex-grow: 1;
+        }
+    
+        #search-icon {
+            cursor: pointer;
+            color: #003865;
+            padding: 10px;
+            border-radius: 0 13px 13px 0;
+            margin-left: -10px;
+        }
+
+        .profile-icon {
+            cursor: pointer;
+            color: white; /* Or any color that fits your design */
+            padding: 0 15px; /* Add some padding if needed */
+        }
+    
+    
+        .profile-icon i {
+            font-size: 2rem; /* Size of the icon */
+        }
+
         .main-content {
             display: flex;
             width: 100%;
@@ -119,6 +169,24 @@
             border-radius: 10px;
             font-size: 0.8em; /* Smaller font size for descriptions */
         }
+
+        .footer {
+            background: #003865;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            flex-shrink: 0;
+            width: 100%;
+            min-height: 30px;
+        }
+        .home-button {
+            background: #003865; /* Same as header background */
+            color: white;
+            text-decoration: none; /* Remove underline from link */
+            font-weight: 700;
+            transition: background-color 0.3s, transform 0.3s;
+        }
         .comment-text {
             background: #F6F6F6;
             padding: 10px;
@@ -139,8 +207,14 @@
 </head>
 <body>
     <div class="header">
-        <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back</a>
-        <span>Restaurant Info and Interaction</span>
+        <div class="website-name"><a href='/', class="home-button">DINING CHOICES</a></div>
+        <div class="search-container">
+            <input type="text" id="search-query" placeholder="Search..." />
+            <i id="search-icon" class="fas fa-search" onclick="search()"></i>
+        </div>
+        <div class="profile-icon" onclick="location.href='/profile';">
+            <i class="fas fa-user-circle fa-2x" onclick="window.location.href='{{ url_for('profile') }}'"></i>
+        </div>
     </div>
     <div class="main-content">
         <!-- Restaurant Information Section -->
@@ -186,7 +260,7 @@
         </div>
     </div>
     <div class="footer">
-        <span>&copy; 2023 Dining Choices. All rights reserved.</span>
+        <p>&copy; 2023 Dining Choices. All rights reserved.</p>
     </div>
 
     <script>
