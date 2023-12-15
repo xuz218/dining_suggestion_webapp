@@ -128,28 +128,22 @@
     </div>
     <div id="content">
     <div class="menu-container">
-        {% for menu in menus %}
+        {% for menu in menus.values() %}
             <div class="menu-item">
-                <div class="menu-title">{{ menu.title }}</div>
-                {% for field in menu.date_range_fields %}
-                    <div class="date-range">Date From: {{ field.date_from }} - Date To: {{ field.date_to }}</div>
-                    {% for station in field.stations %}
-                        <div class="station">
-                            <div class="station-title">Station: {{ station.station }}</div>
-                            {% for meal in station.meals_paragraph %}
-                                <div class="meal">
-                                    <div class="meal-title">{{ meal.title }}</div>
-                                    {% if meal.allergens %}
-                                        <div class="allergens">Allergens: {{ meal.allergens|join(', ') }}</div>
-                                    {% endif %}
-                                    {% if meal.prefs %}
-                                        <div class="prefs">Preferences: {{ meal.prefs|join(', ') }}</div>
-                                    {% endif %}
-                                </div>
-                            {% endfor %}
+                <div class="station">
+                    <div class="station-title">Station: {{ menu.station }}</div>
+                    {% for meal in menu.meals %}
+                        <div class="meal">
+                            <div class="meal-title">{{ meal.title }}</div>
+                            {% if meal.allergens %}
+                                <div class="allergens">Allergens: {{ meal.allergens|join(', ') }}</div>
+                            {% endif %}
+                            {% if meal.prefs %}
+                                <div class="prefs">Preferences: {{ meal.prefs|join(', ') }}</div>
+                            {% endif %}
                         </div>
                     {% endfor %}
-                {% endfor %}
+                </div>
             </div>
         {% endfor %}
     </div>

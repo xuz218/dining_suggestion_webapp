@@ -66,10 +66,31 @@ def dining_hall_details(hall_name):
         'Access-Control-Allow-Origin': '*',
     }
     response = requests.get(api_url, headers=headers)
-    
+                
     if response.status_code == 200:
         menu_data = response.json()
-        return render_template('dining_hall_details.html', name=hall_name, menus=menu_data)
+        new_stations = {}
+        for menu in menu_data:
+            for date_range_field in menu['date_range_fields']:
+                for station in date_range_field['stations']:
+                    station_id = station['station'][0]
+                    if station_id not in new_stations:
+                        new_stations[station_id] = {
+                            'station': station_id,
+                            'meals': []
+                        }
+                    new_stations[station_id]['meals'].extend(station['meals_paragraph'])
+
+        for station_data in new_stations.values():
+            unique_meals = []
+            seen_titles = set()
+            for meal in station_data['meals']:
+                if meal['title'] not in seen_titles:
+                    unique_meals.append(meal)
+                    seen_titles.add(meal['title'])
+            station_data['meals'] = unique_meals
+        
+        return render_template('dining_hall_details.html', name=hall_name, menus=new_stations)
     else:
         return "Dining hall not found or menu data unavailable", 404
 
