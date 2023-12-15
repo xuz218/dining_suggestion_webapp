@@ -166,6 +166,20 @@
             padding-bottom: 1rem;
         }
 
+        .status-operating {
+            color: rgb(73, 120, 73);
+        }
+
+        .status-closed {
+            color: red;
+        }
+
+        .status-label {
+            color: white;
+        }
+
+
+
 
         @media (max-width: 768px) {
             .content-box {
@@ -204,21 +218,27 @@
     </div>
 
     <div class="main-content">
-        {% for name, details in dining_halls.items() %}
+        {% for details in dining_halls %}
         <div class="content-box">
             <!-- Image wrapped in a link -->
-            <a href="{{ url_for('dining_hall_details', hall_name=name) }}">
-                <img src="{{ details.image_url }}" alt="{{ name }}" />
+            <a href="{{ url_for('dining_hall_details', hall_name=details.name) }}">
+                <img src="{{ details.image_url }}" alt="{{ details.name }}" />
             </a>
             <div class="info">
-                <h2 class="title">{{ name }}</h2>
+                <h2 class="title">{{ details.name }}</h2>
                 <p class="seating-capacity">Seating capacity: <span class="seating-{{ details.seating_capacity|lower }}">{{ details.seating_capacity }}</span></p>
-                <p class="operating-status">Operating status: {{ details.operating_status }}</p>
-                <p>Rating: {{ details.rating }}</p>
+                <p class="operating-status status-label">
+                    Operating status:
+                    <span class="{{ 'status-operating' if details.operating_status == 'Operating now' else 'status-closed' }}">
+                        {{ details.operating_status }}
+                    </span>
+                </p>
             </div>
         </div>
         {% endfor %}
     </div>
+    
+    
     
 
     <div class="recommend-content">
