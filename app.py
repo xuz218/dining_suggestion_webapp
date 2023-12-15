@@ -4,9 +4,9 @@ import os
 import boto3
 import json
 import requests
-# from boto3.dynamodb.conditions import Key, Attr
+from datetime import datetime
+import pytz
 
-# app = Flask(__name__, static_folder='front-end')
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask(__name__)
 app.secret_key = "secretkey"
@@ -24,26 +24,11 @@ def save_user_to_dynamodb(user_data):
         print(f"Error saving user: {str(e)}")
         return None
 
-dining_halls = {
-    'John Jay Dining Hall': {
-        'image_url': 'https://magazine.columbia.edu/sites/default/files/styles/wysiwyg_full_width_image/public/2018-11/Campus-dining.jpg?itok=JjmPPX_6',
-        'seating_capacity': 'Red',
-        'operating_status': 'Operating',
-        'rating': '4.6'
-    },
-    'JJs Place': {
-        'image_url': 'https://arc-anglerfish-arc2-prod-spectator.s3.amazonaws.com/public/QSLKMLFR4FANXD7KRYYI5J2BBM',
-        'seating_capacity': 'Green',
-        'operating_status': 'Closed',
-        'rating': '4.2'
-    },
-    'Ferris Booth Commons': {
-        'image_url': 'https://bwog.com/wp-content/uploads/2018/03/dining-97_web_0.jpg',
-        'seating_capacity': 'Yellow',
-        'operating_status': 'Operating',
-        'rating': '4.8'
-    }
-}
+dining_halls = [
+    {'name': 'John Jay Dining Hall', 'seating_capacity': None, 'operating_status': None, 'image_url': 'https://magazine.columbia.edu/sites/default/files/styles/wysiwyg_full_width_image/public/2018-11/Campus-dining.jpg?itok=JjmPPX_6'},
+    {'name': 'JJs Place', 'seating_capacity': None, 'operating_status': None, 'image_url': 'https://arc-anglerfish-arc2-prod-spectator.s3.amazonaws.com/public/QSLKMLFR4FANXD7KRYYI5J2BBM'},
+    {'name': 'Ferris Booth Commons', 'seating_capacity': None, 'operating_status': None, 'image_url': 'https://bwog.com/wp-content/uploads/2018/03/dining-97_web_0.jpg'},
+]
 
 user_info = {
     'name': 'abc',
@@ -53,12 +38,70 @@ user_info = {
 
 @app.route('/')
 def index():
+    urls = ["https://dining.columbia.edu/cu_dining/rest/occuspace_locations/840", "https://dining.columbia.edu/cu_dining/rest/occuspace_locations/839", 
+            "https://dining.columbia.edu/cu_dining/rest/occuspace_locations/835"]
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.63 Safari/537.36'}
+
+    john_jay_hours = {
+        1: [('09:30', '21:00')],
+        2: [('09:30', '21:00')],
+        3: [('09:30', '21:00')],
+        4: [('09:30', '21:00')],
+        6: [('09:30', '21:00')]
+    }
+
+    jjs_place_hours = {
+        0: [('12:00', '24:00'), ('00:00', '10:00')],
+        1: [('12:00', '24:00'), ('00:00', '10:00')],
+        2: [('12:00', '24:00'), ('00:00', '10:00')],
+        3: [('12:00', '24:00'), ('00:00', '10:00')],
+        4: [('12:00', '24:00'), ('00:00', '10:00')],
+        5: [('12:00', '24:00'), ('00:00', '10:00')],
+        6: [('12:00', '24:00'), ('00:00', '10:00')],
+    }
+
+    ferris_booth_hours = {
+        0: [('10:00', '14:00'), ('16:00', '20:00')],
+        1: [('07:30', '20:00')],
+        2: [('07:30', '20:00')],
+        3: [('07:30', '20:00')],
+        4: [('07:30', '20:00')],
+        5: [('07:30', '20:00')],
+        6: [('09:00', '20:00')],
+    }
+
+    def is_operating_now(operating_hours, current_day, current_time):
+        today_hours = operating_hours.get(current_day, [])
+        for start, end in today_hours:
+            if start <= current_time <= end:
+                return True
+        return False
+
+    new_york_tz = pytz.timezone('America/New_York')
+    current_time_new_york = datetime.now(new_york_tz)
+
+    current_day = current_time_new_york.weekday()
+    current_time_str = current_time_new_york.strftime('%H:%M')
+
+    john_jay_status = "Operating now" if is_operating_now(john_jay_hours, current_day, current_time_str) else "Closed"
+    jjs_place_status = "Operating now" if is_operating_now(jjs_place_hours, current_day, current_time_str) else "Closed"
+    ferris_booth_status = "Operating now" if is_operating_now(ferris_booth_hours, current_day, current_time_str) else "Closed"
+    temp = [john_jay_status, jjs_place_status, ferris_booth_status]
+    
+    for i in range(len(urls)):
+        response = requests.get(urls[i], headers=headers).json()
+        # print(response)
+        if 'percentage' in response['data']:
+            dining_halls[i]['seating_capacity'] = response['data']['percentage']
+        else:
+            dining_halls[i]['seating_capacity'] = 'N/A'
+
+        dining_halls[i]['operating_status'] = temp[i]
+
     return render_template('index.html', dining_halls=dining_halls)
 
 @app.route('/dining-halls/<hall_name>', methods=['GET'])
 def dining_hall_details(hall_name):
-    # Replace 'API_ENDPOINT' with the actual API endpoint you are using
-    # Assume the API URL structure includes the hall name
     hall_name = hall_name.replace(" ", "")
     api_url = f"https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/dining-halls/{hall_name}"
     headers = {
@@ -98,7 +141,7 @@ def dining_hall_details(hall_name):
 def login():
     return render_template('login.html')
 
-@app.route('/profile')
+@app.route('/profile/<username>')
 def profile():
     return render_template('profile.html', user_info = user_info)
 
