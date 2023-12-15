@@ -141,7 +141,7 @@ def dining_hall_details(hall_name):
 def login():
     return render_template('login.html')
 
-@app.route('/profile/<username>')
+@app.route('/profile')
 def profile():
     return render_template('profile.html', user_info = user_info)
 
