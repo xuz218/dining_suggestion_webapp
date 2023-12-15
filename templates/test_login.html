@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <!-- Include AWS Amplify -->
+<script src="https://cdn.jsdelivr.net/npm/aws-amplify@latest/dist/aws-amplify.min.js"></script>
+    <script>
+        window.addEventListener('load', (event) => {
+        // document.addEventListener('DOMContentLoaded', (event) => {
+            // Configure Amplify once the DOM is fully loaded
+            window.Amplify.configure({
+                Auth: {
+                    // REQUIRED - Amazon Cognito Region
+                    region: 'us-east-1',
+
+                    // OPTIONAL - Amazon Cognito User Pool ID
+                    userPoolId: 'us-east-1_ywmk1pL8k',
+
+                    // OPTIONAL - Amazon Cognito Web Client ID
+                    userPoolWebClientId: '3pekj1bburnl4aunf0e5oi9m5h',
+                }
+            });
+
+            // Define the user authentication functions
+            window.registerUser = function() {
+                var email = document.getElementById('registerEmail').value;
+                var password = document.getElementById('registerPassword').value;
+
+                window.Amplify.Auth.signUp({
+                    username: email,
+                    password: password,
+                    attributes: {
+                        email: email
+                    }
+                })
+                .then(data => console.log(data))
+                .catch(err => console.error(err));
+            };
+
+            window.confirmRegistration = function() {
+                var email = document.getElementById('registerEmail').value;
+                var code = document.getElementById('confirmationCode').value;
+
+                window.Amplify.Auth.confirmSignUp(email, code)
+                    .then(data => console.log(data))
+                    .catch(err => console.error(err));
+            };
+
+            window.loginUser = function() {
+                var email = document.getElementById('loginEmail').value;
+                var password = document.getElementById('loginPassword').value;
+
+                window.Amplify.Auth.signIn(email, password)
+                    .then(user => console.log(user))
+                    .catch(err => console.error(err));
+            };
+        });
+    </script>
+
+    <style>
+        /* Add your styling here */
+    </style>
+</head>
+<body>
+    <!-- Registration Form -->
+    <div>
+        <input type="text" id="registerEmail" placeholder="Email">
+        <input type="password" id="registerPassword" placeholder="Password">
+        <button onclick="registerUser()">Register</button>
+    </div>
+
+    <!-- Confirmation Form -->
+    <div>
+        <input type="text" id="confirmationCode" placeholder="Confirmation Code">
+        <button onclick="confirmRegistration()">Confirm</button>
+    </div>
+
+    <!-- Login Form -->
+    <div>
+        <input type="text" id="loginEmail" placeholder="Email">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button onclick="loginUser()">Login</button>
+    </div>
+
+    
+</body>
+</html>

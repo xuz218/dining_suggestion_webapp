@@ -3,48 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      type="text/javascript"
-      src="lib/axios/dist/axios.standalone.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/CryptoJS/rollups/hmac-sha256.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/CryptoJS/rollups/sha256.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/CryptoJS/components/hmac.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/CryptoJS/components/enc-base64.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/url-template/url-template.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/apiGatewayCore/sigV4Client.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/apiGatewayCore/apiGatewayClient.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/apiGatewayCore/simpleHttpClient.js"
-    ></script>
-    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
-    <script type="text/javascript" src="apigClient.js"></script>
-    <script>
-      var apigClient = apigClientFactory.newClient({});
-    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script/aws-sdk-2.487.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script/aws-cognito-sdk.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script/amazon-cognito-identity.min.js') }}"></script>
     <script type="text/javascript">
+          //=============== AWS IDs ===============
+        var userPoolId = 'us-east-1_ywmk1pL8k';
+        var clientId = '3pekj1bburnl4aunf0e5oi9m5h';
+        var region = 'us-east-1';
+        var identityPoolId = 'us-east-1:af8e4138-a301-4f8d-b50f-c9472a53215c';
+        //=============== AWS IDs ===============
+
+        var cognitoUser;
+        var idToken;
+        var userPool;
+        
+        var poolData = { 
+            UserPoolId : userPoolId,
+            ClientId : clientId
+        };
       document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("login").addEventListener("click", function () {
           console.log("login in-progress!");
@@ -59,47 +37,49 @@
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
 
-        // Construct the URL with query parameters for username and password
-        const url = new URL(
-          "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/login/"
-        );
-        url.searchParams.append("Username", username);
-        url.searchParams.append("Password", password);
+      
 
-        // Headers
-        const Headers = {
-          "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
-        };
+                var authenticationData = {
+                    Username : username,
+                    Password : password,
+                };
+                var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
 
-        // Options for the POST request
-        const requestOptions = {
-          method: "POST",
-          headers: Headers,
-          redirect: "follow",
-        };
+                userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
-        // Make the fetch request and handle the response
-        try {
-          let response = await fetch(url, requestOptions);
-          let resultText = await response.text();
-          console.log(resultText);
+                var userData = {
+                    Username : username,
+                    Pool : userPool
+                };
+                cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+                console.log("Created cognitoUser instance");
 
-          let result = JSON.parse(resultText);
+                $("#loader").show();
+                cognitoUser.authenticateUser(authenticationDetails, {
+                    onSuccess: function (result) {
+                        console.log('Logged in!');
+                        console.log("After Logged In");
 
-          if (result.statusCode === 200) {
-            // If login is successful, redirect to profile.html
-            return redirect('/profile')
-          } else {
-            // If login fails, display an error message
-            alert(
-              "User authentication failed. Please check your username and password."
-            );
-          }
-        } catch (error) {
-          console.log("error", error);
-        }
+                        idToken = result.getIdToken().getJwtToken();
+                        console.log("idToken:");
+                        console.log(idToken);
+                        console.log("After getCognitoIdentityCredentials");
+                        window.location.href = '/profile';
 
-        console.log("Login request sent");
+                    },
+
+                    onFailure: function(err) {
+                        console.log("Failure.");
+
+
+                        console.log(err.message);
+                        $("#loader").hide();
+                    },
+
+                });
+            
+            console.log("finished Login");
+        
       }
     </script>
     <title>Login Page</title>
