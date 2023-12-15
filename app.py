@@ -141,7 +141,7 @@ def dining_hall_details(hall_name):
 def login():
     return render_template('login.html')
 
-@app.route('/profile/<username>')
+@app.route('/profile')
 def profile():
     return render_template('profile.html', user_info = user_info)
 
@@ -167,19 +167,22 @@ def restDetail(rest_name):
 @app.route('/search', methods=['GET'])
 def search():
     query = request.args.get('q', '')  # Get the search query from URL parameters
+    sort = request.args.get('sort', 'No sort')
     url = "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/recommendsearch/"
     headers = {
         "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
         'Access-Control-Allow-Origin': '*',
     }
     params = {
-        "q": query
+        "q": query,
+        "sort": sort,
     }
+    
     response = requests.get(url, headers=headers, params=params)
     
     if response.status_code == 200:
         tmp = response.json()
-        restaurants = json.loads(tmp['body'])['top_five_restaurants']
+        restaurants = tmp['top_five_restaurants']
         top_five_restaurants = restaurants[:]  # Get the top 5 restaurants
             
         for restaurant in top_five_restaurants:

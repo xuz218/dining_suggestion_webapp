@@ -282,10 +282,51 @@
     </div>
 </body>
 <script>
-    document.getElementById('sorting-form').addEventListener('change', function() {
-        // Add your logic to handle sorting here.
-        // This function will be called whenever a different sorting option is selected.
-        console.log('Selected sort option:', this.sort-option.value);
+    document.getElementById('sorting-form').addEventListener('change', function(event) {
+        // Get the current URL
+        var currentUrl = new URL(window.location);
+
+        // Get the value of the selected radio button from the event target
+        var sortValue = event.target.value;
+
+        // Set or update the 'sort' query parameter with the selected sort option
+        currentUrl.searchParams.set('sort', sortValue);
+
+        // Navigate to the updated URL
+        window.location.href = currentUrl.toString();
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to get the value of a query parameter by name
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Get the current 'sort' query parameter value
+        const currentSort = getQueryParam('sort');
+        
+        // If there's a 'sort' parameter, find the corresponding radio button and check it
+        if (currentSort) {
+            const sortOption = document.querySelector(`input[name="sort-option"][value="${currentSort}"]`);
+            if (sortOption) {
+                sortOption.checked = true;
+            }
+        }
+    });
+
+    // Listener for changes on the sorting form
+    document.getElementById('sorting-form').addEventListener('change', function(event) {
+        // Get the current URL
+        var currentUrl = new URL(window.location);
+        
+        // Get the value of the selected radio button
+        var sortValue = event.target.value;
+        
+        // Set or update the 'sort' query parameter
+        currentUrl.searchParams.set('sort', sortValue);
+        
+        // Navigate to the updated URL
+        window.location.href = currentUrl.toString();
     });
 </script>
 <script>
