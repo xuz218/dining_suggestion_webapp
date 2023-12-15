@@ -147,8 +147,6 @@ def profile():
 
 @app.route('/restaurant/<rest_name>')
 def restDetail(rest_name):
-    # Replace 'API_ENDPOINT' with the actual API endpoint you are using
-    # Assume the API URL structure includes the hall name
     api_url = f"https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/restaurant/{rest_name}"
     headers = {
         "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
