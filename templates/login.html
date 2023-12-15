@@ -8,6 +8,8 @@
     <script type="text/javascript" src="{{ url_for('static', filename='script/aws-cognito-sdk.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='script/amazon-cognito-identity.min.js') }}"></script>
     <script type="text/javascript">
+        var globalVariable = 'Your Value';
+        
           //=============== AWS IDs ===============
         var userPoolId = 'us-east-1_ywmk1pL8k';
         var clientId = '3pekj1bburnl4aunf0e5oi9m5h';
@@ -24,10 +26,11 @@
             ClientId : clientId
         };
       document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("login").addEventListener("click", function () {
-          console.log("login in-progress!");
-          login();
-        });
+   document.getElementById("login").addEventListener("click", function (event) {
+    event.preventDefault();  // Prevent default form submission
+    login();
+});
+
       });
 
       async function login() {
@@ -36,6 +39,8 @@
         // Retrieve username and password from input fields
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
+        globalVariable = username;
+        localStorage.setItem('sharedVariable', globalVariable);
 
       
 
