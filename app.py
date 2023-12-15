@@ -192,6 +192,31 @@ def search():
         # If response is not successful
         return "Internal Server Error", 500
 
+
+@app.route('/fetchDB', methods=['GET'])
+def fetchDB():
+    query = request.args.get('q', '')  # Get the search query from URL parameters
+    sort = request.args.get('sort', 'No sort')
+    url = "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/fetchuserdb/"
+    headers = {
+        "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
+        'Access-Control-Allow-Origin': '*',
+    }
+    params = {
+        "q": query,
+    }
+    
+    response = requests.get(url, headers=headers, params=params)
+    
+    if response.status_code == 200:
+        tmp = response.json()
+        response = tmp['top_five_restaurants']
+        
+        return render_template('profile.html', resp=response, q=query)
+    else:
+        # If response is not successful
+        return "Internal Server Error", 500
+
 @app.route('/signup')
 def signup():
     return render_template('signup.html')
