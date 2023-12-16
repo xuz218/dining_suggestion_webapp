@@ -165,20 +165,23 @@ def restDetail(rest_name):
 @app.route('/search', methods=['GET'])
 def search():
     query = request.args.get('q', '')  # Get the search query from URL parameters
+    sort = request.args.get('sort', 'No sort')
     url = "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/recommendsearch/"
     headers = {
         "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
         'Access-Control-Allow-Origin': '*',
     }
     params = {
-        "q": query
+        "q": query,
+        "sort": sort,
     }
+    
     response = requests.get(url, headers=headers, params=params)
     
     if response.status_code == 200:
         tmp = response.json()
-        print(tmp)
-        restaurants = json.loads(tmp['body'])['top_five_restaurants']
+        restaurants = tmp['top_five_restaurants']
+
         top_five_restaurants = restaurants[:]  # Get the top 5 restaurants
             
         for restaurant in top_five_restaurants:
@@ -186,6 +189,31 @@ def search():
                 restaurant['image'] = "https://i.pinimg.com/736x/2c/50/20/2c50208241b85db01cc8b2d7a4dc8b22.jpg"
         
         return render_template('search.html', top_five_restaurants=top_five_restaurants, q=query)
+    else:
+        # If response is not successful
+        return "Internal Server Error", 500
+
+
+@app.route('/fetchDB', methods=['GET'])
+def fetchDB():
+    query = request.args.get('q', '')  # Get the search query from URL parameters
+    sort = request.args.get('sort', 'No sort')
+    url = "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/fetchuserdb/"
+    headers = {
+        "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
+        'Access-Control-Allow-Origin': '*',
+    }
+    params = {
+        "q": query,
+    }
+    
+    response = requests.get(url, headers=headers, params=params)
+    
+    if response.status_code == 200:
+        tmp = response.json()
+        response = tmp['top_five_restaurants']
+        
+        return render_template('profile.html', resp=response, q=query)
     else:
         # If response is not successful
         return "Internal Server Error", 500

@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login Page</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script type="text/javascript">
+
+    async function fetchdb() {
+      var query = importedVariable;
+      window.location.href = '/fetchDB?q=' + encodeURIComponent(importedVariable);
+      return;
+    }
+</script>
 <style>
     body, html {
         margin: 0;
@@ -203,13 +211,20 @@
             <div class="card-header">Favorites</div>
             <div class="card-content">
                 <!-- Content goes here -->
+                <p>Database return {{resp}}</p>
             </div>
         </div>
+
+
+
+
+
+
     </div>
     <script>
     var importedVariable = localStorage.getItem('sharedVariable');
-    document.getElementById('userEmailDisplay').textContent = 'User Email: ' + importedVariable;
-</script>
+        document.getElementById('userEmailDisplay').textContent = 'User Email: ' + importedVariable;
+    </script>
 
     <div class="footer">
         <!-- Footer content... -->
