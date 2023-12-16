@@ -3,48 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      type="text/javascript"
-      src="lib/axios/dist/axios.standalone.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/CryptoJS/rollups/hmac-sha256.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/CryptoJS/rollups/sha256.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/CryptoJS/components/hmac.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/CryptoJS/components/enc-base64.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/url-template/url-template.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/apiGatewayCore/sigV4Client.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/apiGatewayCore/apiGatewayClient.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="lib/apiGatewayCore/simpleHttpClient.js"
-    ></script>
-    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
-    <script type="text/javascript" src="apigClient.js"></script>
-    <script>
-      var apigClient = apigClientFactory.newClient({});
-    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script/aws-sdk-2.487.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script/aws-cognito-sdk.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script/amazon-cognito-identity.min.js') }}"></script>
     <script type="text/javascript">
+        //=============== AWS IDs ===============
+        var userPoolId = 'us-east-1_ywmk1pL8k';
+        var clientId = '3pekj1bburnl4aunf0e5oi9m5h';
+        var region = 'us-east-1';
+        var identityPoolId = 'us-east-1:af8e4138-a301-4f8d-b50f-c9472a53215c';
+        //=============== AWS IDs ===============
+
+        var cognitoUser;
+        var idToken;
+        var userPool;
+        
+        var poolData = { 
+            UserPoolId : userPoolId,
+            ClientId : clientId
+        };
+
       document.addEventListener("DOMContentLoaded", function () {
         document
           .getElementById("signup")
@@ -52,66 +31,80 @@
             console.log("signup in-progress!");
             signup();
           });
+
+        document
+          .getElementById("verify")
+          .addEventListener("click", function () {
+            console.log("Verification in-progress!");
+            verify();
+          });
       });
 
-      async function signup() {
-        console.log("signup In-Progress");
 
-        // Retrieve username and password from input fields
-        // Retrieve username and password from input fields
-        var username = document.getElementById("new-username").value;
-        var new_password = document.getElementById("new-password").value;
-        var confirm_password =
-          document.getElementById("confirm-password").value;
+            async function verify() {
+        var verificationCode = document.getElementById("verification_code").value;
 
-        // Check if passwords match
-        if (new_password !== confirm_password) {
-          alert("The passwords do not match. Please type again!");
-          return; // Exit the function and allow user to correct the passwords
-        }
-
-        // Construct the URL with query parameters for username and password
-        const url = new URL(
-          "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/register/"
-        );
-        url.searchParams.append("Username", username);
-        url.searchParams.append("Password", new_password);
-
-        // Headers
-        const Headers = {
-          "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
-        };
-
-        // Options for the POST request
-        const requestOptions = {
-          method: "POST",
-          headers: Headers,
-          redirect: "follow",
-        };
-
-        // Make the fetch request and handle the response
-        try {
-          let response = await fetch(url, requestOptions);
-          let resultText = await response.text();
-          console.log(resultText);
-
-          let result = JSON.parse(resultText);
-
-          if (result.statusCode === 200) {
-            // If login is successful, redirect to profile.html
-            window.location.href = "login.html";
+        cognitoUser.confirmRegistration(verificationCode, true, function (err, result) {
+          if (err) {
+            console.log("Verification failed, error: ");
+            console.log(err.message);
           } else {
-            // If login fails, display an error message
-            alert(
-              " authentication failed. Please check your username and password."
-            );
+            console.log("Verification successful!");
+            console.log(result);
+            // Redirect or perform any action after successful verification
           }
-        } catch (error) {
-          console.log("error", error);
+        });
+      }
+
+
+
+         async function signup(){
+          console.log("signup In-Progress");
+            var username = document.getElementById("new_username").value;
+            var new_password = document.getElementById("new_password").value;
+            var conf_password = document.getElementById("confirm_password").value;
+            var name = document.getElementById("name").value;
+
+            if(new_password != conf_password){
+              console.log("wrong password");
+              return ;
+            }
+            var attributeList = [];
+            
+            var dataEmail = {
+                Name : 'email',
+                Value : username
+            };
+            var dataName = {
+                Name : 'name',
+                Value : name
+            };
+
+            var attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail);
+            var attributeName = new AmazonCognitoIdentity.CognitoUserAttribute(dataName);
+
+            attributeList.push(attributeEmail);
+            attributeList.push(attributeName);
+            userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+
+
+            userPool.signUp(username, new_password, attributeList, null, function(err, result){
+                if (err) {
+                  console.log("failed signup, error: ");
+                    console.log(err.message);
+                }else{
+                    cognitoUser = result.user;
+                    console.log('Registration Successful!');
+                    console.log('Username is: ' + cognitoUser.getUsername());
+                    console.log('Please enter the verification code sent to your Email.');
+                    document.getElementById("verification-container").style.display = "block";
+
+                }
+
+            });
         }
 
-        console.log("Login request sent");
-      }
+
     </script>
     <title>Create Account</title>
     <style>
@@ -214,15 +207,23 @@
     <div class="container">
         <div class="input-container">
             <!-- Username Field -->
+            <input type="text" id="name" class="input-field" placeholder="Name" />
             <input type="text" id="new_username" class="input-field" placeholder="Username" />
             <!-- Password Field -->
+
             <input type="password" id="new_password" class="input-field" placeholder="Password" />
             <!-- Password Field -->
             <input type="password" id="confirm_password" class="input-field" placeholder="Confirm Password" />
             <!-- sign Up Button -->
             <button class="signup-button" id="signup">CREATE</button>
-            <!-- Sign Up Link -->
-            <a href="/login" class="login-link">SIGN UP</a>
+                        <div class="input-container" style="display:none;" id="verification-container">
+              <!-- Verification Code Field -->
+              <input type="text" id="verification_code" class="input-field" placeholder="Verification Code" />
+              <!-- Verify Button -->
+              <button class="signup-button" id="verify">VERIFY</button>
+            </div>
+            <a href="/login" class="login-link">LOG IN</a>
+            
         </div>
     </div>
 
