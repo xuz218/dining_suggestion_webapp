@@ -177,6 +177,7 @@ def search():
     
     if response.status_code == 200:
         tmp = response.json()
+        print(tmp)
         restaurants = json.loads(tmp['body'])['top_five_restaurants']
         top_five_restaurants = restaurants[:]  # Get the top 5 restaurants
             
