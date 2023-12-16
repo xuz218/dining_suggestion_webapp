@@ -94,8 +94,8 @@
         .meal:last-child {
             border-bottom: none;
         }
-        .meal-title {
-            font-weight: bold;
+        .station-title {
+            color: #333;
         }
         .allergens, .prefs {
             font-size: 14px;
@@ -131,7 +131,7 @@
         {% for menu in menus.values() %}
             <div class="menu-item">
                 <div class="station">
-                    <div class="station-title">Station: {{ menu.station }}</div>
+                    <h2 class="station-title">Station: {{ menu.station }}</h2>
                     {% for meal in menu.meals %}
                         <div class="meal">
                             <div class="meal-title">{{ meal.title }}</div>
