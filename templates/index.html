@@ -27,7 +27,15 @@
         localStorage.removeItem('localuserid');
     }
 
-    function goToProfile() {
+
+
+    function search() {
+        var query = document.getElementById('search-query').value;
+        window.location.href = '/search?q=' + encodeURIComponent(query) + '&uid=' + encodeURIComponent(localStorage.getItem('localuserid'));
+    }
+
+
+        function goToProfile() {
         if (localStorage.getItem('localuserid')== null) {
             alert('You should log in first!');
             return ;
@@ -36,22 +44,14 @@
     }
 
 
-    function displayUserProfile() {
-        if (localStorage.getItem('localuserid')) {
-            document.getElementById('profile-icon').style.display = 'inline-block';
-        }
-    }
 
-    function search() {
-        var query = document.getElementById('search-query').value;
-        window.location.href = '/search?q=' + encodeURIComponent(query) + '&uid=' + encodeURIComponent(localStorage.getItem('localuserid'));
-    }
 
     // It's a good practice to use event listeners instead of inline event handlers
     document.addEventListener('DOMContentLoaded', function() {
-        displayUserProfile();
-        document.getElementById('search-icon').addEventListener('click', search);
-        document.getElementById('profile-icon').addEventListener('click', goToProfile);
+        document.getElementById('search-icon').addEventListener('click', search);    var profileIcon = document.getElementById('profile-icon');
+    if (profileIcon) {
+        profileIcon.addEventListener('click', goToProfile);
+    }
     });
 </script>
 
@@ -83,13 +83,15 @@
 
 
 
-    .profile-icon {
-        color: white; /* Keep the white color, but you can change it to match your theme */
-        font-size: 2.5rem; /* Slightly larger icon for better visibility */
+      .profile-icon {
         cursor: pointer;
-        margin-right: 1rem; /* Maintain the right margin */
-        display: inline-block; /* Change to inline-block for better positioning */
-        transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+        color: white; /* Or any color that fits your design */
+        padding: 0 15px; /* Add some padding if needed */
+    }
+
+
+    .profile-icon i {
+        font-size: 2rem; /* Size of the icon */
     }
 
         .website-name {
@@ -253,17 +255,13 @@
             <i id="search-icon" class="fas fa-search" onclick="search()"></i>
         </div>
 
-<!-- <div class="user-profile" >
- <i class="fas fa-user-circle fa-2x" onclick="window.location.href='{{ url_for('profile') }}'"></i>
-</div> -->
 
-            <i id="profile-icon" class="fas fa-user-circle fa-2x"></i>
+
+        <div class="profile-icon">
+            <i class="fas fa-user-circle fa-2x" id="profile-icon"></i>
+        </div>
   
 
-
-            <!-- <a href="https://demo1234523.auth.us-east-1.amazoncognito.com/login?client_id=3pekj1bburnl4aunf0e5oi9m5h&response_type=code&scope=email+openid+phone&redirect_uri=http://localhost:5000/profile" class="button">Sign Up/Log In</a> -->
-            <!-- <a href="/login" class="button login">Log in</a> -->
-            <!-- <a href="/login" class="button">Sign Up/Log In</a> -->
         <div>
             {% if session['user_logged_in'] %}
                 <a href="/logout" class="button" onclick="clearLocalStorage()">Logout</a>

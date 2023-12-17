@@ -98,6 +98,18 @@ def index():
             dining_halls[i]['seating_capacity'] = 'N/A'
 
         dining_halls[i]['operating_status'] = temp[i]
+
+    getRecUrl = "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/getRecommend"
+    getRecHeaders = {
+        "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
+        'Access-Control-Allow-Origin': '*',
+    }
+    getRecParams = {
+        "uid": '683d81f8-3eda-4b38-a621-ed5f728fc171'
+    }
+    getRecResponse = requests.get(getRecUrl, headers=getRecHeaders, params=getRecParams)
+    print(getRecResponse.json())
+
     return render_template('index.html', dining_halls=dining_halls, user_logged_in='user_logged_in' in session)
 
     # return render_template('index.html', dining_halls=dining_halls)
@@ -211,6 +223,7 @@ def search():
     
     if response.status_code == 200:
         tmp = response.json()
+        print(tmp)
         restaurants = tmp['resulted_restaurants']
         resulted_restaurants = restaurants[:]  # Get the top 5 restaurants
             

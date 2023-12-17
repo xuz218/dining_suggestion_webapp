@@ -2,16 +2,35 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <script type="text/javascript">
+
+    function goToProfile() {
+        if (localStorage.getItem('localuserid')== null) {
+            alert('You should log in first!');
+            return ;
+        } 
+        window.location.href = '/profile';
+    }
+
+
 
     async function search() {
       var query = document.getElementById('search-query').value;
       window.location.href = '/search?q=' + encodeURIComponent(query) + '&uid=' + encodeURIComponent(localStorage.getItem('localuserid'));
       return;
     }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ... other event listeners ...
+    var profileIcon = document.getElementById('profile-icon');
+    if (profileIcon) {
+        profileIcon.addEventListener('click', goToProfile);
+    }
+});
+
 </script>
 <title>Dining Choices</title>
 <style>
@@ -227,9 +246,9 @@
             <input type="text" id="search-query" placeholder="Search..." />
             <i id="search-icon" class="fas fa-search" onclick="search()"></i>
         </div>
-        <div class="profile-icon" onclick="location.href='/profile?q=' + localStorage.getItem('localuserid');">
-            <i class="fas fa-user-circle fa-2x" onclick="window.location.href='{{ url_for('profile') }}'"></i>
-        </div>
+         <div class="profile-icon">
+        <i class="fas fa-user-circle fa-2x" id="profile-icon"></i>
+    </div>
     </div>
 
     <div class="container" style="display: flex;">
@@ -334,7 +353,7 @@
     });
 </script>
 <script>
-    function toggleFavorite(element, rest_name) {
+    async function toggleFavorite(element, rest_name) {
         let isFavorite = element.classList.contains('fas');
         // Toggle the class or send a request to the server to update the favorite status
         element.classList.toggle('far'); // 'far' is the regular icon, 'fas' is solid
