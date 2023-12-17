@@ -19,14 +19,42 @@
     <script>
         var apigClient = apigClientFactory.newClient({});
     </script>
-    <script type="text/javascript">
 
-      async function search() {
+    <script type="text/javascript">
+    // Ensure that all your functions are defined at the top of the script
+    function clearLocalStorage() {
+        localStorage.removeItem('sharedVariable');
+        localStorage.removeItem('localuserid');
+    }
+
+    function goToProfile() {
+        if (localStorage.getItem('localuserid')== null) {
+            alert('You should log in first!');
+            return ;
+        } 
+        window.location.href = '/profile';
+    }
+
+
+    function displayUserProfile() {
+        if (localStorage.getItem('localuserid')) {
+            document.getElementById('profile-icon').style.display = 'inline-block';
+        }
+    }
+
+    function search() {
         var query = document.getElementById('search-query').value;
         window.location.href = '/search?q=' + encodeURIComponent(query) + '&uid=' + encodeURIComponent(localStorage.getItem('localuserid'));
-        return;
     }
-    </script>
+
+    // It's a good practice to use event listeners instead of inline event handlers
+    document.addEventListener('DOMContentLoaded', function() {
+        displayUserProfile();
+        document.getElementById('search-icon').addEventListener('click', search);
+        document.getElementById('profile-icon').addEventListener('click', goToProfile);
+    });
+</script>
+
 
 
     <!-- Repeat this for all other script tags -->
@@ -52,6 +80,17 @@
             align-items: center;
             min-height: 30px;
         }
+
+
+
+    .profile-icon {
+        color: white; /* Keep the white color, but you can change it to match your theme */
+        font-size: 2.5rem; /* Slightly larger icon for better visibility */
+        cursor: pointer;
+        margin-right: 1rem; /* Maintain the right margin */
+        display: inline-block; /* Change to inline-block for better positioning */
+        transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+    }
 
         .website-name {
             color: white;
@@ -199,6 +238,10 @@
                 width: calc(100% - 20px); /* Adjust width for smaller screens */
             }
         }
+
+
+
+
     </style>
 
 </head>
@@ -209,12 +252,21 @@
             <input type="text" id="search-query" placeholder="Search..." />
             <i id="search-icon" class="fas fa-search" onclick="search()"></i>
         </div>
+
+<!-- <div class="user-profile" >
+ <i class="fas fa-user-circle fa-2x" onclick="window.location.href='{{ url_for('profile') }}'"></i>
+</div> -->
+
+            <i id="profile-icon" class="fas fa-user-circle fa-2x"></i>
+  
+
+
             <!-- <a href="https://demo1234523.auth.us-east-1.amazoncognito.com/login?client_id=3pekj1bburnl4aunf0e5oi9m5h&response_type=code&scope=email+openid+phone&redirect_uri=http://localhost:5000/profile" class="button">Sign Up/Log In</a> -->
             <!-- <a href="/login" class="button login">Log in</a> -->
             <!-- <a href="/login" class="button">Sign Up/Log In</a> -->
         <div>
             {% if session['user_logged_in'] %}
-                <a href="/logout" class="button">Logout</a>
+                <a href="/logout" class="button" onclick="clearLocalStorage()">Logout</a>
                 <!-- We can add a "logged in" logo here -->
             {% else %}
                 <a href="/login" class="button">Sign Up/Log In</a>
