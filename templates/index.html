@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dining Choices</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/axios/dist/axios.standalone.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/CryptoJS/rollups/hmac-sha256.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/CryptoJS/rollups/sha256.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/CryptoJS/components/hmac.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/CryptoJS/components/enc-base64.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/url-template/url-template.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/apiGatewayCore/sigV4Client.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/apiGatewayCore/apiGatewayClient.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/apiGatewayCore/simpleHttpClient.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='lib/apiGatewayCore/utils.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='apigClient.js') }}"></script>
+    <script>
+        var apigClient = apigClientFactory.newClient({});
+    </script>
+
+    <script type="text/javascript">
+    // Ensure that all your functions are defined at the top of the script
+    function clearLocalStorage() {
+        localStorage.removeItem('sharedVariable');
+        localStorage.removeItem('localuserid');
+    }
+
+
+
+    function search() {
+        var query = document.getElementById('search-query').value;
+        window.location.href = '/search?q=' + encodeURIComponent(query) + '&uid=' + encodeURIComponent(localStorage.getItem('localuserid'));
+    }
+
+
+        function goToProfile() {
+        if (localStorage.getItem('localuserid')== null) {
+            alert('You should log in first!');
+            return ;
+        } 
+        window.location.href = '/profile';
+    }
+
+
+
+
+    // It's a good practice to use event listeners instead of inline event handlers
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('search-icon').addEventListener('click', search);    var profileIcon = document.getElementById('profile-icon');
+    if (profileIcon) {
+        profileIcon.addEventListener('click', goToProfile);
+    }
+    });
+</script>
+
+
+
+    <!-- Repeat this for all other script tags -->
+
+    <style>
+        /* Reset margins and padding to ensure consistency across browsers */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+        }
+        .header {
+            background: #003865;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 30px;
+        }
+
+
+
+      .profile-icon {
+        cursor: pointer;
+        color: white; /* Or any color that fits your design */
+        padding: 0 15px; /* Add some padding if needed */
+    }
+
+
+    .profile-icon i {
+        font-size: 2rem; /* Size of the icon */
+    }
+
+        .website-name {
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 13px;
+            padding: 0 10px;
+            margin-left: 20px; /* Adjust as needed */
+            width: 30%;
+        }
+
+        #search-query {
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 13px 0 0 13px;
+            flex-grow: 1;
+        }
+
+        #search-icon {
+            cursor: pointer;
+            color: #003865;
+            padding: 10px;
+            border-radius: 0 13px 13px 0;
+            margin-left: -10px;
+        }
+
+        .button {
+            background: #F14D4D;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 13px;
+            border: 2px solid #928B8B;
+            padding: 0.5rem 1rem;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .button.login {
+            background: white;
+            color: black;
+        }
+
+        /* Flex container for main content */
+        .main-content {
+            display: flex;
+            justify-content: space-around; /* Distributes space evenly around items */
+            flex-wrap: wrap; /* Allows items to wrap to the next line */
+            padding: 20px;
+            flex-grow: 1; /* Ensures that the main content grows to fill available space */
+        }
+
+        .content-box {
+            flex-basis: calc(33.333% - 40px); /* Takes one third of the full width minus margins */
+            margin: 20px;
+            background: #424D72;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .recommend-content {
+            background-color: #424D72;
+            /* margin: 20px 40px; Same as content-box to align horizontally */
+            margin-left: 40px;
+            margin-right: 40px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+            color: white;
+            padding: 20px;
+            align-items: flex-start;
+        }
+
+        .recommendation-title {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .footer {
+            background: #003865;
+            color: white;
+            /* padding: 0 0; */
+            text-align: center;
+        }
+
+        .footer p{
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            /* border-top: 1px solid #ffffff; */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .status-operating {
+            color: rgb(73, 120, 73);
+        }
+
+        .status-closed {
+            color: red;
+        }
+
+        .status-label {
+            color: white;
+        }
+
+
+
+
+        @media (max-width: 768px) {
+            .content-box {
+                flex-basis: calc(50% - 40px); /* Adjusts to half the width on smaller screens */
+            }
+
+            .main-content, .recommend-content {
+                width: calc(100% - 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-box {
+                flex-basis: calc(100% - 40px); /* Full width on very small screens */
+            }
+            .main-content, .recommend-content {
+                width: calc(100% - 20px); /* Adjust width for smaller screens */
+            }
+        }
+
+
+
+
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <div class="website-name">DINING CHOICES</div>
+        <div class="search-container">
+            <input type="text" id="search-query" placeholder="Search..." />
+            <i id="search-icon" class="fas fa-search" onclick="search()"></i>
+        </div>
+
+
+
+        <div class="profile-icon">
+            <i class="fas fa-user-circle fa-2x" id="profile-icon"></i>
+        </div>
+  
+
+        <div>
+            {% if session['user_logged_in'] %}
+                <a href="/logout" class="button" onclick="clearLocalStorage()">Logout</a>
+                <!-- We can add a "logged in" logo here -->
+            {% else %}
+                <a href="/login" class="button">Sign Up/Log In</a>
+            {% endif %}
+        </div>
+
+    </div>
+
+    <div class="main-content">
+        {% for details in dining_halls %}
+        <div class="content-box">
+            <!-- Image wrapped in a link -->
+            <a href="{{ url_for('dining_hall_details', hall_name=details.name) }}">
+                <img src="{{ details.image_url }}" alt="{{ details.name }}" />
+            </a>
+            <div class="info">
+                <h2 class="title">{{ details.name }}</h2>
+                <p class="seating-capacity">Seating capacity: <span class="seating-{{ details.seating_capacity|lower }}">{{ details.seating_capacity }}</span></p>
+                <p class="operating-status status-label">
+                    Operating status:
+                    <span class="{{ 'status-operating' if details.operating_status == 'Operating now' else 'status-closed' }}">
+                        {{ details.operating_status }}
+                    </span>
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    
+    
+
+    <div class="recommend-content">
+        <h2 class="recommendation-title">Recommendations</h2>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2023 Morningside Dining Choices. All rights reserved.</p>
+    </div>
+      
+</body>
+</html>
