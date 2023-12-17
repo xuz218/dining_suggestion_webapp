@@ -12,9 +12,10 @@
                     event.preventDefault(); // Prevent the form from submitting the traditional way
 
                     const commentText = document.getElementById('user-comment').value;
+                    const restaurantName = document.getElementById('rest-name').textContent;
                     const userId = localStorage.getItem('localuserid'); // You'd retrieve this from the session or user context
                     const apiUrl = 'https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/comment/'
-                    
+                    console.log(restaurantName);
                     fetch(apiUrl, {
                         method: 'POST',
                         headers: {
@@ -22,36 +23,50 @@
                         },
                         body: JSON.stringify({
                             'uid': userId,
-                            'comment': commentText
+                            'comment': commentText,
+                            'rest': restaurantName
                         })
                     })
                     .then(response => response.json())
                     .then(data => {
-                        console.log('Comment was successfully posted', response);
+                        console.log('Comment was successfully posted', data);
+                        // Create the outer comment box div
                         const newCommentDiv = document.createElement('div');
                         newCommentDiv.className = 'comment-box';
-
-                        const commentName = document.createElement('div');
-                        commentTextDiv.className = 'comment-text';
-                        commentTextDiv.textContent = commentName; //
-
+                    
+                        // Create the div for the commenter's name
+                        const commentNameDiv = document.createElement('div');
+                        commentNameDiv.className = 'comment-name';
+                        commentNameDiv.innerHTML = "<strong>User:</strong> " + data.email.email; // Assuming 'email' is returned in the data
+                    
                         // Create the comment text div
                         const commentTextDiv = document.createElement('div');
                         commentTextDiv.className = 'comment-text';
-                        commentTextDiv.textContent = commentText; // Using textContent for security reasons
-
-                        // Append the user image and comment text to the comment box
-                        newCommentDiv.appendChild(userImage);
+                        commentTextDiv.textContent = commentText; // The actual comment text
+                    
+                        // Create the div for the timestamp
+                        const commentTimeDiv = document.createElement('div');
+                        commentTimeDiv.className = 'comment-time';
+                        commentTimeDiv.innerHTML = "<strong>Posted on:</strong> " + data.comment_info.timestamp; // Assuming you want to show current time as the post time
+                    
+                        // Append the name, text, and time to the comment box
+                        newCommentDiv.appendChild(commentNameDiv);
                         newCommentDiv.appendChild(commentTextDiv);
-
+                        newCommentDiv.appendChild(commentTimeDiv);
+                    
                         // Add the new comment to the DOM
-                        // Assuming you have a div with ID 'comments-section'
-                        const commentsSection = document.getElementById('comments-section');
-                        commentsSection.appendChild(newCommentDiv);
+                        const commentsSection = document.getElementById('comments');
+                        const lastCommentBox = commentsSection.querySelector('.comment-box:last-of-type');
+                        if (lastCommentBox) {
+                            commentsSection.insertBefore(newCommentDiv, lastCommentBox);
+                        } else {
+                            // If there are no comments yet, just append the new comment
+                            commentsSection.appendChild(newCommentDiv);
+                        }
 
                         // Clear the comment box after submission
                         document.getElementById('user-comment').value = '';
-                    })
+                    })                    
                     .catch((error) => {
                         console.error('Error posting comment:', error);
                     });
