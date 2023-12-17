@@ -93,6 +93,54 @@
         border-radius: 50%;
     }
 
+    .main-content-fav {
+        flex-grow: 1; /* Fills the height of the container */
+        padding: 20px; /* Adds padding around the content */
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusts the card size */
+        grid-gap: 20px; /* Ensures equal gap between cards */
+        align-content: start; /* Aligns grid content to the start of grid container */
+    }
+
+    
+    .card-fav {
+        background: #F7F7F7;
+        padding: 10px;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        text-align: center;
+        flex-direction: column;
+        height: 400px;
+        position: relative;
+    }
+    
+    .card-fav img {
+        width: 100%; /* Ensures image takes full width of the card */
+        height: 65%; /* Keeps image aspect ratio intact */
+        border-radius: 10px;
+        object-fit: cover;
+        margin-bottom: 10px; /* Space between image and text below it */
+    }
+    
+    .card-content-fav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1; /* Ensures content fills the space left by the image */
+    }
+    
+    .card-fav:before {
+        content: '';
+        display: block;
+    }
+
+    .main-content-fav .card-fav:nth-last-of-type(-n+4) {
+        margin-bottom: 0;
+    }
+    .rest-name-fav {
+        font-weight: bold;
+    }
+
     .card {
         background: white;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -149,6 +197,15 @@
         /* padding: 0 0; */
         text-align: center;
     }
+    
+    .favorite-icon {
+        position: absolute; /* Position the icon absolutely within the card */
+        bottom: 10px; /* Distance from the bottom of the card */
+        right: 10px; /* Distance from the right of the card */
+        font-size: 24px; /* Size of the icon */
+        color: #FFD700; /* Gold color to stand out */
+        cursor: pointer;
+    }
 
     .footer p{
         font-size: 0.8rem;
@@ -178,12 +235,6 @@
         <div class="card">
             <div class="card-header">User info</div>
             <div class="card-content">
-     <!--            <div class="userinfo">
-                    {% for name, value in user_info.items() %}
-                    <p>{{ name }}: {{ value }}</p>
-                    {% endfor %}
-                </div> -->
-                <!-- <p id="userEmailDisplay">User Email: Loading...</p> -->
                 <div class="userinfo">
             <p id="userEmailDisplay">User Email: Loading...</p>
             <!-- Other user info elements here -->
@@ -210,7 +261,22 @@
         <div class="card">
             <div class="card-header">Favorites</div>
             <div class="card-content">
-                <!-- Content goes here -->
+
+                <div class="main-content-fav">
+                    {% for restaurant in saved_restaurants %}
+                    <!-- Main content (e.g., restaurant cards) -->
+                    <div class="card-fav">
+                            <a href="{{ url_for('restDetail', rest_name=restaurant.name)  }}">
+                                <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}" />
+                            </a>
+                            <i class="far fa-star favorite-icon" onclick="toggleFavorite(this, {{ restaurant.name }})"></i>
+                            <p class="rest-name-fav">{{ restaurant.name }}</p>
+                            <p>Rating: {{ restaurant.rating }}</p>
+                            <p>{{ restaurant.address }}</p>
+                    </div>
+                    <!-- More cards -->
+                    {% endfor %}
+                </div>
                 <p>Database return {{resp}}</p>
             </div>
         </div>

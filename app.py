@@ -150,7 +150,7 @@ def logout():
 @app.route('/profile', methods=['GET'])
 def profile():
     query = request.args.get('q', '')
-    url = "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/???????????????????????????/"
+    url = "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/profile/"
     headers = {
         "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
         'Access-Control-Allow-Origin': '*',
@@ -161,12 +161,11 @@ def profile():
     
     response = requests.get(url, headers=headers, params=params)
     
+    print(response.json())
+    
     if response.status_code == 200:
         tmp = response.json()
-                
-        # TODO:
-        
-        return render_template('profile.html', top_five_restaurants=resulted_restaurants, q=query)
+        return render_template('profile.html', saved_restaurants=tmp['saved_restaurants'], q=query)
     else:
         # If response is not successful
         return "Internal Server Error", 500
@@ -192,6 +191,7 @@ def restDetail(rest_name):
 def search():
     query = request.args.get('q', '')  # Get the search query from URL parameters
     sort = request.args.get('sort', 'No sort')
+    user_id = request.args.get('uid', '')
     url = "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/recommendsearch/"
     headers = {
         "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
@@ -200,6 +200,7 @@ def search():
     params = {
         "q": query,
         "sort": sort,
+        "uid": user_id
     }
     
     response = requests.get(url, headers=headers, params=params)
