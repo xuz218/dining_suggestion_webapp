@@ -95,13 +95,24 @@
             font-weight: 700;
         }
 
+        .profile-icon {
+            cursor: pointer;
+            color: white; /* Or any color that fits your design */
+            padding: 0 15px; /* Add some padding if needed */
+        }
+    
+    
+        .profile-icon i {
+            font-size: 2rem; /* Size of the icon */
+        }
+
         .search-container {
             display: flex;
             align-items: center;
             background: white;
             border-radius: 13px;
             padding: 0 10px;
-            margin-left: 20px; /* Adjust as needed */
+            margin-left: 80px; /* Adjust as needed */
             width: 30%;
         }
 
@@ -166,6 +177,7 @@
             height: auto;
             border-radius: 10px;
         }
+        
 
         .recommend-content {
             background-color: #424D72;
@@ -246,7 +258,9 @@
             <i id="search-icon" class="fas fa-search" onclick="search()"></i>
         </div>
 
-            <i id="user-profile" class="fas fa-user-circle"></i>
+        <div class="profile-icon" onclick="location.href='/profile?q=' + localStorage.getItem('localuserid');">
+            <i class="fas fa-user-circle fa-2x" onclick="window.location.href='{{ url_for('profile') }}'"></i>
+        </div>
   
 
 

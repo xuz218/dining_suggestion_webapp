@@ -214,7 +214,6 @@ def search():
         print(tmp)
         restaurants = tmp['resulted_restaurants']
         resulted_restaurants = restaurants[:]  # Get the top 5 restaurants
->>>>>>> 6fdb5f60ed39acab0278be6329fa17a4c2b49f8a
             
         for restaurant in resulted_restaurants:
             if 'image_url' not in restaurant or restaurant['image_url']=="":
