@@ -12,27 +12,22 @@
                     event.preventDefault(); // Prevent the form from submitting the traditional way
 
                     const commentText = document.getElementById('user-comment').value;
-                    const restaurantName = document.getElementById('rest-name').value;
                     const userId = localStorage.getItem('localuserid'); // You'd retrieve this from the session or user context
-                    const data = {
-                        userId: userId,
-                        comment: commentText,
-                        restaurant: restaurantName
-                    };
-
-                    console.log(data);
-                    return;
-
-                    fetch('/api/comments', {
-                        method: 'GET',
+                    const apiUrl = 'https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/comment/'
+                    
+                    fetch(apiUrl, {
+                        method: 'POST',
                         headers: {
-                            'Content-Type': 'application/json'
+                            "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R"
                         },
-                        body: JSON.stringify(data)
+                        body: JSON.stringify({
+                            'uid': userId,
+                            'comment': commentText
+                        })
                     })
                     .then(response => response.json())
                     .then(data => {
-                        console.log('Comment was successfully posted', data);
+                        console.log('Comment was successfully posted', response);
                         const newCommentDiv = document.createElement('div');
                         newCommentDiv.className = 'comment-box';
 
