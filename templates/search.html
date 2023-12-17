@@ -9,7 +9,7 @@
 
     async function search() {
       var query = document.getElementById('search-query').value;
-      window.location.href = '/search?q=' + encodeURIComponent(query);
+      window.location.href = '/search?q=' + encodeURIComponent(query) + '&uid=' + encodeURIComponent(localStorage.getItem('localuserid'));
       return;
     }
 </script>
@@ -266,7 +266,7 @@
                     <a href="{{ url_for('restDetail', rest_name=restaurant.name)  }}">
                         <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}" />
                     </a>
-                    <i class="far fa-star favorite-icon" onclick="toggleFavorite(this)"></i>
+                    <i class="far fa-star favorite-icon" onclick="toggleFavorite(this, {{ restaurant.name }})"></i>
                     <p class="rest-name">{{ restaurant.name }}</p>
                     <p>Rating: {{ restaurant.rating }}</p>
                     <p>{{ restaurant.address }}</p>
@@ -330,10 +330,37 @@
     });
 </script>
 <script>
-    function toggleFavorite(element) {
+    function toggleFavorite(element, rest_name) {
+        let isFavorite = element.classList.contains('fas');
         // Toggle the class or send a request to the server to update the favorite status
         element.classList.toggle('far'); // 'far' is the regular icon, 'fas' is solid
         element.classList.toggle('fas');
+        var importedVariable = localStorage.getItem('localuserid');
+        const apiUrl = 'https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/??????????????????/'; // Replace with your API Gateway URL
+    
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST', // or 'PUT', depending on your API configuration
+                headers: {
+                    "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
+                    'Access-Control-Allow-Origin': '*',
+                },
+                params: {
+                    "q": importedVariable,
+                    "res": rest_name,
+                    "status": isFavorite
+                }
+            });
+    
+            if (!response.ok) {
+                throw new Error(`Request failed: ${response.status}`);
+            }
+    
+            const responseData = await response.json();
+            console.log('Success:', responseData);
+        } catch (error) {
+            console.error('Error:', error);
+        }
     }
 </script>
 </html>

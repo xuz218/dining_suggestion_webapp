@@ -23,7 +23,7 @@
 
       async function search() {
         var query = document.getElementById('search-query').value;
-        window.location.href = '/search?q=' + encodeURIComponent(query);
+        window.location.href = '/search?q=' + encodeURIComponent(query) + '&uid=' + encodeURIComponent(localStorage.getItem('localuserid'));
         return;
     }
     </script>
