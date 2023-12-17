@@ -209,10 +209,16 @@
             <input type="text" id="search-query" placeholder="Search..." />
             <i id="search-icon" class="fas fa-search" onclick="search()"></i>
         </div>
-        <div>
             <!-- <a href="https://demo1234523.auth.us-east-1.amazoncognito.com/login?client_id=3pekj1bburnl4aunf0e5oi9m5h&response_type=code&scope=email+openid+phone&redirect_uri=http://localhost:5000/profile" class="button">Sign Up/Log In</a> -->
             <!-- <a href="/login" class="button login">Log in</a> -->
-            <a href="/login" class="button">Sign Up/Log In</a>
+            <!-- <a href="/login" class="button">Sign Up/Log In</a> -->
+        <div>
+            {% if session['user_logged_in'] %}
+                <a href="/logout" class="button">Logout</a>
+                <!-- We can add a "logged in" logo here -->
+            {% else %}
+                <a href="/login" class="button">Sign Up/Log In</a>
+            {% endif %}
         </div>
 
     </div>

@@ -139,7 +139,13 @@ def dining_hall_details(hall_name):
 
 @app.route('/login')
 def login():
+    session['user_logged_in'] = True
     return render_template('login.html')
+    
+@app.route('/logout')
+def logout():
+    session.pop('user_logged_in', None)
+    return redirect(url_for('index'))
 
 @app.route('/profile')
 def profile():
