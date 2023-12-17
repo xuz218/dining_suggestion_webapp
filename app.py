@@ -38,6 +38,7 @@ user_info = {
 
 @app.route('/')
 def index():
+
     urls = ["https://dining.columbia.edu/cu_dining/rest/occuspace_locations/840", "https://dining.columbia.edu/cu_dining/rest/occuspace_locations/839", 
             "https://dining.columbia.edu/cu_dining/rest/occuspace_locations/835"]
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.63 Safari/537.36'}
@@ -97,8 +98,9 @@ def index():
             dining_halls[i]['seating_capacity'] = 'N/A'
 
         dining_halls[i]['operating_status'] = temp[i]
+    return render_template('index.html', dining_halls=dining_halls, user_logged_in='user_logged_in' in session)
 
-    return render_template('index.html', dining_halls=dining_halls)
+    # return render_template('index.html', dining_halls=dining_halls)
 
 @app.route('/dining-halls/<hall_name>', methods=['GET'])
 def dining_hall_details(hall_name):

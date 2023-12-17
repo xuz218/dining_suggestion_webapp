@@ -19,11 +19,69 @@
     <script>
         var apigClient = apigClientFactory.newClient({});
     </script>
+
     <script type="text/javascript">
+    // Ensure that all your functions are defined at the top of the script
     function clearLocalStorage() {
-        localStorage.setItem('sharedVariable', null);
-        localStorage.setItem('localuserid', null);
+        localStorage.removeItem('sharedVariable');
+        localStorage.removeItem('localuserid');
     }
+
+    function goToProfile() {
+        if (localStorage.getItem('localuserid')== null) {
+            alert('You should log in first!');
+            return ;
+        } 
+        window.location.href = '/profile';
+    }
+
+
+    function displayUserProfile() {
+        if (localStorage.getItem('localuserid')) {
+            document.getElementById('user-profile').style.display = 'inline-block';
+        }
+    }
+
+    function search() {
+        var query = document.getElementById('search-query').value;
+        window.location.href = '/search?q=' + encodeURIComponent(query) + '&uid=' + encodeURIComponent(localStorage.getItem('localuserid'));
+    }
+
+    // It's a good practice to use event listeners instead of inline event handlers
+    document.addEventListener('DOMContentLoaded', function() {
+        displayUserProfile();
+        document.getElementById('search-icon').addEventListener('click', search);
+        document.getElementById('user-profile').addEventListener('click', goToProfile);
+    });
+</script>
+
+<!--     <script type="text/javascript">
+        function clearLocalStorage() {
+            localStorage.setItem('sharedVariable', null);
+            localStorage.setItem('localuserid', null);
+        }
+
+
+        // This function is called when the user profile icon is clicked
+        function goToProfile() {
+            // Replace 'userLoggedIn' with the actual condition or method you use to check if the user is logged in
+            if (localStorage.getItem('localuserid')) {
+                window.location.href = '/profile'; // Navigate to the profile page
+            } else {
+                alert('You should log in first!'); // Show an alert
+            }
+        }
+
+        // Function to display the user profile icon if logged in
+        function displayUserProfile() {
+            if (localStorage.getItem('localuserid')) {
+                document.getElementById('user-profile').style.display = 'inline-block';
+            }
+        }
+
+        // Call displayUserProfile on page load
+        window.onload = displayUserProfile;
+
 
 
       async function search() {
@@ -31,7 +89,7 @@
         window.location.href = '/search?q=' + encodeURIComponent(query) + '&uid=' + encodeURIComponent(localStorage.getItem('localuserid'));
         return;
     }
-    </script>
+    </script> -->
 
 
     <!-- Repeat this for all other script tags -->
@@ -56,6 +114,14 @@
             justify-content: space-between;
             align-items: center;
             min-height: 30px;
+        }
+
+        .user-profile {
+            color: white; /* or any color you want */
+            font-size: 2rem; /* Adjust size as needed */
+            cursor: pointer;
+            margin-right: 1rem; /* Space before the sign in button */
+            display: none; /* Start with it not displayed */
         }
 
         .website-name {
@@ -214,6 +280,11 @@
             <input type="text" id="search-query" placeholder="Search..." />
             <i id="search-icon" class="fas fa-search" onclick="search()"></i>
         </div>
+
+            <i id="user-profile" class="fas fa-user-circle"></i>
+  
+
+
             <!-- <a href="https://demo1234523.auth.us-east-1.amazoncognito.com/login?client_id=3pekj1bburnl4aunf0e5oi9m5h&response_type=code&scope=email+openid+phone&redirect_uri=http://localhost:5000/profile" class="button">Sign Up/Log In</a> -->
             <!-- <a href="/login" class="button login">Log in</a> -->
             <!-- <a href="/login" class="button">Sign Up/Log In</a> -->
