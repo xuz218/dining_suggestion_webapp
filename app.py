@@ -161,8 +161,6 @@ def profile():
     
     response = requests.get(url, headers=headers, params=params)
     
-    print(response.json())
-    
     if response.status_code == 200:
         tmp = response.json()
         return render_template('profile.html', saved_restaurants=tmp['saved_restaurants'], q=query)
