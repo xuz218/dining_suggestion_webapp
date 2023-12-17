@@ -20,6 +20,11 @@
         var apigClient = apigClientFactory.newClient({});
     </script>
     <script type="text/javascript">
+    function clearLocalStorage() {
+        localStorage.setItem('sharedVariable', null);
+        localStorage.setItem('localuserid', null);
+    }
+
 
       async function search() {
         var query = document.getElementById('search-query').value;
@@ -214,7 +219,7 @@
             <!-- <a href="/login" class="button">Sign Up/Log In</a> -->
         <div>
             {% if session['user_logged_in'] %}
-                <a href="/logout" class="button">Logout</a>
+                <a href="/logout" class="button" onclick="clearLocalStorage()">Logout</a>
                 <!-- We can add a "logged in" logo here -->
             {% else %}
                 <a href="/login" class="button">Sign Up/Log In</a>
