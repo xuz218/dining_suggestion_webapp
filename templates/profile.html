@@ -13,6 +13,40 @@
       return;
     }
 </script>
+<script>
+    function toggleFavorite(element, rest_name) {
+        let isFavorite = element.classList.contains('fas');
+        // Toggle the class or send a request to the server to update the favorite status
+        element.classList.toggle('far'); // 'far' is the regular icon, 'fas' is solid
+        element.classList.toggle('fas');
+        var importedVariable = localStorage.getItem('localuserid');
+        const apiUrl = 'https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/isfavorite/'; // Replace with your API Gateway URL
+    
+        try {
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R"
+                },
+                body: JSON.stringify({
+                    "q": importedVariable,
+                    "res": rest_name,
+                    "status": isFavorite
+                })
+            })
+            .then(response => {
+                if (response.status === 200) {
+                    console.log("Success: Status 200");
+                    return response.json(); // parse the JSON only if status is 200
+                } else {
+                    throw new Error('Non-200 response');
+                }
+            })
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+</script>
 <script type="text/javascript">
 
   async function search() {
@@ -239,7 +273,7 @@
     <div class="container">
         <div class="profile-section">
             <img class="profile-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1024px-Default_pfp.svg.png" />
-            <div class="profile-name">Jack</div>
+            <div class="profile-name">{{ user_info.name}}</div>
         </div>
 
         <!-- Your cards and other content... -->
@@ -255,15 +289,15 @@
             <div class="card-content">
                 <div class="budget">
                     <!-- Budget Messages Here -->
-                    <p>Message line 1</p>
-                    <p>Message line 2</p>
+                    <p>Weekly Budget:</p>
+                    <p>{{ user_info.weekly_budget }}</p>
                     <!-- More budget messages -->
                 </div>
             
                 <div class="health-target">
                     <!-- Health Target Messages Here -->
-                    <p>Message line 1</p>
-                    <p>Message line 2</p>
+                    <p>Health Target:</p>
+                    <p>{{ user_info.health_goal }}</p>
                     <!-- More health target messages -->
                 </div>
             </div>
@@ -280,7 +314,7 @@
                             <a href="{{ url_for('restDetail', rest_name=restaurant.name)  }}">
                                 <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}" />
                             </a>
-                            <i class="far fa-star favorite-icon" onclick="toggleFavorite(this, {{ restaurant.name }})"></i>
+                            <i class="fas fa-star favorite-icon" onclick="toggleFavorite(this, '{{ restaurant.name }}')"></i>
                             <p class="rest-name-fav">{{ restaurant.name }}</p>
                             <p>Rating: {{ restaurant.rating }}</p>
                             <p>{{ restaurant.address }}</p>

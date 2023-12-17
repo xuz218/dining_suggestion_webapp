@@ -165,7 +165,7 @@ def profile():
     
     if response.status_code == 200:
         tmp = response.json()
-        return render_template('profile.html', saved_restaurants=tmp['saved_restaurants'], q=query)
+        return render_template('profile.html', user_info=tmp['user_info'][0], saved_restaurants=tmp['saved_restaurants'], q=query)
     else:
         # If response is not successful
         return "Internal Server Error", 500
