@@ -38,7 +38,7 @@
 
     function displayUserProfile() {
         if (localStorage.getItem('localuserid')) {
-            document.getElementById('user-profile').style.display = 'inline-block';
+            document.getElementById('profile-icon').style.display = 'inline-block';
         }
     }
 
@@ -51,7 +51,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         displayUserProfile();
         document.getElementById('search-icon').addEventListener('click', search);
-        document.getElementById('user-profile').addEventListener('click', goToProfile);
+        document.getElementById('profile-icon').addEventListener('click', goToProfile);
     });
 </script>
 
@@ -81,13 +81,16 @@
             min-height: 30px;
         }
 
-        .user-profile {
-            color: white; /* or any color you want */
-            font-size: 2rem; /* Adjust size as needed */
-            cursor: pointer;
-            margin-right: 1rem; /* Space before the sign in button */
-            display: none; /* Start with it not displayed */
-        }
+
+
+    .profile-icon {
+        color: white; /* Keep the white color, but you can change it to match your theme */
+        font-size: 2.5rem; /* Slightly larger icon for better visibility */
+        cursor: pointer;
+        margin-right: 1rem; /* Maintain the right margin */
+        display: inline-block; /* Change to inline-block for better positioning */
+        transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+    }
 
         .website-name {
             color: white;
@@ -235,6 +238,10 @@
                 width: calc(100% - 20px); /* Adjust width for smaller screens */
             }
         }
+
+
+
+
     </style>
 
 </head>
@@ -246,7 +253,11 @@
             <i id="search-icon" class="fas fa-search" onclick="search()"></i>
         </div>
 
-            <i id="user-profile" class="fas fa-user-circle"></i>
+<!-- <div class="user-profile" >
+ <i class="fas fa-user-circle fa-2x" onclick="window.location.href='{{ url_for('profile') }}'"></i>
+</div> -->
+
+            <i id="profile-icon" class="fas fa-user-circle fa-2x"></i>
   
 
 
