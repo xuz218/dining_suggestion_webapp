@@ -55,41 +55,6 @@
     });
 </script>
 
-<!--     <script type="text/javascript">
-        function clearLocalStorage() {
-            localStorage.setItem('sharedVariable', null);
-            localStorage.setItem('localuserid', null);
-        }
-
-
-        // This function is called when the user profile icon is clicked
-        function goToProfile() {
-            // Replace 'userLoggedIn' with the actual condition or method you use to check if the user is logged in
-            if (localStorage.getItem('localuserid')) {
-                window.location.href = '/profile'; // Navigate to the profile page
-            } else {
-                alert('You should log in first!'); // Show an alert
-            }
-        }
-
-        // Function to display the user profile icon if logged in
-        function displayUserProfile() {
-            if (localStorage.getItem('localuserid')) {
-                document.getElementById('user-profile').style.display = 'inline-block';
-            }
-        }
-
-        // Call displayUserProfile on page load
-        window.onload = displayUserProfile;
-
-
-
-      async function search() {
-        var query = document.getElementById('search-query').value;
-        window.location.href = '/search?q=' + encodeURIComponent(query) + '&uid=' + encodeURIComponent(localStorage.getItem('localuserid'));
-        return;
-    }
-    </script> -->
 
 
     <!-- Repeat this for all other script tags -->
