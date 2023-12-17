@@ -147,9 +147,29 @@ def logout():
     session.pop('user_logged_in', None)
     return redirect(url_for('index'))
 
-@app.route('/profile')
+@app.route('/profile', methods=['GET'])
 def profile():
-    return render_template('profile.html', user_info = user_info)
+    query = request.args.get('q', '')
+    url = "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/???????????????????????????/"
+    headers = {
+        "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
+        'Access-Control-Allow-Origin': '*',
+    }
+    params = {
+        "q": query
+    }
+    
+    response = requests.get(url, headers=headers, params=params)
+    
+    if response.status_code == 200:
+        tmp = response.json()
+                
+        # TODO:
+        
+        return render_template('profile.html', top_five_restaurants=resulted_restaurants, q=query)
+    else:
+        # If response is not successful
+        return "Internal Server Error", 500
 
 @app.route('/restaurant/<rest_name>')
 def restDetail(rest_name):
@@ -186,15 +206,21 @@ def search():
     
     if response.status_code == 200:
         tmp = response.json()
+<<<<<<< HEAD
         restaurants = tmp['top_five_restaurants']
 
         top_five_restaurants = restaurants[:]  # Get the top 5 restaurants
+=======
+        print(tmp)
+        restaurants = tmp['resulted_restaurants']
+        resulted_restaurants = restaurants[:]  # Get the top 5 restaurants
+>>>>>>> 6fdb5f60ed39acab0278be6329fa17a4c2b49f8a
             
-        for restaurant in top_five_restaurants:
-            if 'image' not in restaurant or restaurant['image']=="":
-                restaurant['image'] = "https://i.pinimg.com/736x/2c/50/20/2c50208241b85db01cc8b2d7a4dc8b22.jpg"
+        for restaurant in resulted_restaurants:
+            if 'image_url' not in restaurant or restaurant['image_url']=="":
+                restaurant['image_url'] = "https://i.pinimg.com/736x/2c/50/20/2c50208241b85db01cc8b2d7a4dc8b22.jpg"
         
-        return render_template('search.html', top_five_restaurants=top_five_restaurants, q=query)
+        return render_template('search.html', top_five_restaurants=resulted_restaurants, q=query)
     else:
         # If response is not successful
         return "Internal Server Error", 500

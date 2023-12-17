@@ -264,7 +264,7 @@
             <!-- Main content (e.g., restaurant cards) -->
             <div class="card">
                     <a href="{{ url_for('restDetail', rest_name=restaurant.name)  }}">
-                        <img src="{{ restaurant.image }}" alt="{{ restaurant.name }}" />
+                        <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}" />
                     </a>
                     <i class="far fa-star favorite-icon" onclick="toggleFavorite(this)"></i>
                     <p class="rest-name">{{ restaurant.name }}</p>

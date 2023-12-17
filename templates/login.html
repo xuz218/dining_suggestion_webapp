@@ -66,10 +66,12 @@
                         console.log("After Logged In");
 
                         idToken = result.getIdToken().getJwtToken();
+                        user_id = result.getAccessToken().payload.username;
                         console.log("idToken:");
                         console.log(idToken);
                         console.log("After getCognitoIdentityCredentials");
-                        window.location.href = '/profile';
+                        console.log(user_id);
+                        window.location.href = '/profile?q=' + user_id;
 
                     },
 
