@@ -13,6 +13,14 @@
       return;
     }
 </script>
+<script type="text/javascript">
+
+  async function search() {
+    var query = document.getElementById('search-query').value;
+    window.location.href = '/search?q=' + encodeURIComponent(query) + '&uid=' + encodeURIComponent(localStorage.getItem('localuserid'));
+    return;
+}
+</script>
 <style>
     body, html {
         margin: 0;
@@ -113,13 +121,16 @@
         height: 400px;
         position: relative;
     }
+
+    .card-fav p {
+        margin: 8px;
+    }
     
     .card-fav img {
         width: 100%; /* Ensures image takes full width of the card */
         height: 65%; /* Keeps image aspect ratio intact */
         border-radius: 10px;
         object-fit: cover;
-        margin-bottom: 10px; /* Space between image and text below it */
     }
     
     .card-content-fav {
@@ -277,7 +288,6 @@
                     <!-- More cards -->
                     {% endfor %}
                 </div>
-                <p>Database return {{resp}}</p>
             </div>
         </div>
 

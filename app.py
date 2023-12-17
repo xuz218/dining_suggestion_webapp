@@ -38,6 +38,7 @@ user_info = {
 
 @app.route('/')
 def index():
+
     urls = ["https://dining.columbia.edu/cu_dining/rest/occuspace_locations/840", "https://dining.columbia.edu/cu_dining/rest/occuspace_locations/839", 
             "https://dining.columbia.edu/cu_dining/rest/occuspace_locations/835"]
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.63 Safari/537.36'}
@@ -97,8 +98,9 @@ def index():
             dining_halls[i]['seating_capacity'] = 'N/A'
 
         dining_halls[i]['operating_status'] = temp[i]
+    return render_template('index.html', dining_halls=dining_halls, user_logged_in='user_logged_in' in session)
 
-    return render_template('index.html', dining_halls=dining_halls)
+    # return render_template('index.html', dining_halls=dining_halls)
 
 @app.route('/dining-halls/<hall_name>', methods=['GET'])
 def dining_hall_details(hall_name):
@@ -161,8 +163,6 @@ def profile():
     
     response = requests.get(url, headers=headers, params=params)
     
-    print(response.json())
-    
     if response.status_code == 200:
         tmp = response.json()
         return render_template('profile.html', saved_restaurants=tmp['saved_restaurants'], q=query)
@@ -180,10 +180,14 @@ def restDetail(rest_name):
     response = requests.get(api_url, headers=headers)
     
     if response.status_code == 200:
-        rest_info = response.json()
-        if 'image' not in rest_info or rest_info['image']=="":
-                rest_info['image'] = "https://i.pinimg.com/736x/2c/50/20/2c50208241b85db01cc8b2d7a4dc8b22.jpg"
-        return render_template('restaurant.html', rest_info=rest_info)
+        rest_info = response.json()['rest_info'][0]
+        comments = response.json()['comments']
+        if 'image_url' not in rest_info or rest_info['image_url']=="":
+                rest_info['image_url'] = "https://i.pinimg.com/736x/2c/50/20/2c50208241b85db01cc8b2d7a4dc8b22.jpg"
+                
+        if 'menu' in rest_info:
+            rest_info['menu'] = json.loads(rest_info['menu'].replace("\'", "\""))
+        return render_template('restaurant.html', rest_info=rest_info, comments=comments)
     else:
         return "Restaurant not found or menu data unavailable", 404
 
@@ -207,11 +211,6 @@ def search():
     
     if response.status_code == 200:
         tmp = response.json()
-<<<<<<< HEAD
-        restaurants = tmp['top_five_restaurants']
-
-        top_five_restaurants = restaurants[:]  # Get the top 5 restaurants
-=======
         print(tmp)
         restaurants = tmp['resulted_restaurants']
         resulted_restaurants = restaurants[:]  # Get the top 5 restaurants

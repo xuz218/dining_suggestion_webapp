@@ -4,57 +4,72 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <script>
-        // Assuming you have a form with an ID 'comment-form' and a text area with ID 'user-comment'
-        document.getElementById('comment-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting the traditional way
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const submitButton = document.getElementById('submit');
+            if (submitButton) {
+                // Assuming you have a form with an ID 'comment-form' and a text area with ID 'user-comment'
+                submitButton.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent the form from submitting the traditional way
 
-            const commentText = document.getElementById('user-comment').value;
-            const userId = 'user123'; // You'd retrieve this from the session or user context
-            const data = {
-                userId: userId,
-                comment: commentText,
-                timestamp: new Date().toISOString()
-            };
+                    const commentText = document.getElementById('user-comment').value;
+                    const userId = localStorage.getItem('localuserid'); // You'd retrieve this from the session or user context
+                    const apiUrl = 'https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/comment/'
+                    
+                    fetch(apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R"
+                        },
+                        body: JSON.stringify({
+                            'uid': userId,
+                            'comment': commentText
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Comment was successfully posted', response);
+                        const newCommentDiv = document.createElement('div');
+                        newCommentDiv.className = 'comment-box';
 
-            fetch('/api/comments', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Comment was successfully posted', data);
-                const newCommentDiv = document.createElement('div');
-                newCommentDiv.className = 'comment-box';
+                        const commentName = document.createElement('div');
+                        commentTextDiv.className = 'comment-text';
+                        commentTextDiv.textContent = commentName; //
 
-                const commentName = document.createElement('div');
-                commentTextDiv.className = 'comment-text';
-                commentTextDiv.textContent = commentName; //
+                        // Create the comment text div
+                        const commentTextDiv = document.createElement('div');
+                        commentTextDiv.className = 'comment-text';
+                        commentTextDiv.textContent = commentText; // Using textContent for security reasons
 
-                // Create the comment text div
-                const commentTextDiv = document.createElement('div');
-                commentTextDiv.className = 'comment-text';
-                commentTextDiv.textContent = commentText; // Using textContent for security reasons
+                        // Append the user image and comment text to the comment box
+                        newCommentDiv.appendChild(userImage);
+                        newCommentDiv.appendChild(commentTextDiv);
 
-                // Append the user image and comment text to the comment box
-                newCommentDiv.appendChild(userImage);
-                newCommentDiv.appendChild(commentTextDiv);
+                        // Add the new comment to the DOM
+                        // Assuming you have a div with ID 'comments-section'
+                        const commentsSection = document.getElementById('comments-section');
+                        commentsSection.appendChild(newCommentDiv);
 
-                // Add the new comment to the DOM
-                // Assuming you have a div with ID 'comments-section'
-                const commentsSection = document.getElementById('comments-section');
-                commentsSection.appendChild(newCommentDiv);
-
-                // Clear the comment box after submission
-                document.getElementById('user-comment').value = '';
-            })
-            .catch((error) => {
-                console.error('Error posting comment:', error);
-            });
+                        // Clear the comment box after submission
+                        document.getElementById('user-comment').value = '';
+                    })
+                    .catch((error) => {
+                        console.error('Error posting comment:', error);
+                    });
+                });
+            }
+            else {
+                console.log("not in comment subpage");
+            }
         });
 
+    </script>
+    <script type="text/javascript">
+
+      async function search() {
+        var query = document.getElementById('search-query').value;
+        window.location.href = '/search?q=' + encodeURIComponent(query) + '&uid=' + encodeURIComponent(localStorage.getItem('localuserid'));
+        return;
+    }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Info and Interaction</title>
@@ -158,6 +173,10 @@
             width: 100%;
             height: auto;
             border-radius: 16.15px;
+            margin-bottom: 15px;
+        }
+        .restaurant-info p {
+            font-size: 20px;
         }
         .toggle-buttons {
             width: 100%;
@@ -177,19 +196,33 @@
             background-color: #005f97;
         }
         .comment-box {
-            background: white;
-            box-shadow: 0px 3.4px 3.4px rgba(0, 0, 0, 0.25);
-            border: 0.85px solid rgba(0, 0, 0, 0.20);
-            padding: 15px;
+            background-color: #f9f9f9;
             border-radius: 10px;
-            margin-bottom: 20px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
-        .comment-box img {
-            width: 50px; /* Smaller image size for comments and menu items */
-            height: 50px;
-            border-radius: 50%; /* Circular images for comments */
-            margin-right: 10px;
+        
+        .comment-name {
+            color: #333;
+            font-weight: bold;
         }
+        
+        .comment-text {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+        
+        .comment-time {
+            text-align: right;
+            color: #888;
+            font-size: 14px;
+        }
+        
         .menu {
             flex-grow: 1;
             padding: 20px;
@@ -241,11 +274,6 @@
             font-weight: 700;
             transition: background-color 0.3s, transform 0.3s;
         }
-        .comment-text {
-            background: #F6F6F6;
-            padding: 10px;
-            border-radius: 10px;
-        }
         .back-link {
             color: white;
             font-size: 24px;
@@ -257,6 +285,17 @@
             align-items: center;
         }
         /* More styles here */
+        
+        /* Add media query for responsiveness */
+        @media (max-width: 768px) {
+            .comment-box {
+                padding: 15px;
+            }
+        
+            .comment-name, .comment-text, .comment-time {
+                text-align: left;
+            }
+        }
     </style>
 </head>
 <body>
@@ -273,12 +312,10 @@
     <div class="main-content">
         <!-- Restaurant Information Section -->
         <div class="restaurant-info">
-            <img src="{{ rest_info.image }}" alt="{{ rest_info.name }}">
-            <h2>{{ rest_info.name }}</h2>
+            <img src="{{ rest_info.image_url }}" alt="{{ rest_info.name }}">
+            <h2 id="rest-name">{{ rest_info.name }}</h2>
             <p>Rating: {{ rest_info.rating }}</p>
-            <p>Price: $ $</p>
-            <p>Vegetarian friendly: <i class="far fa-check-circle"></i></p>
-            <p>Operating status: open</p>
+            <p>Price: $ {{ rest_info.average }}</p>
             <!-- Toggle Buttons inside the restaurant info bar -->
             <div class="toggle-buttons">
                 <button id="menu-btn" onclick="showMenu()">Menu</button>
@@ -292,17 +329,19 @@
             <div id="comments" class="content-section" style="display: none;">
                 {% for comment in comments %}
                 <div class="comment-box">
-                    <div class="comment-name">{{ comment.name }}</div>
-                    <div class="comment-text">{{ comment.text }}</div>
+                    <div class="comment-name"><strong>User:</strong> {{ comment.email }}</div>
+                    <div class="comment-text">{{ comment.comment }}</div>
+                    <div class="comment-time"><strong>Posted on:</strong> {{ comment.timestamp }}</div>
                 </div>
+                
                 {% else %}
                 <div>No comments found.</div>
                 {% endfor %}
 
                 <div class="comment-box" style="width: 100%; margin-top: 20px;">
                     <form action="" id="comment-form" method="post" style="display: flex; flex-direction: column; align-items: stretch;">
-                        <textarea name="comment" rows="4" style="width: 100%; margin-bottom: 15px;" placeholder="Write your comment here..." required></textarea>
-                        <button type="submit" style="align-self: center; width: auto; padding: 10px 20px;">Post Comment</button>
+                        <textarea name="comment" id="user-comment" rows="4" style="width: 100%; margin-bottom: 15px;" placeholder="Write your comment here..." required></textarea>
+                        <button id="submit" type="submit" style="align-self: center; width: auto; padding: 10px 20px;">Post Comment</button>
                     </form>
                 </div>
             </div>
@@ -313,7 +352,7 @@
                 <div class="menu-item">
                     <img src="{{ item.image_url }}" alt="{{ item.name }}">
                     <div class="menu-item-description">
-                        <p>{{ item.name }} - {{ item.price }}</p>
+                        <p>{{ item.name }} - $ {{ item.price }}</p>
                     </div>
                 </div>
                 {% endfor %}
