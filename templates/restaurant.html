@@ -9,7 +9,7 @@
             event.preventDefault(); // Prevent the form from submitting the traditional way
 
             const commentText = document.getElementById('user-comment').value;
-            const userId = 'user123'; // You'd retrieve this from the session or user context
+            const userId = localStorage.getItem('user_id'); // You'd retrieve this from the session or user context
             const data = {
                 userId: userId,
                 comment: commentText,
@@ -55,6 +55,14 @@
             });
         });
 
+    </script>
+    <script type="text/javascript">
+
+      async function search() {
+        var query = document.getElementById('search-query').value;
+        window.location.href = '/search?q=' + encodeURIComponent(query) + '&uid=' + encodeURIComponent(localStorage.getItem('localuserid'));
+        return;
+    }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Info and Interaction</title>
@@ -158,6 +166,10 @@
             width: 100%;
             height: auto;
             border-radius: 16.15px;
+            margin-bottom: 15px;
+        }
+        .restaurant-info p {
+            font-size: 20px;
         }
         .toggle-buttons {
             width: 100%;
@@ -177,19 +189,33 @@
             background-color: #005f97;
         }
         .comment-box {
-            background: white;
-            box-shadow: 0px 3.4px 3.4px rgba(0, 0, 0, 0.25);
-            border: 0.85px solid rgba(0, 0, 0, 0.20);
-            padding: 15px;
+            background-color: #f9f9f9;
             border-radius: 10px;
-            margin-bottom: 20px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
-        .comment-box img {
-            width: 50px; /* Smaller image size for comments and menu items */
-            height: 50px;
-            border-radius: 50%; /* Circular images for comments */
-            margin-right: 10px;
+        
+        .comment-name {
+            color: #333;
+            font-weight: bold;
         }
+        
+        .comment-text {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+        
+        .comment-time {
+            text-align: right;
+            color: #888;
+            font-size: 14px;
+        }
+        
         .menu {
             flex-grow: 1;
             padding: 20px;
@@ -241,11 +267,6 @@
             font-weight: 700;
             transition: background-color 0.3s, transform 0.3s;
         }
-        .comment-text {
-            background: #F6F6F6;
-            padding: 10px;
-            border-radius: 10px;
-        }
         .back-link {
             color: white;
             font-size: 24px;
@@ -257,6 +278,17 @@
             align-items: center;
         }
         /* More styles here */
+        
+        /* Add media query for responsiveness */
+        @media (max-width: 768px) {
+            .comment-box {
+                padding: 15px;
+            }
+        
+            .comment-name, .comment-text, .comment-time {
+                text-align: left;
+            }
+        }
     </style>
 </head>
 <body>
@@ -273,12 +305,10 @@
     <div class="main-content">
         <!-- Restaurant Information Section -->
         <div class="restaurant-info">
-            <img src="{{ rest_info.image }}" alt="{{ rest_info.name }}">
+            <img src="{{ rest_info.image_url }}" alt="{{ rest_info.name }}">
             <h2>{{ rest_info.name }}</h2>
             <p>Rating: {{ rest_info.rating }}</p>
-            <p>Price: $ $</p>
-            <p>Vegetarian friendly: <i class="far fa-check-circle"></i></p>
-            <p>Operating status: open</p>
+            <p>Price: $ {{ rest_info.average }}</p>
             <!-- Toggle Buttons inside the restaurant info bar -->
             <div class="toggle-buttons">
                 <button id="menu-btn" onclick="showMenu()">Menu</button>
@@ -292,9 +322,11 @@
             <div id="comments" class="content-section" style="display: none;">
                 {% for comment in comments %}
                 <div class="comment-box">
-                    <div class="comment-name">{{ comment.name }}</div>
-                    <div class="comment-text">{{ comment.text }}</div>
+                    <div class="comment-name"><strong>User:</strong> {{ comment.email }}</div>
+                    <div class="comment-text">{{ comment.comment }}</div>
+                    <div class="comment-time"><strong>Posted on:</strong> {{ comment.timestamp }}</div>
                 </div>
+                
                 {% else %}
                 <div>No comments found.</div>
                 {% endfor %}
@@ -313,7 +345,7 @@
                 <div class="menu-item">
                     <img src="{{ item.image_url }}" alt="{{ item.name }}">
                     <div class="menu-item-description">
-                        <p>{{ item.name }} - {{ item.price }}</p>
+                        <p>{{ item.name }} - $ {{ item.price }}</p>
                     </div>
                 </div>
                 {% endfor %}

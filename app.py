@@ -178,10 +178,14 @@ def restDetail(rest_name):
     response = requests.get(api_url, headers=headers)
     
     if response.status_code == 200:
-        rest_info = response.json()
-        if 'image' not in rest_info or rest_info['image']=="":
-                rest_info['image'] = "https://i.pinimg.com/736x/2c/50/20/2c50208241b85db01cc8b2d7a4dc8b22.jpg"
-        return render_template('restaurant.html', rest_info=rest_info)
+        rest_info = response.json()['rest_info'][0]
+        comments = response.json()['comments']
+        if 'image_url' not in rest_info or rest_info['image_url']=="":
+                rest_info['image_url'] = "https://i.pinimg.com/736x/2c/50/20/2c50208241b85db01cc8b2d7a4dc8b22.jpg"
+                
+        if 'menu' in rest_info:
+            rest_info['menu'] = json.loads(rest_info['menu'].replace("\'", "\""))
+        return render_template('restaurant.html', rest_info=rest_info, comments=comments)
     else:
         return "Restaurant not found or menu data unavailable", 404
 
@@ -205,7 +209,6 @@ def search():
     
     if response.status_code == 200:
         tmp = response.json()
-        print(tmp)
         restaurants = tmp['resulted_restaurants']
         resulted_restaurants = restaurants[:]  # Get the top 5 restaurants
             
