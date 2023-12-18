@@ -104,11 +104,11 @@ def index():
         "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
         'Access-Control-Allow-Origin': '*',
     }
-    #uid = session.get('uid')
-    uid = '690d042f-4605-4e48-a7b4-8b452dd10514'
-    print(uid)
+    uid = session.get('uid')
     if uid == None:
         uid = "none"
+    else:
+        uid = '690d042f-4605-4e48-a7b4-8b452dd10514'
     getRecParams = {
         "uid": uid
     }
