@@ -11,7 +11,10 @@
    Front-end files of flask project, including all html files, the [index.html](./templates/index.html) is our main page. 
 
 3. [app.py](./app.py):
-   Flask project manager for running the flask server.  
+   Flask project manager for running the flask server.
+
+4. [lambda functions](./lambda function):
+   Lambda functions deployed on AWS, detailed descriptions could be found in the paper.  
 
 ## EC2 directions
 **Reference websites**: https://www.twilio.com/blog/deploy-flask-python-app-aws
