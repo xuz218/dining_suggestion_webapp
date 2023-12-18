@@ -320,7 +320,7 @@
             <input type="text" id="search-query" placeholder="Search..." />
             <i id="search-icon" class="fas fa-search" onclick="search()"></i>
         </div>
-        <div class="profile-icon" onclick="location.href='/profile';">
+        <div class="profile-icon" onclick="location.href='/profile?=' + encodeURIComponent(localStorage.getItem("localuserid"));">
             <i class="fas fa-user-circle fa-2x" onclick="window.location.href='{{ url_for('profile') }}'"></i>
         </div>
     </div>
