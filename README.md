@@ -3,7 +3,7 @@
 ## EC2 directions
 **Reference websites**: https://www.twilio.com/blog/deploy-flask-python-app-aws
 ### SSH into EC2 ubuntu terminal from local machine
-- Go to the directory storing your ssh key "diningdbec2keypair.pem":
+- Go to the directory storing your ssh key "diningdbec2keypair.pem" （put key in the same directory as project code）
   - **change permission**:
     restrict read and write permissions to the private key file.
     ```bash
