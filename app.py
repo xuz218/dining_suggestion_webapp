@@ -170,9 +170,8 @@ def login():
 @app.route('/logout')
 def logout():
     session.pop('user_logged_in', None)
-    session.pop('uid', None)
+    #    session.pop('uid', None)
     return redirect(url_for('index'))
-
 @app.route('/profile', methods=['GET'])
 def profile():
     query = request.args.get('q', '')
@@ -190,7 +189,8 @@ def profile():
     if response.status_code == 200:
         tmp = response.json()
         session['uid'] = query
-        return render_template('profile.html', saved_restaurants=tmp['saved_restaurants'], q=query)
+        # Ensure 'user_info' is included in the context
+        return render_template('profile.html', user_info=user_info, saved_restaurants=tmp['saved_restaurants'], q=query)
     else:
         # If response is not successful
         return "Internal Server Error", 500
