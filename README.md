@@ -1,5 +1,5 @@
 # dining_suggestion_webapp
-
+demo record can be watched here: https://youtu.be/8ijFt5gTSKQ
 ## AWS Architecture
 ![aws-architecture](https://github.com/xuz218/dining_suggestion_webapp/assets/88963429/10dc040b-1353-4964-b87f-02c5b28d3975)
 
