@@ -4,7 +4,14 @@
 ![aws-architecture](https://github.com/xuz218/dining_suggestion_webapp/assets/88963429/10dc040b-1353-4964-b87f-02c5b28d3975)
 
 ## Directory structure
+1. [static](./static):
+   Static files of flask project, sdk generated from api gateway. 
 
+2. [templates](./templates):
+   Front-end files of flask project, including all html files, the [index.html](./templates/index.html) is our main page. 
+
+3. [app.py](./app.py):
+   Flask project manager for running the flask server.  
 
 ## EC2 directions
 **Reference websites**: https://www.twilio.com/blog/deploy-flask-python-app-aws
