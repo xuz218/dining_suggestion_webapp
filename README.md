@@ -2,6 +2,13 @@
 
 ## EC2 directions
 **Reference websites**: https://www.twilio.com/blog/deploy-flask-python-app-aws
+### 单纯跑的话只用看这个：
+1. ssh 进ubuntu
+2. 去到 deployedapp路径下
+3. 跑：```flask run --host=0.0.0.0 --port=8080```
+4. broswer打开：```44.204.18.251:8080```
+
+### Config Procedure (可忽略)：
 ### SSH into EC2 ubuntu terminal from local machine
 - Go to the directory storing your ssh key "diningdbec2keypair.pem" （put key in the same directory as project code）
   - **change permission**:
