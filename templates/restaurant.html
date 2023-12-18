@@ -127,7 +127,7 @@
             background: white;
             border-radius: 13px;
             padding: 0 10px;
-            margin-right: 8%; /* Adjust as needed */
+            margin-right: 35%; /* Adjust as needed */
             width: 30%;
         }
     
@@ -299,7 +299,10 @@
             justify-content: center;
             align-items: center;
         }
-        /* More styles here */
+        
+        .restaurant-info #rest-name{
+            font-size: 22px;
+        }
         
         /* Add media query for responsiveness */
         @media (max-width: 768px) {
@@ -319,9 +322,6 @@
         <div class="search-container">
             <input type="text" id="search-query" placeholder="Search..." />
             <i id="search-icon" class="fas fa-search" onclick="search()"></i>
-        </div>
-        <div class="profile-icon" onclick="location.href='/profile?=' + encodeURIComponent(localStorage.getItem("localuserid"));">
-            <i class="fas fa-user-circle fa-2x" onclick="window.location.href='{{ url_for('profile') }}'"></i>
         </div>
     </div>
     <div class="main-content">
