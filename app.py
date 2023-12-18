@@ -223,7 +223,7 @@ def search():
     
     if response.status_code == 200:
         tmp = response.json()
-        print(tmp)
+        # print(tmp)
         restaurants = tmp['resulted_restaurants']
         resulted_restaurants = restaurants[:]  # Get the top 5 restaurants
             
