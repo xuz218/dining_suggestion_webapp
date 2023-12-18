@@ -13,7 +13,7 @@
 3. [app.py](./app.py):
    Flask project manager for running the flask server.
 
-4. [lambda functions](./lambda function):
+4. [lambda functions](./lambda%20function):
    Lambda functions deployed on AWS, detailed descriptions could be found in the paper.  
 
 ## EC2 directions
