@@ -1,4 +1,6 @@
 # dining_suggestion_webapp
+
+## AWS Architecture
 ![aws-architecture](https://github.com/xuz218/dining_suggestion_webapp/assets/88963429/10dc040b-1353-4964-b87f-02c5b28d3975)
 
 ## EC2 directions
