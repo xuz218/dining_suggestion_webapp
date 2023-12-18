@@ -1,5 +1,6 @@
 # dining_suggestion_webapp
-demo record can be watched here: https://youtu.be/8ijFt5gTSKQ
+Demo record can be watched with the link: https://youtu.be/8ijFt5gTSKQ
+Detailed project report: https://www.dropbox.com/scl/fi/6y2izju5fxm1wjtlvoqty/Dining_Web_App.pdf?rlkey=r2uy4289ebq481on8yn4uq6y7&dl=0
 ## AWS Architecture
 ![aws-architecture](https://github.com/xuz218/dining_suggestion_webapp/assets/88963429/10dc040b-1353-4964-b87f-02c5b28d3975)
 
