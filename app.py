@@ -98,13 +98,19 @@ def index():
             dining_halls[i]['seating_capacity'] = 'N/A'
 
         dining_halls[i]['operating_status'] = temp[i]
+    
     getRecUrl = "https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/getRecommend"
     getRecHeaders = {
         "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
         'Access-Control-Allow-Origin': '*',
     }
+    #uid = session.get('uid')
+    uid = '690d042f-4605-4e48-a7b4-8b452dd10514'
+    print(uid)
+    if uid == None:
+        uid = "none"
     getRecParams = {
-        "uid": '683d81f8-3eda-4b38-a621-ed5f728fc171'
+        "uid": uid
     }
     getRecResponse = requests.get(getRecUrl, headers=getRecHeaders, params=getRecParams)
     recdata = getRecResponse.json()
@@ -114,7 +120,7 @@ def index():
     }
     showRecResponse = requests.post(showRecUrl, headers={'Content-Type': 'application/json'}, data=json.dumps(recdata), params=showRecParams)
     rec_restaurants = showRecResponse.json()
-
+    print(rec_restaurants)
     return render_template('index.html', dining_halls=dining_halls, user_logged_in='user_logged_in' in session, rec_restaurants=rec_restaurants['resulted_restaurants'])
 
     # return render_template('index.html', dining_halls=dining_halls)
@@ -183,7 +189,8 @@ def profile():
     
     if response.status_code == 200:
         tmp = response.json()
-        return render_template('profile.html', user_info=tmp['user_info'][0], saved_restaurants=tmp['saved_restaurants'], q=query)
+        session['uid'] = query
+        return render_template('profile.html', saved_restaurants=tmp['saved_restaurants'], q=query)
     else:
         # If response is not successful
         return "Internal Server Error", 500
@@ -229,7 +236,6 @@ def search():
     
     if response.status_code == 200:
         tmp = response.json()
-        # print(tmp)
         restaurants = tmp['resulted_restaurants']
         resulted_restaurants = restaurants[:]  # Get the top 5 restaurants
             
