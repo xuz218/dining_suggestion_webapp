@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <script type="text/javascript">
@@ -12,7 +12,7 @@
             alert('You should log in first!');
             return ;
         } 
-        window.location.href = '/profile';
+        window.location.href = '/profile?q=' + encodeURIComponent(localStorage.getItem("localuserid"));
     }
 
 
@@ -285,7 +285,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     <a href="{{ url_for('restDetail', rest_name=restaurant.name)  }}">
                         <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}" />
                     </a>
-                    <i class="far fa-star favorite-icon" onclick="toggleFavorite(this, {{ restaurant.name }})"></i>
+                    {% if restaurant.is_favorite == 0 %}
+                    <i class="far fa-star favorite-icon" onclick="toggleFavorite(this, '{{ restaurant.name }}')"></i>
+                    {% else %}
+                    <i class="fas fa-star favorite-icon" onclick="toggleFavorite(this, '{{ restaurant.name }}')"></i>
+                    {% endif %}
                     <p class="rest-name">{{ restaurant.name }}</p>
                     <p>Rating: {{ restaurant.rating }}</p>
                     <p>{{ restaurant.address }}</p>
@@ -355,28 +359,28 @@ document.addEventListener('DOMContentLoaded', function() {
         element.classList.toggle('far'); // 'far' is the regular icon, 'fas' is solid
         element.classList.toggle('fas');
         var importedVariable = localStorage.getItem('localuserid');
-        const apiUrl = 'https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/??????????????????/'; // Replace with your API Gateway URL
+        const apiUrl = 'https://nx9q5bjiy4.execute-api.us-east-1.amazonaws.com/test/isfavorite/'; // Replace with your API Gateway URL
     
         try {
-            const response = await fetch(apiUrl, {
-                method: 'POST', // or 'PUT', depending on your API configuration
+            fetch(apiUrl, {
+                method: 'POST',
                 headers: {
-                    "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R",
-                    'Access-Control-Allow-Origin': '*',
+                    "X-Api-Key": "S6CWXVooge19g3YkToivwa7jHEnqZD188iJGg25R"
                 },
-                params: {
+                body: JSON.stringify({
                     "q": importedVariable,
                     "res": rest_name,
                     "status": isFavorite
+                })
+            })
+            .then(response => {
+                if (response.status === 200) {
+                    console.log("Success: Status 200");
+                    return response.json(); // parse the JSON only if status is 200
+                } else {
+                    throw new Error('Non-200 response');
                 }
-            });
-    
-            if (!response.ok) {
-                throw new Error(`Request failed: ${response.status}`);
-            }
-    
-            const responseData = await response.json();
-            console.log('Success:', responseData);
+            })
         } catch (error) {
             console.error('Error:', error);
         }

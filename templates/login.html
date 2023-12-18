@@ -72,7 +72,7 @@
                         console.log("After getCognitoIdentityCredentials");
                         console.log(user_id);
                         localStorage.setItem('localuserid', user_id);
-                        window.location.href = '/profile?q=' + encodeURIComponent('ebb50a1e-ed78-4867-81fa-5b6ba375c1fd');
+                        window.location.href = '/profile?q=' + encodeURIComponent(localStorage.getItem("localuserid"));
 
                     },
 

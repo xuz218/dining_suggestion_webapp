@@ -40,7 +40,7 @@
             alert('You should log in first!');
             return ;
         } 
-        window.location.href = '/profile';
+        window.location.href = '/profile?q=' + encodeURIComponent(localStorage.getItem("localuserid"));
     }
 
 
